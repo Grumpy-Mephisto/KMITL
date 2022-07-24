@@ -50,6 +50,7 @@ func matrixPrint(matrix [][]int) {
 		}
 		fmt.Println()
 	}
+	fmt.Println()
 }
 
 func main() {
@@ -113,7 +114,6 @@ func main() {
 			if i != j {
 				fmt.Printf("Matrix %d * Matrix %d:\n", i+1, j+1)
 				matrixPrint(matrixMultiply(matrices[i], matrices[j]))
-				fmt.Println()
 			}
 		}
 	}
