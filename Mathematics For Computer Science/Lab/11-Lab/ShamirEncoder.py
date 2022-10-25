@@ -1,9 +1,6 @@
 # Shamir Encoder
 # Author: 65050437
 
-from __future__ import division
-from __future__ import print_function
-
 import random
 import functools
 
