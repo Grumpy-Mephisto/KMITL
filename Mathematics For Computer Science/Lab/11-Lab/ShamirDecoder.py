@@ -1,10 +1,6 @@
 # Shamir Decoder
 # Author: 65050437
 
-from __future__ import division
-from __future__ import print_function
-
-
 def Validation(_MESSAGE, _MIN, _MAX):
     while True:
         try:
