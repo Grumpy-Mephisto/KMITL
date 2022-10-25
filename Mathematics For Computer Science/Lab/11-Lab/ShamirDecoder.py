@@ -62,9 +62,11 @@ def Reconstruct_secret(shares, prime=_PRIME):
 _SECRET = Reconstruct_secret(_SHARES)
 print(f"Secret: {_SECRET}")
 
-# Print polynomial
+# Calculate polynomial
 _POLYNOMIAL = []
 for i in range(_THRESHOLD):
     _POLYNOMIAL.append(_lagrange_interpolate(
         i + 1, _SHARES[0], _SHARES[1], _PRIME))
+
+# Print polynomial
 print(f"Polynomial: {_POLYNOMIAL}")
