@@ -1,16 +1,16 @@
 # Shamir Decoder
 # Author: 65050437
 
-def Validation(_MESSAGE, _MIN, _MAX):
+def Validation(message, min, max):
     while True:
         try:
-            _INPUT = int(input(_MESSAGE))
-            if _INPUT < _MIN or _INPUT > _MAX:
+            _INPUT = int(input(message))
+            if _INPUT < min or _INPUT > max:
                 raise ValueError
             break
         except ValueError:
             print("Invalid input. Please try again.")
-            _INPUT = _MESSAGE
+            _INPUT = message
     return _INPUT
 
 
