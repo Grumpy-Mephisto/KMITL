@@ -1,0 +1,170 @@
+# Example 1
+Input:
+    Enter a prime number: 1111
+    Enter number of shares: 5
+    Enter threshold: 3
+    --- Enter share #1 ---
+    Enter x: 1
+    Enter y: 669
+    --- Enter share #2 ---
+    Enter x: 2
+    Enter y: 875
+    --- Enter share #3 ---
+    Enter x: 3
+    Enter y: 62
+    --- Enter share #4 ---
+    Enter x: 4
+    Enter y: 452
+    --- Enter share #5 ---
+    Enter x: 5
+    Enter y: 934
+
+Output:
+    Secret: 555.0
+    Polynomial: [2.0, 3.183098591549296, 4.366197183098592]
+
+---------------------------------------------------------------------------------
+
+# Example 2
+Input:
+    Enter a prime number: 1200
+    Enter number of shares: 8
+    Enter threshold: 3
+    --- Enter share #1 ---
+    Enter x: 1
+    Enter y: 427
+    --- Enter share #2 ---
+    Enter x: 2
+    Enter y: 506
+    --- Enter share #3 ---
+    Enter x: 3
+    Enter y: 933
+    --- Enter share #4 ---
+    Enter x: 4
+    Enter y: 508
+    --- Enter share #5 ---
+    Enter x: 5
+    Enter y: 431
+    --- Enter share #6 ---
+    Enter x: 6
+    Enter y: 702
+    --- Enter share #7 ---
+    Enter x: 7
+    Enter y: 121
+    --- Enter share #8 ---
+    Enter x: 8
+    Enter y: 1088
+
+Output:
+    Secret: 696.0
+    Polynomial: [2.0, 3.183098591549296, 4.366197183098592]
+
+---------------------------------------------------------------------------------
+
+# Example 3
+Input:
+    Enter a prime number: 1000
+    Enter number of shares: 5
+    Enter threshold: 3
+    --- Enter share #1 ---
+    Enter x: 1
+    Enter y: 885
+    --- Enter share #2 ---
+    Enter x: 2
+    Enter y: 836
+    --- Enter share #3 ---
+    Enter x: 3
+    Enter y: 353
+    --- Enter share #4 ---
+    Enter x: 4
+    Enter y: 436
+    --- Enter share #5 ---
+    Enter x: 5
+    Enter y: 85
+
+Output:
+    Secret: 500.0
+    Polynomial: [2.0, 2.9434389140271495, 3.886877828054299]
+
+---------------------------------------------------------------------------------
+
+# Example 4
+Input:
+    Enter a prime number: 2000
+    Enter number of shares: 10
+    Enter threshold: 6
+    --- Enter share #1 ---
+    Enter x: 1
+    Enter y: 850
+    --- Enter share #2 ---
+    Enter x: 2
+    Enter y: 995
+    --- Enter share #3 ---
+    Enter x: 3
+    Enter y: 1784
+    --- Enter share #4 ---
+    Enter x: 4
+    Enter y: 1527
+    --- Enter share #5 ---
+    Enter x: 5
+    Enter y: 694
+    --- Enter share #6 ---
+    Enter x: 6
+    Enter y: 1115
+    --- Enter share #7 ---
+    Enter x: 7
+    Enter y: 1180
+    --- Enter share #8 ---
+    Enter x: 8
+    Enter y: 1039
+    --- Enter share #9 ---
+    Enter x: 9
+    Enter y: 1802
+    --- Enter share #10 ---
+    Enter x: 10
+    Enter y: 739
+
+Output:
+    Secret: 1999.0
+    Polynomial: [2.0, 3.1696113074204946, 4.339222614840989, 5.508833922261484, 6.678445229681978, 7.848056537102473]
+
+---------------------------------------------------------------------------------
+
+# Example 5
+Input:
+    Enter a prime number: 1999
+    Enter number of shares: 9
+    Enter threshold: 2
+    --- Enter share #1 ---
+    Enter x: 1
+    Enter y: 1667
+    --- Enter share #2 ---
+    Enter x: 2
+    Enter y: 101
+    --- Enter share #3 ---
+    Enter x: 3
+    Enter y: 534
+    --- Enter share #4 ---
+    Enter x: 4
+    Enter y: 967
+    --- Enter share #5 ---
+    Enter x: 5
+    Enter y: 1400
+    --- Enter share #6 ---
+    Enter x: 6
+    Enter y: 1833
+    --- Enter share #7 ---
+    Enter x: 7
+    Enter y: 267
+    --- Enter share #8 ---
+    Enter x: 8
+    Enter y: 700
+    --- Enter share #9 ---
+    Enter x: 9
+    Enter y: 1133
+
+Output:
+    Secret: 1234.0
+    Polynomial: [2.0, 2.059423769507803]
+
+---------------------------------------------------------------------------------
