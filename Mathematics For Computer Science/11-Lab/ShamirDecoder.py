@@ -1,6 +1,10 @@
 # Shamir Decoder
 # Author: 65050437
 
+# Before submit you delete this line 1, 2, 5
+import os
+
+
 def Validation(message, min, max):
     while True:
         try:
@@ -25,44 +29,83 @@ _THRESHOLD = Validation("Enter threshold: ", 1, _NUMBER_SHARES)
 
 # Input shares
 _SHARES = []
+print("\nFormat shares: (x, y)")
 for i in range(_NUMBER_SHARES):
-    print(f"--- Enter share #{i + 1} ---")
-    _SHARES.append((Validation("Enter x: ", 1, _NUMBER_SHARES),
-                   Validation("Enter y: ", 1, _PRIME - 1)))
+    _SHARE = input(f"Enter share #{i+1}: ")
+    _SHARE = _SHARE.split(",")
+    _SHARE = [int(i) for i in _SHARE]
+    _SHARES.append(_SHARE)
+
+
+def Extended_GCD(a, b):
+    x = 0
+    last_x = 1
+    y = 1
+    last_y = 0
+    while b != 0:
+        quot = a // b
+        a, b = b, a % b
+        x, last_x = last_x - quot * x, x
+        y, last_y = last_y - quot * y, y
+    return last_x, last_y
+
+
+def DivMod(num, den, p):
+    inv, _ = Extended_GCD(den, p)
+    return num * inv
 
 
 # Lagrange interpolation (Lagrange basis polynomial)
-def _lagrange_interpolate(x, x_s, y_s, prime):
+def Lagrange_interpolate(x, x_s, y_s, p):
     k = len(x_s)
-    assert k == len(set(x_s)), "points must be distinct"
+    assert k == len(set(x_s))
 
-    def _prod_except(i, x_s, x):
-        p = 1
-        for j in range(k):
-            if i != j:
-                p *= (x - x_s[j]) / (x_s[i] - x_s[j])
-        return p
-    f_x = 0
+    def PI(vals):
+        accumulate = 1
+        for v in vals:
+            accumulate *= v
+        return accumulate
+    nums = []
+    dens = []
     for i in range(k):
-        f_x += y_s[i] * _prod_except(i, x_s, x)
-    return f_x % prime
+        others = list(x_s)
+        cur = others.pop(i)
+        nums.append(PI(x-o for o in others))
+        dens.append(PI(cur-o for o in others))
+    den = PI(dens)
+    num = sum([DivMod(nums[i] * den * y_s[i] % p, dens[i], p)
+              for i in range(k)])
+    return (DivMod(num, den, p)+p) % p
 
 
 # Reconstruct secret
 def Reconstruct_secret(shares, prime=_PRIME):
     x_s, y_s = zip(*shares)
-    return _lagrange_interpolate(0, x_s, y_s, prime)
+    return Lagrange_interpolate(0, x_s, y_s, prime)
 
 
 # Print secret
 _SECRET = Reconstruct_secret(_SHARES)
-print(f"Secret: {_SECRET}")
+print(f"\nSecret: {_SECRET}")
 
-# Calculate polynomial
-_POLYNOMIAL = []
-for i in range(_THRESHOLD):
-    _POLYNOMIAL.append(_lagrange_interpolate(
-        i + 1, _SHARES[0], _SHARES[1], _PRIME))
 
-# Print polynomial
-print(f"Polynomial: {_POLYNOMIAL}")
+#############################################################################
+# You must be delete this
+# Check folder exists
+if not os.path.exists("Copy-here"):
+    os.makedirs("Copy-here")
+
+# Create ./Shamir-Secret-Sharing/EncoderOutput.txt file
+with open("Copy-here/Decoder.txt", "w") as f:
+    f.write("** Copy here, create and paste in the DecoderOutput.txt *\n")
+    f.write("\nInput:\n")
+    f.write(f"\tEnter a prime number: {_PRIME}\n")
+    f.write(f"\tEnter number of shares: {_NUMBER_SHARES}\n")
+    f.write(f"\n\tFormat shares: (x, y)\n")
+    f.write(f"\tEnter threshold: {_THRESHOLD}\n")
+    for i in range(_NUMBER_SHARES):
+        f.write(f"\tEnter share #{i+1}: {_SHARES[i][0]}, {_SHARES[i][1]}\n")
+    f.write("\nOutput:\n")
+    f.write(f"\tEnter secret: {_SECRET}\n")
+    f.write("\n---------------------------------------------------------------------------------\n")
+    f.close()

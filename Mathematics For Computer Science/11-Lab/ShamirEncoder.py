@@ -1,6 +1,8 @@
 # Shamir Encoder
 # Author: 65050437
+# Before submit you delete this line 1, 2, 6, and 64-82
 
+import os
 import random
 import functools
 
@@ -57,3 +59,24 @@ _SHARES, _POLYNOMIAL = Make_random_shares(_SECRET, _THRESHOLD, _NUMBER_SHARES)
 
 print("Shares:", _SHARES)
 print("Polynomial:", _POLYNOMIAL)
+
+
+#############################################################################
+# You must be delete this
+# Check folder exists
+if not os.path.exists("Copy-here"):
+    os.makedirs("Copy-here")
+
+# Create ./Shamir-Secret-Sharing/EncoderOutput.txt file
+with open("Copy-here/Encoder.txt", "w") as f:
+    f.write('** Copy here, create and paste in the EncoderOutput.txt **\n')
+    f.write("Input:\n")
+    f.write(f"\tEnter a prime number: {_PRIME}\n")
+    f.write(f"\tEnter secret: {_SECRET}\n")
+    f.write(f"\tEnter number of shares: {_NUMBER_SHARES}\n")
+    f.write(f"\tEnter threshold: {_THRESHOLD}\n")
+    f.write("\nOutput:\n")
+    f.write(f"\tShares: {_SHARES}\n")
+    f.write(f"\tPolynomial: {_POLYNOMIAL}\n")
+    f.write("\n---------------------------------------------------------------------------------\n")
+    f.close()

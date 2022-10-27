@@ -1,0 +1,12 @@
+# Example 1
+Input:
+    Enter a prime number: 1111
+    Enter secret: 555
+    Enter number of shares: 5
+    Enter threshold: 3
+
+Output:
+    Shares: [(1, 669), (2, 875), (3, 62), (4, 452), (5, 934)]
+    Polynomial: [555, 68, 46]
+
+---------------------------------------------------------------------------------

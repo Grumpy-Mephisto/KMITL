@@ -1,0 +1,17 @@
+# Example 1
+Input:
+    Enter a prime number: 1111
+    Enter number of shares: 5
+    Enter threshold: 3
+
+    Format shares: (x, y)
+    Enter share #1: 1, 669
+    Enter share #2: 2, 875
+    Enter share #3: 3, 62
+    Enter share #4: 4, 452
+    Enter share #5: 5, 934
+
+Output:
+    Secret: 555.0
+
+---------------------------------------------------------------------------------
