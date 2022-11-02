@@ -9,7 +9,7 @@ public class Main {
         }
     }
 
-    static boolean FindWay(int[][] map,int[] position) {
+    static boolean FindWay(int[][] map, int[] position) {
         int[][] cloneMap = map.clone();
         int[] clonePosition = position.clone(); 
 
