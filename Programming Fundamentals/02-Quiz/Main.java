@@ -29,7 +29,7 @@ public class Main {
                 return isFind;
             }
         } catch (Exception e) {}
-        if(isFind == true) {
+        if(isFind) {
             return true;
         }
 
@@ -47,7 +47,7 @@ public class Main {
                 return isFind;
             }
         } catch (Exception e) {}
-        if(isFind == true) {
+        if(isFind) {
             return true;
         }
 
@@ -65,7 +65,7 @@ public class Main {
                 return isFind;
             }
         } catch (Exception e) {}
-        if(isFind == true) {
+        if(isFind) {
             return true;
         }
         
@@ -83,7 +83,7 @@ public class Main {
                 return isFind;
             }
         } catch (Exception e) {}
-        if(isFind == true) {
+        if(isFind) {
             return true;
         }
 
