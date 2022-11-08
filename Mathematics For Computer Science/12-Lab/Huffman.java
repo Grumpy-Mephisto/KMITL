@@ -25,6 +25,11 @@ public class Huffman {
     countLengths(root.right, charBitLength, length + 1);
   }
 
+  // I add and modify the code below
+  ///////////////////////////////////////////////////////////////////////////
+
+  // Add
+  // Select the file that you want to compress
   static String Choices() {
     Scanner sc = new Scanner(System.in);
     System.out.println("Select the Book to compress a file");
@@ -70,6 +75,7 @@ public class Huffman {
     return book;
   }
 
+  // Modify
   static void buildCharFreqFromFile(char[] charArray, int[] charFreq) {
     try {
       String book = Choices();
@@ -90,6 +96,8 @@ public class Huffman {
       System.out.println("Error: " + e);
     }
   }
+
+  ///////////////////////////////////////////////////////////////////////////
 
   // main function
   public static void main(String[] args) {
