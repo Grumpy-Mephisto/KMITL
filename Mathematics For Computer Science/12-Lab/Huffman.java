@@ -1,3 +1,5 @@
+// Modified by 65050437
+
 import java.io.*;
 import java.util.*;
 
@@ -8,8 +10,8 @@ public class Huffman {
       System.out.println("ascii(" + (int) root.c + ") : " + s);
       return;
     }
-    printCode(root.left, s + "0");
-    printCode(root.right, s + "1");
+    // printCode(root.left, s + "0");
+    // printCode(root.right, s + "1");
   }
 
   public static void countLengths(
@@ -25,11 +27,6 @@ public class Huffman {
     countLengths(root.right, charBitLength, length + 1);
   }
 
-  // I add and modify the code below
-  ///////////////////////////////////////////////////////////////////////////
-
-  // Add
-  // Select the file that you want to compress
   static String Choices() {
     Scanner sc = new Scanner(System.in);
     System.out.println("Select the Book to compress a file");
@@ -38,10 +35,11 @@ public class Huffman {
     System.out.println("3. Book 3 - The Prisoner of Azkaban");
     System.out.println("4. Book 4 - The Goblet of Fire");
     System.out.println("5. Book 5 - The Order of the Phoenix");
-    System.out.println("6. Book 6 - The Half-Blood Prince");
+    System.out.println("6. Book 6 - The Half Blood Prince");
     System.out.println("7. Book 7 - The Deathly Hallows");
+    System.out.println("8. All Books");
     System.out.print("Your Choice: ");
-
+    
     int choice = sc.nextInt();
     sc.close();
     String book = "";
@@ -62,10 +60,13 @@ public class Huffman {
         book = "Book 5 - The Order of the Phoenix.txt";
         break;
       case 6:
-        book = "Book 6 - The Half-Blood Prince.txt";
+        book = "Book 6 - The Half Blood Prince.txt";
         break;
       case 7:
         book = "Book 7 - The Deathly Hallows.txt";
+        break;
+      case 8:
+        book = "all books.txt";
         break;
       default:
         System.out.println("Invalid Choice");
@@ -73,6 +74,39 @@ public class Huffman {
     }
 
     return book;
+  }
+
+  // Merge books into one file
+  static void mergeBooks() throws IOException {
+    String[] books = {
+      "Book 1 - The Philosopher's Stone.txt",
+      "Book 2 - The Chamber of Secrets.txt",
+      "Book 3 - The Prisoner of Azkaban.txt",
+      "Book 4 - The Goblet of Fire.txt",
+      "Book 5 - The Order of the Phoenix.txt",
+      "Book 6 - The Half Blood Prince.txt",
+      "Book 7 - The Deathly Hallows.txt",
+    };
+
+    FileWriter fw = new FileWriter("all books.txt");
+    BufferedWriter bw = new BufferedWriter(fw);
+
+    for (String book : books) {
+      FileReader fr = new FileReader(book);
+      BufferedReader br = new BufferedReader(fr);
+
+      String line;
+      while ((line = br.readLine()) != null) {
+        bw.write(line);
+        bw.newLine();
+      }
+
+      br.close();
+      fr.close();
+    }
+
+    bw.close();
+    fw.close();
   }
 
   // Modify
@@ -95,12 +129,18 @@ public class Huffman {
     } catch (IOException e) {
       System.out.println("Error: " + e);
     }
+    System.out.println("Total characters: " + Arrays.stream(charFreq).sum());
   }
-
-  ///////////////////////////////////////////////////////////////////////////
 
   // main function
   public static void main(String[] args) {
+    // Build all books into one file
+    try {
+      mergeBooks();
+    } catch (IOException e) {
+      System.out.println("Error: " + e);
+    }
+    
     char[] charArray = new char[256];
     int[] charFreq = new int[256];
     buildCharFreqFromFile(charArray, charFreq);
@@ -148,11 +188,12 @@ public class Huffman {
     int sumBit = 0;
     int sumChar = 0;
     for (int i = 0; i < n; i++) {
-      System.out.println("ascii(" + i + "): " + charBitLength[i] + " ");
+      // System.out.println("ascii(" + i + "): " + charBitLength[i] + " ");
       sumBit += (charBitLength[i] * charFreq[i]);
       sumChar += charFreq[i];
     }
-    System.out.println("Average bits per char: " + sumBit / (double) sumChar);
+    // Round 4 decimal places
+    System.out.println("Average bits per char: " + (double) Math.round((sumBit / (double) sumChar) * 10000) / 10000);
   }
 }
 
