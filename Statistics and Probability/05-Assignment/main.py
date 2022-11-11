@@ -31,14 +31,14 @@ def ViewCoefficient(model):
 def Equation(model):
     print("===== Equation =====")
     print(
-        f"Blood_pressure = {model.intercept_} + {model.coef_[0]} * Age + {model.coef_[1]} * Weight_pounds")
+        f"Blood_pressure = {round(model.intercept_, 3)} + {round(model.coef_[0], 3)} * Age + {round(model.coef_[1], 3)} * Weight_pounds")
 
 
 def Predict(model, Age, Weight_pounds):
     print("===== Predict =====")
     try:
         Blood_pressure = model.predict([[Age, Weight_pounds]])
-        print(f"Blood_pressure: {Blood_pressure[0]}")
+        print(f"Blood_pressure: {round(Blood_pressure[0], 2)}")
     except Exception as e:
         print("Error: ", e)
 
@@ -48,9 +48,9 @@ def ModelEvaluation(model, X, y):
     print("===== Model Evaluation =====")
     y_test = pd.DataFrame({'Actual': y, 'Predicted': y_pred})
     print(y_test)
-    print(f'MSE: {mean_squared_error(y, y_pred)}')
-    print(f'MAE: {mean_absolute_error(y, y_pred)}')
-    print(f'R2: {r2_score(y, y_pred)}')
+    print(f'R2: {round(r2_score(y, y_pred), 4)}')
+    print(f'MAE: {round(mean_absolute_error(y, y_pred), 4)}')
+    print(f'MSE: {round(mean_squared_error(y, y_pred), 4)}')
 
 
 def Menu():
