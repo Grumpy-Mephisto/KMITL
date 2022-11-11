@@ -48,9 +48,9 @@ def ModelEvaluation(model, X, y):
     print("===== Model Evaluation =====")
     y_test = pd.DataFrame({'Actual': y, 'Predicted': y_pred})
     print(y_test)
-    print(f'R2: {round(r2_score(y, y_pred), 4)}')
-    print(f'MAE: {round(mean_absolute_error(y, y_pred), 4)}')
-    print(f'MSE: {round(mean_squared_error(y, y_pred), 4)}')
+    print(f'R2: {round(r2_score(y, y_pred), 3)}')
+    print(f'MAE: {round(mean_absolute_error(y, y_pred), 3)}')
+    print(f'MSE: {round(mean_squared_error(y, y_pred), 3)}')
 
 
 def Menu():
