@@ -28,19 +28,13 @@ public class Main {
     }
 
     void EqualsDept(String deptName) {
-        List<ProFun14Employee> equalsDept = new ArrayList<>();
+        List<String> equalsDept = new ArrayList<>();
         for (ProFun14Employee data : eList) {
             if (data.getDepartment().equals(deptName)) {
-                equalsDept.add(data);
+                equalsDept.add(data.toString());
             }
         }
-        if (equalsDept.size() == 0) {
-            System.out.println("No employee found in the department");
-        } else {
-            for (ProFun14Employee dataEquals : equalsDept) {
-                System.out.println(dataEquals.toString());
-            }
-        }
+        System.out.println(equalsDept);
     }
 }
 
