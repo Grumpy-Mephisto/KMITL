@@ -34,7 +34,7 @@ public class Main {
                 lowestSalary = data;
             }
         }
-        System.out.println(lowestSalary.getSalary());
+        System.out.println(lowestSalary.toString());
     }
 }
 
