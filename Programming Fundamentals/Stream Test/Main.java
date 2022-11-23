@@ -71,7 +71,7 @@ public class Main {
                 lowestSalary = data;
             }
         }
-        System.out.println(lowestSalary.getSalary());
+        System.out.println(lowestSalary.toString());
 
         Query = "Q5 List employees who work in given dept name (same order on eList)";
         List<ProFun14Employee> equalsDept = new ArrayList<>();
