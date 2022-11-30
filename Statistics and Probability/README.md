@@ -576,18 +576,19 @@ print(expected)
 - Model Evaluation
 
   - Coefficient of Determination (R-squared)
+
     - R-squared is a statistical measure that represents the proportion of the variance for a dependent variable that's explained by an independent variable or variables in a regression model.
 
-  ```python
-  model.score(x, y)
-  ```
+    ```python
+    model.score(x, y)
+    ```
 
   - Mean Absolute Error (MAE)
   - Mean Squared Error (MSE)
 
-  ```python
-  from sklearn.metrics import mean_squared_error, mean_absolute_error
-  y_predict1=model.predict(x_TV)
-  print('MAE =', mean_absolute_error(y,y_predict1))
-  print('MSE =', mean_squared_error(y,y_predict1))
-  ```
+    ```python
+    from sklearn.metrics import mean_squared_error, mean_absolute_error
+    y_predict1=model.predict(x_TV)
+    print('MAE =', mean_absolute_error(y,y_predict1))
+    print('MSE =', mean_squared_error(y,y_predict1))
+    ```
