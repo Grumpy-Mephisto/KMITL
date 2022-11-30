@@ -592,3 +592,25 @@ print(expected)
     print('MAE =', mean_absolute_error(y,y_predict1))
     print('MSE =', mean_squared_error(y,y_predict1))
     ```
+
+# Libraries
+
+- [NumPy](https://numpy.org/) - NumPy is the fundamental package for scientific computing with Python. It contains among other things a powerful N-dimensional array object and useful linear algebra, Fourier transform, and random number capabilities.
+
+- [Pandas](https://pandas.pydata.org/) - Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
+
+- [Matplotlib](https://matplotlib.org/) - Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.
+
+- [Seaborn](https://seaborn.pydata.org/) - Seaborn is a Python data visualization library based on matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics.
+
+- [SKLearn](https://scikit-learn.org/stable/) - Scikit-learn is a free software machine learning library for the Python programming language.
+
+# Naive Bayes Classifier
+
+- [Gaussian Naive Bayes](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html) - Gaussian Naive Bayes (GaussianNB) can perform online updates to model parameters via partial_fit method. For details on algorithm used to update feature means and variance online, see Stanford CS tech report STAN-CS-79-773 by Chan, Golub, and LeVeque: Updating Formulae and a Pairwise Algorithm for Computing Sample Variances. Adapted for online updates by Lin and Bilmes.
+
+- [Catetorical Naive Bayes](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.CategoricalNB.html) - CategoricalNB implements the categorical Naive Bayes algorithm for categorically distributed data. The categories of each feature are drawn from a categorical distribution.
+
+- [Bernoilli Naive Bayes](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html) - BernoulliNB implements the naive Bayes algorithm for binary/boolean features.
+
+- [Multinomial Naive Bayes](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html) - MultinomialNB implements the naive Bayes algorithm for multinomially distributed data, and is one of the two classic naive Bayes variants used in text classification (where the data are typically represented as word vector counts, although tf-idf vectors are also known to work well in practice).
