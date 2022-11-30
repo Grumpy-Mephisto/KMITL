@@ -6,9 +6,11 @@ Short cuts
 
 [2]: [Descriptive Statistics](#descriptive-statistics)
 
-[3]: #
-[4]: #
-[5]: #
+[3]: [Monte Carlo Simulation](#monte-carlo-simulation)
+
+[4]: [Hypothesis Testing](#hypothesis-testing)
+
+[5]: [Linear Regression](#linear-regression)
 
 ## Naive Bayes Classifier
 
