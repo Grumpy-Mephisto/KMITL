@@ -1,0 +1,8 @@
+# Java
+*.class
+
+# Visual Studio
+.vscode
+
+# MacOS
+.DS_Store
