@@ -6,8 +6,8 @@ public class Accountant extends Programmer {
     private String specialty;
 
     public Accountant(String name, int superExp, int experience, int sal, String talent) {
-        super(name, experience, sal);
-        this.experience = superExp;
+        super(name, superExp, sal);
+        this.experience = experience;
         this.specialty = talent;
     }
 
@@ -19,8 +19,8 @@ public class Accountant extends Programmer {
         return specialty;
     }
 
-    public void setAccountExperience () {
-        this.experience = super.getExperience();
+    public void setAccountExperience (int newExperience) {
+        this.experience = newExperience;
     } 
 
     public int getAccountExperience() {
