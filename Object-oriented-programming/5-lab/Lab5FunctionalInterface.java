@@ -7,9 +7,9 @@ public class Lab5FunctionalInterface {
     static ArrayProcessor myMedian; // n/2th element of sorted = 48
 
     public static void main(String[] args) {
-        q1(); // 4
-        q2(); // 1
-        oneline(); // 48
+        q1();       // 4
+        q2();       // 1
+        oneline();  // 48
     }
 
     static void q1() {
