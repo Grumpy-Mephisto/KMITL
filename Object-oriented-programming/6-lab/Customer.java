@@ -15,15 +15,12 @@ public class Customer implements CanPay {
         switch(memberType) {
             case None:
                 memberType = MemberType.SILVER;
-                showMembershipStatus();
                 break;
             case SILVER:
                 memberType = MemberType.GOLD;
-                showMembershipStatus();
                 break;
             case GOLD:
                 memberType = MemberType.PREMIUM;
-                showMembershipStatus();
                 break;
             default:
                 break;
@@ -34,15 +31,12 @@ public class Customer implements CanPay {
         switch(memberType) {
             case PREMIUM:
                 memberType = MemberType.GOLD;
-                showMembershipStatus();
                 break;
             case GOLD:
                 memberType = MemberType.SILVER;
-                showMembershipStatus();
                 break;
             case SILVER:
                 memberType = MemberType.None;
-                showMembershipStatus();
                 break;
             default:
                 break;
@@ -65,5 +59,6 @@ public class Customer implements CanPay {
             default:
                 break;
         }
+        showMembershipStatus();
     }
 }
