@@ -1,19 +1,20 @@
 package pack7a;
 
 public abstract class Product {
-    protected String pName;
-    protected String desc;
 
-    public Product(String n, String d) {
-        pName = n;
-        desc = d;
-    }
+  protected String pName;
+  protected String desc;
 
-    public String getpName() {
-        return pName;
-    }
+  public Product(String n, String d) {
+    pName = n;
+    desc = d;
+  }
 
-    public String getDesc() {
-        return desc;
-    }
+  public String getpName() {
+    return pName;
+  }
+
+  public String getDesc() {
+    return desc;
+  }
 }
