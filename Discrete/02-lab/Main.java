@@ -1,5 +1,6 @@
-import Libs.AdjacencyMatrix;
 import java.util.Scanner;
+
+import Matrix.AdjacencyMatrix;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package Libs;
+package Matrix;
 
 public class AdjacencyMatrix {
 
