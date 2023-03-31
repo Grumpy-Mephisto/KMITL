@@ -36,7 +36,7 @@ public class AdjacencyMatrix {
     for (int i = 0; i < row; i++) {
       for (int j = 0; j < col; j++) {
         for (int k = 0; k < row; k++) {
-          result[i][j] += adjacencyMatrix[i][k] * adjacencyMatrix[k][j];
+          result[i][j] += Math.pow(adjacencyMatrix[i][k], times);
         }
       }
     }
