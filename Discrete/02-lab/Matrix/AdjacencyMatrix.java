@@ -1,5 +1,7 @@
 package Matrix;
 
+import java.util.Arrays;
+
 public class AdjacencyMatrix {
 
   public int row, col;
@@ -25,13 +27,7 @@ public class AdjacencyMatrix {
   }
 
   public void printMatrix(int[][] matrix) {
-    for (int i = 0; i < row; i++) {
-      System.out.print("[ ");
-      for (int j = 0; j < col; j++) {
-        System.out.print(matrix[i][j] + " ");
-      }
-      System.out.print("]\n");
-    }
+    Arrays.stream(matrix).map(Arrays::toString).forEach(System.out::println);
   }
 
   public int[][] multiplyMatrix(int row, int col, int times) {
