@@ -22,7 +22,7 @@ public class AdjacencyMatrix {
       adjacencyMatrix[startNode][endNode] += 1;
       adjacencyMatrix[endNode][startNode] += 1;
     }
-    
+
     return adjacencyMatrix;
   }
 
