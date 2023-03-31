@@ -32,11 +32,10 @@ public class AdjacencyMatrix {
 
   public int[][] multiplyMatrix(int row, int col, int times) {
     int[][] result = new int[row][col];
-    times = times - 1;
 
-    if (times == 0) return adjacencyMatrix;
+    if (times - 1 == 0) return adjacencyMatrix;
 
-    for (int i = 0; i < times; i++) {
+    for (int i = 0; i < times - 1; i++) {
       for (int j = 0; j < row; j++) {
         for (int k = 0; k < col; k++) {
           for (int l = 0; l < row; l++) {
