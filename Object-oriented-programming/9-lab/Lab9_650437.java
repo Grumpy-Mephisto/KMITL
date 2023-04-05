@@ -175,19 +175,13 @@ public class Lab9_650437 {
   }
 
   static void q7() {
-    List<Employee> list1 = Arrays.asList(
-      new Employee("yindee"),
-      new Employee("pramote")
+    List<Employee> singers = Arrays.asList(
+      new Employee("aba"),
+      new Employee("abi")
     );
-    List<Employee> list2 = Arrays.asList(
-      new Employee("preeda"),
-      new Employee("yindee")
-    );
-    Set<Employee> empSet = new HashSet<>();
-    empSet.addAll(list1);
-    empSet.addAll(list2);
-    List<Employee> empList = new ArrayList<>(empSet);
-    System.out.println(empList);
+    System.out.println(singers);
+    singers = q7_1(singers);
+    System.out.println(singers);
   }
 
   private static List<Employee> q7_1(List<Employee> list) {
@@ -233,7 +227,6 @@ public class Lab9_650437 {
     List<Employee> list2 = new ArrayList<>();
     list2.add(new Employee("yindee"));
     list2.add(new Employee("pramote"));
-    Set<Employee> empSet2 = new HashSet<>(list2);
     empSet1.removeAll(list2);
     System.out.println(empSet1);
   }
