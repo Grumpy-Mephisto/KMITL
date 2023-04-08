@@ -32,7 +32,7 @@ public class Notation {
 
   private String infixToPrefix(String infix) {
     String prefix = "";
-    infix = infix.replaceAll("\\s", "");
+    infix = infix.replaceAll("\s", "");
     ArrayList<Character> stack = new ArrayList<Character>();
     for (int i = infix.length() - 1; i >= 0; i--) {
       char c = infix.charAt(i);
@@ -56,7 +56,7 @@ public class Notation {
 
   private String infixToPostfix(String infix) {
     String postfix = "";
-    infix = infix.replaceAll("\\s+", "");
+    infix = infix.replaceAll("\s", "");
     ArrayList<Character> stack = new ArrayList<Character>();
     for (int i = 0; i < infix.length(); i++) {
       char c = infix.charAt(i);
