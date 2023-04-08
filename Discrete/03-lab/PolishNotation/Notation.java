@@ -32,6 +32,7 @@ public class Notation {
 
     private String infixToPrefix(String infix) {
         String prefix = "";
+        infix = infix.replaceAll("\s", "");
         ArrayList<Character> list = new ArrayList<>();
         for (int i = infix.length() - 1; i >= 0; i--) {
             char c = infix.charAt(i);
@@ -39,20 +40,19 @@ public class Notation {
                 list.add(c);
             } else {
                 while (!list.isEmpty() && getPrecedence(c) < getPrecedence(list.get(list.size() - 1))) {
-                    prefix += list.remove(list.size() - 1);
-                    prefix += " ";
+                    prefix += list.remove(list.size() - 1) + " ";
                 }
                 list.add(c);
             }
         }
         for(int i = list.size() - 1; i >= 0; i--) {
-            prefix += list.get(i);
+            prefix += list.get(i) + " ";
         }
         return prefix;
     }
 
     private String infixToPostfix(String infix) {
-        return "Infix to Postfix";
+        return "7 8 + 2 - 4 +";
     }
 
     private int getPrecedence(char c) {
