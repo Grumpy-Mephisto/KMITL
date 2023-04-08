@@ -6,8 +6,8 @@ public class Notation {
 
   private String equation;
 
-  public Notation(String equation) {
-    this.equation = equation;
+  public Notation() {
+    this.equation = "";
   }
 
   public String getEquation() {

@@ -9,7 +9,8 @@ public class Main {
     String equation = scanner.nextLine();
     scanner.close();
 
-    Notation polishNotation = new Notation(equation);
+    Notation polishNotation = new Notation();
+    polishNotation.setEquation(equation);
     System.out.println("Infix: " + polishNotation.getInfix());
     System.out.println("Prefix: " + polishNotation.getPrefix());
     System.out.println("Postfix: " + polishNotation.getPostfix());
