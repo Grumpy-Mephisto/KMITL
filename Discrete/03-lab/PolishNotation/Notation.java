@@ -32,21 +32,21 @@ public class Notation {
 
     private String infixToPrefix(String infix) {
         String prefix = "";
-        infix = infix.replaceAll("\s", "");
-        ArrayList<Character> stack = new ArrayList<>();
+        infix = infix.replaceAll("\\s", "");
+        ArrayList<Character> stack = new ArrayList<Character>();
         for (int i = infix.length() - 1; i >= 0; i--) {
             char c = infix.charAt(i);
-            if (Character.isLetter(c)) {
-                stack.add(c);
+            if (Character.isDigit(c)) {
+                prefix = c + " " + prefix;
             } else {
-                while (!stack.isEmpty() && getPrecedence(c) < getPrecedence(stack.get(stack.size() - 1))) {
-                    prefix += stack.remove(stack.size() - 1) + " ";
+                while (!stack.isEmpty() && getPrecedence(c) <= getPrecedence(stack.get(stack.size() - 1))) {
+                    prefix = stack.remove(stack.size() - 1) + " " + prefix;
                 }
                 stack.add(c);
             }
         }
-        for(int i = stack.size() - 1; i >= 0; i--) {
-            prefix += stack.get(i) + " ";
+        for (int i = stack.size() - 1; i >= 0; i--) {
+            prefix = stack.remove(i) + " " + prefix;
         }
         return prefix;
     }
@@ -58,16 +58,16 @@ public class Notation {
         for (int i = 0; i < infix.length(); i++) {
             char c = infix.charAt(i);
             if (Character.isDigit(c)) {
-                postfix += c + " ";
+                postfix = postfix + c + " ";
             } else {
                 while (!stack.isEmpty() && getPrecedence(c) <= getPrecedence(stack.get(stack.size() - 1))) {
-                    postfix += stack.remove(stack.size() - 1) + " ";
+                    postfix = postfix + stack.remove(stack.size() - 1) + " ";
                 }
                 stack.add(c);
             }
         }
         for(int i = stack.size() - 1; i >= 0; i--) {
-            postfix += stack.get(i) + " ";
+            postfix = postfix + stack.remove(i) + " ";
         }
         return postfix;
     }
