@@ -33,26 +33,43 @@ public class Notation {
     private String infixToPrefix(String infix) {
         String prefix = "";
         infix = infix.replaceAll("\s", "");
-        ArrayList<Character> list = new ArrayList<>();
+        ArrayList<Character> stack = new ArrayList<>();
         for (int i = infix.length() - 1; i >= 0; i--) {
             char c = infix.charAt(i);
             if (Character.isLetter(c)) {
-                list.add(c);
+                stack.add(c);
             } else {
-                while (!list.isEmpty() && getPrecedence(c) < getPrecedence(list.get(list.size() - 1))) {
-                    prefix += list.remove(list.size() - 1) + " ";
+                while (!stack.isEmpty() && getPrecedence(c) < getPrecedence(stack.get(stack.size() - 1))) {
+                    prefix += stack.remove(stack.size() - 1) + " ";
                 }
-                list.add(c);
+                stack.add(c);
             }
         }
-        for(int i = list.size() - 1; i >= 0; i--) {
-            prefix += list.get(i) + " ";
+        for(int i = stack.size() - 1; i >= 0; i--) {
+            prefix += stack.get(i) + " ";
         }
         return prefix;
     }
 
     private String infixToPostfix(String infix) {
-        return "7 8 + 2 - 4 +";
+        String postfix = "";
+        infix = infix.replaceAll("\\s+", "");
+        ArrayList<Character> stack = new ArrayList<Character>();
+        for (int i = 0; i < infix.length(); i++) {
+            char c = infix.charAt(i);
+            if (Character.isDigit(c)) {
+                postfix += c + " ";
+            } else {
+                while (!stack.isEmpty() && getPrecedence(c) <= getPrecedence(stack.get(stack.size() - 1))) {
+                    postfix += stack.remove(stack.size() - 1) + " ";
+                }
+                stack.add(c);
+            }
+        }
+        for(int i = stack.size() - 1; i >= 0; i--) {
+            postfix += stack.get(i) + " ";
+        }
+        return postfix;
     }
 
     private int getPrecedence(char c) {

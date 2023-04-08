@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         // System.out.print("Enter your equation: ");
         // String equation = scanner.nextLine();
-        String equation = "7 + 8 - 2 + 4";
+        String equation = "5 + 2 / 4 * 6";
         scanner.close();
 
         Notation polishNotation = new Notation(equation);
