@@ -1,3 +1,3 @@
-package Trees;
+package PolishNotation;
 
 public class ParseTree {}
