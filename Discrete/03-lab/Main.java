@@ -4,9 +4,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // System.out.print("Enter your equation: ");
-        // String equation = scanner.nextLine();
-        String equation = "5 + 2 / 4 * 6";
+        System.out.print("Enter your equation: ");
+        String equation = scanner.nextLine();
         scanner.close();
 
         Notation polishNotation = new Notation(equation);
