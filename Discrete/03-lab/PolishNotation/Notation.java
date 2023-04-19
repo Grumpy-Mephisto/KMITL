@@ -41,7 +41,7 @@ public class Notation {
       } else {
         while (
           !stack.isEmpty() &&
-          getPrecedence(c) <= getPrecedence(stack.get(stack.size() - 1))
+          getPrecedence(c) < getPrecedence(stack.get(stack.size() - 1))
         ) {
           prefix = stack.remove(stack.size() - 1) + " " + prefix;
         }
