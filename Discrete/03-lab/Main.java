@@ -1,14 +1,13 @@
 import PolishNotation.*;
-import Trees.*;
+import RootedTree.*;
 import java.util.Scanner;
 
 public class Main {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    // System.out.print("Enter your equation: ");
-    // String equation = scanner.nextLine();
-    String equation = "5 + 2 / 4 * 6";
+    System.out.print("Enter your equation: ");
+    String equation = scanner.nextLine();
     scanner.close();
 
     Notation polishNotation = new Notation();
@@ -16,5 +15,10 @@ public class Main {
     System.out.println("Infix: " + polishNotation.getInfix());
     System.out.println("Prefix: " + polishNotation.getPrefix());
     System.out.println("Postfix: " + polishNotation.getPostfix());
+
+    String[] tokens = polishNotation.getPrefix().split("\\s+");
+    Tree tree = new Tree();
+    tree.insert(tokens);
+    tree.print();
   }
 }
