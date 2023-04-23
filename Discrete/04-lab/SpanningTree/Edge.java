@@ -2,9 +2,9 @@ package SpanningTree;
 
 public class Edge {
 
-  private String cityFrom;
-  private String cityTo;
   private int distance;
+  private String cityTo;
+  private String cityFrom;
 
   public Edge(String cityFrom, String cityTo, int distance) {
     this.cityFrom = cityFrom;
@@ -25,6 +25,11 @@ public class Edge {
   }
 
   public String toString() {
-    return String.format("%s \t----->\t  %s\t(distance: %d)", cityFrom, cityTo, distance);
+    return String.format(
+      "%s \t----->\t  %s\t(distance: %d)",
+      cityFrom,
+      cityTo,
+      distance
+    );
   }
 }

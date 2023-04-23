@@ -49,7 +49,9 @@ public class PrimAlgorithm {
 
       if (minEdge != null) {
         if (visited.size() == 1) {
-          System.out.println("========================================================");
+          System.out.println(
+            "========================================================"
+          );
         }
         System.out.println(minEdge.toString());
         visited.add(minEdge.getCityFrom());

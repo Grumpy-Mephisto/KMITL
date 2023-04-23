@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Data {
 
-    public Data() {
-        setEdges();
-    }
+  public Data() {
+    setEdges();
+  }
 
   public ArrayList<Edge> setEdges() {
     ArrayList<Edge> edges = new ArrayList<Edge>();
@@ -26,7 +26,7 @@ public class Data {
     return edges;
   }
 
-    public ArrayList<Edge> getEdges() {
-        return setEdges();
-    }
+  public ArrayList<Edge> getEdges() {
+    return setEdges();
+  }
 }
