@@ -1,77 +1,59 @@
 package SpanningTree;
 
 import java.util.ArrayList;
-import java.util.PriorityQueue;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class PrimAlgorithm {
 
-  private PriorityQueue<String[]> pq;
-  private ArrayList<String> visited;
-  private String startCity;
-  private ArrayList<String[]> graph;
+  private HashSet<String> visited;
+  private HashMap<String, ArrayList<Edge>> adjacencyList;
 
-  public PrimAlgorithm(ArrayList<String[]> graph, String startCity) {
-    pq =
-      new PriorityQueue<String[]>((a, b) ->
-        Integer.parseInt(a[2]) - Integer.parseInt(b[2])
-      );
-    visited = new ArrayList<String>();
+  public PrimAlgorithm(ArrayList<Edge> edges) {
+    visited = new HashSet<String>();
+    adjacencyList = new HashMap<String, ArrayList<Edge>>();
+
+    // Create adjacency list
+    for (Edge edge : edges) {
+      if (!adjacencyList.containsKey(edge.getCityFrom())) {
+        adjacencyList.put(edge.getCityFrom(), new ArrayList<Edge>());
+      }
+      if (!adjacencyList.containsKey(edge.getCityTo())) {
+        adjacencyList.put(edge.getCityTo(), new ArrayList<Edge>());
+      }
+      adjacencyList.get(edge.getCityFrom()).add(edge);
+      adjacencyList.get(edge.getCityTo()).add(edge);
+    }
+  }
+
+  public void run(String startCity) {
     visited.add(startCity);
-    this.startCity = startCity;
-    this.graph = graph;
-  }
 
-  private String[] prim() {
-    for (String[] edge : graph) {
-      if (edge[0].equals(startCity) || edge[1].equals(startCity)) {
-        pq.add(edge);
+    while (visited.size() < adjacencyList.size()) {
+      Edge minEdge = null;
+
+      for (String city : visited) {
+        ArrayList<Edge> cityEdges = adjacencyList.get(city);
+
+        for (Edge edge : cityEdges) {
+          if (
+            !visited.contains(edge.getCityFrom()) ||
+            !visited.contains(edge.getCityTo())
+          ) {
+            if (minEdge == null || edge.getDistance() < minEdge.getDistance()) {
+              minEdge = edge;
+            }
+          }
+        }
       }
-    }
 
-    while (!pq.isEmpty() && visited.size() < graph.size() + 1) {
-      String[] edge = pq.poll();
-      String nextCity = edge[0].equals(visited.get(visited.size() - 1))
-        ? edge[1]
-        : edge[0];
-      if (!visited.contains(nextCity)) {
+      if (minEdge != null) {
         if (visited.size() == 1) {
-          System.out.println();
+          System.out.println("========================================================");
         }
-        visited.add(nextCity);
-        System.out.printf(
-          "Added edge: %s\t----->\t%s \t(%s)%n",
-          edge[0],
-          edge[1],
-          edge[2]
-        );
-        for (String[] newEdge : graph) {
-          if (newEdge[0].equals(nextCity) || newEdge[1].equals(nextCity)) {
-            pq.add(newEdge);
-          }
-        }
-      }
-    }
-
-    return visited.toArray(new String[visited.size()]);
-  }
-
-  public void print() {
-    String[] results = prim();
-    for (int i = 0; i < results.length; i++) {
-      if (i == 0) {
-        System.out.println();
-      }
-      System.out.print(results[i]);
-      if (i < results.length - 1) {
-        System.out.print(" -> ");
-      } else {
-        int totalDistance = 0;
-        for (String[] edge : graph) {
-          if (visited.contains(edge[0]) && visited.contains(edge[1])) {
-            totalDistance += Integer.parseInt(edge[2]);
-          }
-        }
-        System.out.printf(" (Total distance: %s)%n", totalDistance);
+        System.out.println(minEdge.toString());
+        visited.add(minEdge.getCityFrom());
+        visited.add(minEdge.getCityTo());
       }
     }
   }
