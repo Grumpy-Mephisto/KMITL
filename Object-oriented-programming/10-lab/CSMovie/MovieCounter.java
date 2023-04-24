@@ -207,13 +207,13 @@ public class MovieCounter {
   }
 
   public Map<String, Long> q9() {
-    // Show total budget of genre
+    // Show total gross of genre
     Map<String, Long> map = mList
       .stream()
       .collect(
         Collectors.groupingBy(
           CSMovie::getGenre,
-          Collectors.summingLong(CSMovie::getBudget)
+          Collectors.summingLong(CSMovie::getGross)
         )
       );
     return map;
