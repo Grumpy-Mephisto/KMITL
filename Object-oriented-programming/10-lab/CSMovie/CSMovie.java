@@ -1,4 +1,4 @@
-package pack10_CSMovie;
+package CSMovie;
 
 public class CSMovie {
 

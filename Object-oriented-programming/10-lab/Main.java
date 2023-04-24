@@ -1,3 +1,4 @@
+import CSMovie.*;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -12,14 +13,15 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import pack10_CSMovie.*;
 
 public class Main {
 
   public static void main(String[] args) {
-    // warmUp(args);
-    // hintQ10();
-    // hintQ11();
+    if (args.length > 0) {
+      warmUp(args);
+      hintQ10();
+      hintQ11();
+    }
     MovieCounter mc = new MovieCounter();
     System.out.println("========== q1 ==========");
     q1(mc);
@@ -31,20 +33,20 @@ public class Main {
     q4(mc);
     System.out.println("========== q5 ==========");
     q5(mc);
-    // System.out.println("========== q6 ==========");
-    // q6(mc);
-    // System.out.println("========== q7 ==========");
-    // args = new String[1]; //enumlate args in case command line misses this input
-    // args[0] = "Action";
-    // q7(mc,args[0]);
-    // System.out.println("========== q8 ==========");
-    // q8(mc);
-    // System.out.println("========== q9 ==========");
-    // q9(mc);
-    // System.out.println("========== q10 ==========");
-    // q10(mc);
-    // System.out.println("========== q11 ==========");
-    // q11(mc);
+    System.out.println("========== q6 ==========");
+    q6(mc);
+    System.out.println("========== q7 ==========");
+    args = new String[1]; //enumlate args in case command line misses this input
+    args[0] = "Action";
+    q7(mc, args[0]);
+    System.out.println("========== q8 ==========");
+    q8(mc);
+    System.out.println("========== q9 ==========");
+    q9(mc);
+    System.out.println("========== q10 ==========");
+    q10(mc);
+    System.out.println("========== q11 ==========");
+    q11(mc);
   }
 
   private static void q1(MovieCounter mc) {
@@ -69,13 +71,13 @@ public class Main {
 
   private static void q4(MovieCounter mc) {
     // number of genre
-    List<String> ans = mc.q5();
+    List<String> ans = mc.q4();
     for (String s : ans) System.out.println(s);
   }
 
   private static void q5(MovieCounter mc) {
     //top 5 least runtime including 0 runtime
-    List<String> ans = mc.q4();
+    List<String> ans = mc.q5();
     for (String m : ans) {
       System.out.println(m);
     }
@@ -160,9 +162,7 @@ public class Main {
     String[] tokens;
     try (
       Scanner input = new Scanner(
-        Paths.get(
-          System.getProperty("user.dir") + "/pack10_CSMovie/Samples10.csv"
-        )
+        Paths.get(System.getProperty("user.dir") + "/CSMovie/Samples10.csv")
       )
     ) {
       input.nextLine(); //skip header row
