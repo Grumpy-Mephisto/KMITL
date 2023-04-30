@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 import FSA.FiniteStateAutomata;
 
 public class Main {
