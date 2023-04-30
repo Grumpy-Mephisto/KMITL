@@ -1,4 +1,4 @@
-package FiniteAutomata;
+package FSA;
 
 import java.util.HashMap;
 import java.util.Map;
