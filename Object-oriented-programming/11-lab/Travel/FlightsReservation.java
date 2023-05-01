@@ -8,6 +8,10 @@ public class FlightsReservation {
   public FlightsReservation(Flights flight) {
     this.flight = flight;
     this.seating = new Plane22Seating("xx_xx,xx_x^,^x_xx,x^_xx,xx_^x"); // Initialize Plane22Seating without a seating configuration (cs6003)
+    this.seating =
+      flight.getCode().equals("cs6003")
+        ? new Plane22Seating("xx_xx,xx_x^,^x_xx,x^_xx,xx_^x")
+        : new Plane22Seating("xx_xx,xx_xx,xx_xx,xx_xx,xx_xx"); // Initialize Plane22Seating with seating configuration for flight cs6003 or without a seating configuration for other flights
   }
 
   public void showSeating() {

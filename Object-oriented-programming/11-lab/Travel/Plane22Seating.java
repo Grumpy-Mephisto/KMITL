@@ -40,10 +40,10 @@ public class Plane22Seating extends PlaneSeating {
     return false;
   }
 
-  public boolean isFull() {
-    for (int i = 0; i < 22; i++) {
-      for (int j = 0; j < 6; j++) {
-        if (seating[i][j] == '^') { // Check if there is any available seat
+  private boolean isFull() {
+    for (int i = 0; i < seating.length; i++) {
+      for (int j = 0; j < seating[0].length; j++) {
+        if (seating[i][j] == '^') {
           return false;
         }
       }
