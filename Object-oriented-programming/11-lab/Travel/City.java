@@ -1,3 +1,8 @@
 package Travel;
 
-public class City {}
+public enum City {
+  BKK,
+  ICN,
+  NRT,
+  SIN,
+}
