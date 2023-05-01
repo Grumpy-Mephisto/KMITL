@@ -30,10 +30,11 @@ public class Plane22Seating extends PlaneSeating {
 
   @Override
   public boolean reserveSeat(int row, int col) {
-    if (
-      row >= 0 && row < 22 && col >= 0 && col < 6 && seating[row][col] == '^'
-    ) {
-      seating[row][col] = 'x'; // Reserve the seat
+    if (row < 1 || row > seating.length || col < 1 || col > seating[0].length) {
+      return false;
+    }
+    if (seating[row - 1][col - 1] == '^') {
+      seating[row - 1][col - 1] = 'x';
       return true;
     }
     return false;
