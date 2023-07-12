@@ -11,7 +11,10 @@ public class NaiveGoldTrader {
     public static void main(String args[]) {
         int goldPrices[] = new int[1000000];
         // int n = readGoldPrices(goldPrices);
-        int n = Integer.parseInt(args[0]);
+        // int n = Integer.parseInt(args[0]);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.close();
         readGoldPrices(goldPrices, n);
         int bestBuyDate = 0;
         int bestSellDate = 0;
