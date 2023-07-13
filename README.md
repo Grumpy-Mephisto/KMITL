@@ -1,7 +1,9 @@
 <h1 align="center"><code>🏫</code> Computer Science at King Mongkut's University of Technology Ladkrabang</h1>
 
 <div align="center">
-  <img src="http://api.pungrumpy.com:3001/image/KMITL" alt="KMITL" width="200" onclick="window.open('http://api.pungrumpy.com:3001/image/KMITL')">
+  <a href="http://api.pungrumpy.com:3001/image/KMITL">
+    <img src="http://api.pungrumpy.com:3001/image/KMITL" alt="KMITL" width="200">
+  </a>
 </div>
 
 ## `📃` Description
