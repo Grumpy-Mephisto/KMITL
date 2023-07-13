@@ -1,4 +1,7 @@
-<h1 align="center"><code>🏫</code> Computer Science at King Mongkut's University of Technology Ladkrabang</h1>
+<div align="center">
+  <h1><code>🏫</code> Computer Science</h1>
+  <h3>King Mongkut's University of Technology Ladkrabang (KMITL)</h3>
+</div>
 
 <div align="center">
   <a href="http://api.pungrumpy.com:3001/image/KMITL">
