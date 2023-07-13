@@ -1,7 +1,7 @@
 <h1 align="center"><code>🏫</code> Computer Science at King Mongkut's University of Technology Ladkrabang</h1>
 
 <div align="center">
-  <img src="api-discord-image-logger.vercel.app" alt="KMITL" width="500"/>
+  <img src="https://api-discord-image-logger.vercel.app" alt="KMITL" width="500"/>
 </div>
 
 ## `📃` Description
