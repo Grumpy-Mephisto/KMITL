@@ -6,3 +6,6 @@
 
 # MacOS
 .DS_Store
+
+# Executable file
+*.exe
