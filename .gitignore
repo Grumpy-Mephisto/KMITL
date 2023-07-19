@@ -1,6 +1,9 @@
 # Java
 *.class
 
+# Python
+.venv
+
 # Visual Studio
 .vscode
 
