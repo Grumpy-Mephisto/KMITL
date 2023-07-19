@@ -1,5 +1,3 @@
-import java.text.DecimalFormat;
-
 public class CountPiN {
 
   static boolean isPrime0(int n) {
@@ -82,3 +80,19 @@ public class CountPiN {
     System.out.println("---------------------------------------------------");
   }
 }
+
+// Explanation of differences between isPrime methods:
+
+// isPrime0 is the slowest because it performs redundant checks, for example, 
+// it checks numbers up to n/2 for divisibility, even though the loop will terminate earlier.
+// isPrime0 ช้าที่สุดเนื่องจากมีการทำซ้ำในการตรวจสอบ ยกตัวอย่างเช่น ตัวเลข 4 จะถูกหารด้วย 2 และ 4 ทำให้มีการทำซ้ำซ้อน
+
+// isPrime1 is faster than isPrime0 as it uses the square root of n as the loop boundary, 
+// reducing the number of iterations. However, it still includes some unnecessary checks.
+// isPrime1 เร็วกว่า isPrime0 เนื่องจากใช้ขอบเขตของลูปเป็นรากที่สองของ n ลดจำนวนการทำซ้ำ แต่ยังคงมีการทำซ้ำบางส่วน
+
+// isPrime2 is the fastest because it optimizes the algorithm further. It skips divisibility 
+// checks for even numbers (except for 2) and checks odd numbers only up to the square root of n.
+// This avoids redundant checks and leads to improved performance.
+// isPrime2 เร็วที่สุดเนื่องจากปรับปรุงอัลกอริทึมให้มากขึ้น ข้ามการตรวจสอบความหารของเลขคู่ (ยกเว้น 2) 
+// และตรวจสอบเลขคี่เพียงรากที่สองของ n เท่านั้น ไม่มีการทำซ้ำซ้อน ซึ่งเป็นเหตุผลที่ทำให้เร็วกว่า
