@@ -79,7 +79,7 @@ public class CountPiNThreads {
     System.out.println("Prime Number Counting Program: Execution Statistics");
     System.out.println("---------------------------------------------------");
 
-    int numThreads = 50;
+    int numThreads = 6;
 
     for (int method = 0; method <= 2; method++) {
       System.out.println("Method: isPrime" + method);
