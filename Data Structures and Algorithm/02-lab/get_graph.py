@@ -59,16 +59,33 @@ method_data = parse_data(data)
 
 plt.figure(figsize=(10, 6))
 
-for method_name, method_stats in method_data.items():
-    plt.plot(method_stats['N'], method_stats['Time (ms)'], label=f"{method_name}")
+# N vs isPrime0
+plt.plot(method_data['isPrime0']['N'], method_data['isPrime0']['Time (ms)'], label="isPrime0")
 
 plt.xticks(range(100000, 1100000, 100000), [f"{x:,}" for x in range(100000, 1100000, 100000)])
 plt.xlabel("N (Range 100,000 to 1,000,000)")
 plt.ylabel("Time (ms)")
-plt.title("Prime Number Counting Execution Time Comparison")
+plt.title("Prime Number Counting Execution Time Comparison (isPrime0)")
 plt.legend()
 plt.grid(True)
 
 plt.tight_layout()
-plt.savefig("prime_comparison_chart.png")
+plt.savefig("isPrime0_comparison_chart.png")
+plt.show()
+
+# N vs isPrime1 vs isPrime2
+plt.figure(figsize=(10, 6))
+
+plt.plot(method_data['isPrime1']['N'], method_data['isPrime1']['Time (ms)'], label="isPrime1")
+plt.plot(method_data['isPrime2']['N'], method_data['isPrime2']['Time (ms)'], label="isPrime2")
+
+plt.xticks(range(100000, 1100000, 100000), [f"{x:,}" for x in range(100000, 1100000, 100000)])
+plt.xlabel("N (Range 100,000 to 1,000,000)")
+plt.ylabel("Time (ms)")
+plt.title("Prime Number Counting Execution Time Comparison (isPrime1 vs isPrime2)")
+plt.legend()
+plt.grid(True)
+
+plt.tight_layout()
+plt.savefig("isPrime1_isPrime2_comparison_chart.png")
 plt.show()
