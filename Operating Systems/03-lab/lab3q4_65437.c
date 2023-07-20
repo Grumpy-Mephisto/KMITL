@@ -2,6 +2,7 @@
 
 int main() {
   int a, b, c;
+
   printf("Enter a numbers: ");
   scanf("%d", &a);
 
