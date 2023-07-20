@@ -1,15 +1,29 @@
 #include <stdio.h>
 
 int main() {
-  int a, b, c;
+  int summarize = 0;
+  int count = 0;
+  double average = 0.0;
+  int input = 0;
 
-  printf("Enter a numbers: ");
-  scanf("%d", &a);
+  printf("Enter a number: ");
+  scanf("%d", &input);
 
-  printf("Enter two numbers: ");
-  scanf("%d %d", &b, &c);
+  while (input > 0) {
+    summarize += input;
+    count++;
 
-  printf("Summation = %d\n", a + b + c);
+    if (input > 0) {
+      average = (double)summarize / count; 
+    }
+
+    printf("Enter another number (or 0 to exit): ");
+    scanf("%d", &input);
+  }
+
+  printf("Sum: %d\n", summarize);
+  printf("Average: %.2f\n", average);
 
   return 0;
 }
+
