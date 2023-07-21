@@ -5,20 +5,18 @@ int main() {
   int count = 0;
   double average = 0.0;
   int input = 0;
+  int true = 1;
 
-  printf("Enter a number: ");
-  scanf("%d", &input);
+  while (true) {
+    printf("Enter a number (or 0 to exit): ");
+    scanf("%d", &input);
 
-  while (input > 0) {
+    if (input <= 0) break;
+
     summarize += input;
     count++;
 
-    if (input > 0) {
-      average = (double)summarize / count; 
-    }
-
-    printf("Enter another number (or 0 to exit): ");
-    scanf("%d", &input);
+    if (input > 0) average = (double)summarize / count; 
   }
 
   printf("Sum: %d\n", summarize);
