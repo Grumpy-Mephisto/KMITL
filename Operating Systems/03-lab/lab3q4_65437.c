@@ -19,7 +19,7 @@ int main() {
     if (input > 0) average = (double)summarize / count; 
   }
 
-  printf("Sum: %d\n", summarize);
+  printf("summarize: %d\n", summarize);
   printf("Average: %.2f\n", average);
 
   return 0;
