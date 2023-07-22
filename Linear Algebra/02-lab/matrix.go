@@ -43,6 +43,21 @@ func matrixMultiply(matrix1 [][]int, matrix2 [][]int) [][]int {
 	return product
 }
 
+func matrixTranspose(matrix [][]int) [][]int {
+	rows := len(matrix)
+	cols := len(matrix[0])
+
+	transposed := matrixCreate(cols, rows)
+
+	for i := 0; i < rows; i++ {
+		for j := 0; j < cols; j++ {
+			transposed[j][i] = matrix[i][j]
+		}
+	}
+
+	return transposed
+}
+
 func matrixPrint(matrix [][]int) {
 	for i := 0; i < len(matrix); i++ {
 		for j := 0; j < len(matrix[i]); j++ {
@@ -50,6 +65,7 @@ func matrixPrint(matrix [][]int) {
 		}
 		fmt.Println()
 	}
+	fmt.Println()
 }
 
 func main() {
@@ -112,8 +128,25 @@ func main() {
 		for j := 0; j < matrixCount; j++ {
 			if i != j {
 				fmt.Printf("Matrix %d * Matrix %d:\n", i+1, j+1)
-				matrixPrint(matrixMultiply(matrices[i], matrices[j]))
-				fmt.Println()
+				product := matrixMultiply(matrices[i], matrices[j])
+				matrixPrint(product)
+			}
+		}
+	}
+
+	fmt.Println("\n===== Transpose of Matrices =====")
+	for i, matrix := range matrices {
+		fmt.Printf("Matrix %dT:\n", i+1)
+		matrixPrint(matrixTranspose(matrix))
+	}
+
+	fmt.Println("\n===== Product of Transposed Matrices =====")
+	for i := 0; i < matrixCount; i++ {
+		for j := 0; j < matrixCount; j++ {
+			if i != j {
+				fmt.Printf("Matrix %dT * Matrix %dT:\n", i+1, j+1)
+				productT := matrixMultiply(matrixTranspose(matrices[i]), matrixTranspose(matrices[j]))
+				matrixPrint(productT)
 			}
 		}
 	}
