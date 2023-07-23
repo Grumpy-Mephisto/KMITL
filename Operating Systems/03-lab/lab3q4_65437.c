@@ -8,7 +8,7 @@ int main() {
   int true = 1;
 
   while (true) {
-    printf("Enter a number (or 0 to exit): ");
+    printf("Enter a number (or 0 or negative number to exit): ");
     scanf("%d", &input);
 
     if (input <= 0) break;
