@@ -128,6 +128,7 @@ func main() {
 		for j := 0; j < matrixCount; j++ {
 			if i != j {
 				fmt.Printf("Matrix %d * Matrix %d:\n", i+1, j+1)
+<<<<<<< HEAD
 				product := matrixMultiply(matrices[i], matrices[j])
 				matrixPrint(product)
 			}
@@ -147,6 +148,9 @@ func main() {
 				fmt.Printf("Matrix %dT * Matrix %dT:\n", i+1, j+1)
 				productT := matrixMultiply(matrixTranspose(matrices[i]), matrixTranspose(matrices[j]))
 				matrixPrint(productT)
+=======
+				matrixPrint(matrixMultiply(matrices[i], matrices[j]))
+>>>>>>> origin/Year2-1
 			}
 		}
 	}
