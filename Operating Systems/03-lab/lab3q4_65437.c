@@ -11,12 +11,14 @@ int main() {
     printf("Enter a number (or 0 or negative number to exit): ");
     scanf("%d", &input);
 
-    if (input <= 0) break;
+    if (input <= 0)
+      break;
 
     summarize += input;
     count++;
 
-    if (input > 0) average = (double)summarize / count; 
+    if (input > 0)
+      average = (double)summarize / count;
   }
 
   printf("Summarize: %d\n", summarize);
@@ -24,4 +26,3 @@ int main() {
 
   return 0;
 }
-
