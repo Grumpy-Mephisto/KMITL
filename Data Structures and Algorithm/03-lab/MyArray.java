@@ -8,22 +8,20 @@ public class MyArray {
     size = 0;
   }
 
-  public boolean isFull() {
-    return size >= MAX_SIZE;
-  }
+  public boolean isFull() { return size >= MAX_SIZE; }
 
-  public boolean isEmpty() {
-    return size == 0;
-  }
+  public boolean isEmpty() { return size == 0; }
 
   public void add(int value) {
-    if (isFull()) expands();
+    if (isFull())
+      expands();
 
     array[size++] = value;
   }
 
   public void insert(int value, int index) {
-    if (isFull()) expands();
+    if (isFull())
+      expands();
 
     for (int i = size; i > index; i--) {
       array[i] = array[i - 1];
@@ -44,7 +42,7 @@ public class MyArray {
   public int binarySearch(int value) {
     int low = 0;
     int high = size - 1;
-    while(low <= high) {
+    while (low <= high) {
       int mid = (low + high) / 2;
       if (array[mid] == value) {
         return mid;
@@ -75,7 +73,7 @@ public class MyArray {
     System.arraycopy(array, 0, newArray, 0, size);
     array = newArray;
   }
-  
+
   public String toString() {
     StringBuffer sb = new StringBuffer();
     sb.append("[");
