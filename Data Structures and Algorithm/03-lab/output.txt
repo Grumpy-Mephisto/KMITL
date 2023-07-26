@@ -1,0 +1,70 @@
+--------- Round 1 ---------
+Round 1: N = 10,000,000 	Time = 168 ms
+Round 1: N = 20,000,000 	Time = 328 ms
+Round 1: N = 30,000,000 	Time = 501 ms
+Round 1: N = 40,000,000 	Time = 653 ms
+Round 1: N = 50,000,000 	Time = 873 ms
+Round 1: N = 60,000,000 	Time = 980 ms
+Round 1: N = 70,000,000 	Time = 1,131 ms
+Round 1: N = 80,000,000 	Time = 1,291 ms
+Round 1: N = 90,000,000 	Time = 1,610 ms
+Round 1: N = 100,000,000 	Time = 1,638 ms
+
+--------- Round 2 ---------
+Round 2: N = 10,000,000 	Time = 173 ms
+Round 2: N = 20,000,000 	Time = 324 ms
+Round 2: N = 30,000,000 	Time = 485 ms
+Round 2: N = 40,000,000 	Time = 645 ms
+Round 2: N = 50,000,000 	Time = 817 ms
+Round 2: N = 60,000,000 	Time = 964 ms
+Round 2: N = 70,000,000 	Time = 1,110 ms
+Round 2: N = 80,000,000 	Time = 1,264 ms
+Round 2: N = 90,000,000 	Time = 1,489 ms
+Round 2: N = 100,000,000 	Time = 1,640 ms
+
+--------- Round 3 ---------
+Round 3: N = 10,000,000 	Time = 160 ms
+Round 3: N = 20,000,000 	Time = 314 ms
+Round 3: N = 30,000,000 	Time = 481 ms
+Round 3: N = 40,000,000 	Time = 632 ms
+Round 3: N = 50,000,000 	Time = 823 ms
+Round 3: N = 60,000,000 	Time = 971 ms
+Round 3: N = 70,000,000 	Time = 1,117 ms
+Round 3: N = 80,000,000 	Time = 1,270 ms
+Round 3: N = 90,000,000 	Time = 1,486 ms
+Round 3: N = 100,000,000 	Time = 1,633 ms
+
+--------- Round 4 ---------
+Round 4: N = 10,000,000 	Time = 160 ms
+Round 4: N = 20,000,000 	Time = 315 ms
+Round 4: N = 30,000,000 	Time = 479 ms
+Round 4: N = 40,000,000 	Time = 628 ms
+Round 4: N = 50,000,000 	Time = 820 ms
+Round 4: N = 60,000,000 	Time = 969 ms
+Round 4: N = 70,000,000 	Time = 1,114 ms
+Round 4: N = 80,000,000 	Time = 1,274 ms
+Round 4: N = 90,000,000 	Time = 1,514 ms
+Round 4: N = 100,000,000 	Time = 1,641 ms
+
+--------- Round 5 ---------
+Round 5: N = 10,000,000 	Time = 161 ms
+Round 5: N = 20,000,000 	Time = 316 ms
+Round 5: N = 30,000,000 	Time = 480 ms
+Round 5: N = 40,000,000 	Time = 633 ms
+Round 5: N = 50,000,000 	Time = 835 ms
+Round 5: N = 60,000,000 	Time = 977 ms
+Round 5: N = 70,000,000 	Time = 1,128 ms
+Round 5: N = 80,000,000 	Time = 1,271 ms
+Round 5: N = 90,000,000 	Time = 1,502 ms
+Round 5: N = 100,000,000 	Time = 1,656 ms
+
+Average time for N = 10,000,000 	Time = 164.40 ms 	Average time per N = 0.00001644 ms
+Average time for N = 20,000,000 	Time = 319.40 ms 	Average time per N = 0.00001597 ms
+Average time for N = 30,000,000 	Time = 485.20 ms 	Average time per N = 0.00001617 ms
+Average time for N = 40,000,000 	Time = 638.20 ms 	Average time per N = 0.00001595 ms
+Average time for N = 50,000,000 	Time = 833.60 ms 	Average time per N = 0.00001667 ms
+Average time for N = 60,000,000 	Time = 972.20 ms 	Average time per N = 0.00001620 ms
+Average time for N = 70,000,000 	Time = 1,120.00 ms 	Average time per N = 0.00001600 ms
+Average time for N = 80,000,000 	Time = 1,274.00 ms 	Average time per N = 0.00001592 ms
+Average time for N = 90,000,000 	Time = 1,520.20 ms 	Average time per N = 0.00001689 ms
+Average time for N = 100,000,000 	Time = 1,641.60 ms 	Average time per N = 0.00001642 ms
