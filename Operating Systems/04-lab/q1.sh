@@ -1,4 +1,4 @@
-#!/usr/env bash
+#!/usr/bin/env bash
 
 # Create directories
 [[ -d test ]] || { echo "Creating directory test"; mkdir test; } # mkdir test

@@ -1,4 +1,4 @@
-#!/usr/bin bash
+#!/usr/bin/env bash
 
 myvar="Hi there"
 #myx = "error because of spacebar"
