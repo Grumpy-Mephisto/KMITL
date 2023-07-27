@@ -11,6 +11,7 @@
 # Loop create file q1-q11.sh
 for i in {1..11}; do
     [[ -f q$i.sh ]] || { echo "Creating file q$i.sh"; touch q$i.sh; }
+    [[ -f q$i.sh ]] && { echo "#!/usr/bin bash" > q$i.sh; }
 done
 
 # Check
