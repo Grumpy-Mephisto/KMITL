@@ -26,4 +26,5 @@ for file in L*.c; do
             printf "%s\t%s%d%s\n" "$program_name" "$RED" "$NOT_COMPILED" "$RESET"
         fi
     fi
+    rm -f "$program_name"
 done
