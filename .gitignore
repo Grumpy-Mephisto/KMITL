@@ -13,3 +13,7 @@
 # Executable file
 *.exe
 *.out
+
+# Answer
+*.ans
+
