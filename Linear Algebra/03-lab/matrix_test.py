@@ -43,9 +43,18 @@ def test_transpose(matrix_constructor):
 
 def test_cofactor(matrix_constructor):
     cofactor = Matrix.cofactor(matrix_constructor.matrix, 0, 0)
-    assert cofactor == 0
+    assert cofactor == -24
 
 
 def test_inverse(matrix_constructor):
     inverse = Matrix.inverse(matrix_constructor.matrix)
     assert inverse is None
+
+
+def test_square(matrix_constructor):
+    assert Matrix.square(matrix_constructor.matrix) == True
+
+
+def test_square_false():
+    matrix = Matrix.create(3, 4)
+    assert Matrix.square(matrix) == False

