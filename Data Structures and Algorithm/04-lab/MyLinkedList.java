@@ -36,9 +36,23 @@ public class MyLinkedList {
     }
     
     public void insert (int d) {
-        Node p = new Node(d);
-        p.next = head;
-        head = p;
+        Node q = new Node(d);
+        Node p = head;
+        while(p.next != null) {
+            if (p.next.data > d) {
+                if (p == head) {
+                    q.next = head;
+                    head = q;
+                } else {
+                    q.next = p.next;
+                    p.next = q;
+                }
+                return;
+            }
+
+            p = p.next;
+        }
+        p.next = q;
     }
     
     public void find (int d) {
