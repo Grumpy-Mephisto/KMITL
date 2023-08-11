@@ -28,6 +28,16 @@ public class MyLinkedList {
         }
         return p.data = d;
     }
+
+    public int size() {
+        int count = 0;
+        Node p = head;
+        while(p != null) {
+            count++;
+            p = p.next;
+        }
+        return count;
+    }
     
     public void add (int d) {
         Node p = new Node(d);
