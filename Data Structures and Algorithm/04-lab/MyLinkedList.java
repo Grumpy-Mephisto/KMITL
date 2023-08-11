@@ -3,7 +3,9 @@ public class MyLinkedList {
     int data;
     Node next;
 
-    public Node(int d) { data = d; }
+    public Node(int d) {
+      data = d;
+    }
   }
 
   Node head = null;
