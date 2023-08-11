@@ -5,13 +5,13 @@
 2.
     2.1 B ทำงาน
     2.2 C ทำงาน 1 ครั้ง
-    2.3 หลังจากบรรทัด A ให้เติม exit(0) เข้าไป
-    2.4 
+    2.3 หลังจากบรรทัด A ให้เติม exit(-1) หรือ return -1
+    2.4 เพิ่ม exit(0) หลังจากบรรทัด 110
 
 3.
-    3.1 type ls อยู่ใน /bin/ls
-    3.2 type whoami อยู่ใน /usr/bin/whoami
-    3.3 type ps อยู่ใน /bin/ps
+    3.1 type ls อยู่ใน ls: /usr/bin/ls /usr/share/man/man1/ls.1.gz
+    3.2 type whoami อยู่ใน whoami: /usr/bin/whoami /usr/share/man/man1/whoami.1.gz
+    3.3 type ps อยู่ใน ps: /usr/bin/ps /usr/share/man/man1/ps.1.gz
     3.4 type เป็นคำสั่ง built-in ของ shell ที่ใช้ในการแสดงชนิดของข้อมูล
     3.5 type cd จะแสดงว่า cd เป็นคำสั่ง built-in ของ shell
-    3.6 exec ใช้กับคำสั่งใน shell (เช่น type) ไม่ได้ แต่ถ้าใช้กับคำสั่งที่เป็น file จะทำให้คำสั่งนั้นหายไป
+    3.6 exec ใช้กับคำสั่งใน shell (เช่น type) ไม่ได้
