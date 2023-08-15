@@ -101,6 +101,28 @@ ORDER BY column_name(s);
 SELECT COUNT(column_name) FROM table_name;
 ```
 
+## 📋 REGULAR vs CORRELATED SUBQUERIES
+
+### 📋 REGULAR SUBQUERIES
+
+- Run first
+- Pass results to main query
+
+```sql
+-- Regular Subquery
+SELECT * FROM table_name WHERE column_name IN (SELECT column_name FROM table_name);
+```
+
+### 📋 CORRELATED SUBQUERIES
+
+- Run for each row
+- Pass results to main query
+
+```sql
+-- Correlated Subquery
+SELECT * FROM table_name WHERE column_name IN (SELECT column_name FROM table_name WHERE table_name.column_name = table_name.column_name);
+```
+
 ---
 
 # 🏓 Normalization
