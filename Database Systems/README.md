@@ -123,6 +123,40 @@ SELECT * FROM table_name WHERE column_name IN (SELECT column_name FROM table_nam
 SELECT * FROM table_name WHERE column_name IN (SELECT column_name FROM table_name WHERE table_name.column_name = table_name.column_name);
 ```
 
+## 📋 LIKE
+
+```sql
+SELECT * FROM table_name WHERE column_name LIKE pattern;
+```
+
+**Example**
+
+```sql
+SELECT * FROM table_name WHERE column_name LIKE 'a%';
+```
+
+```sql
+SELECT * FROM table_name WHERE column_name LIKE '%a';
+```
+
+## 📋 IN
+
+```sql
+SELECT * FROM table_name WHERE column_name IN (value1, value2, ...);
+```
+
+## 📋 BETWEEN
+
+```sql
+SELECT * FROM table_name WHERE column_name BETWEEN value1 AND value2;
+```
+
+## 📋 ALIAS
+
+```sql
+SELECT column_name AS alias_name FROM table_name;
+```
+
 ---
 
 # 🏓 Normalization
