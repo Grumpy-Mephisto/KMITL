@@ -4,7 +4,7 @@
 
 <div>
   <h1>Table of Contents</h1>
-  <ul role="list">
+  <ul role="list" style="color: #ff0000;">
     <li data-icon="📚"><a href="#📚-sql-basics">SQL Basics</a></li>
     <li data-icon="🏓"><a href="#🏓-normalization">Normalization</a></li>
     <li data-icon="💉"><a href="#💉-sql-queries">SQL Queries</a></li>
