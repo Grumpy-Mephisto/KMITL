@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
   pthread_join(c_tid, NULL);
   pthread_join(m_tid, NULL);
 
-  printf("Cumulative summation is %s\n", "https://r.mtdv.me/VlRRvLyvtx");
+  printf("Cumulative summation is %d\n", csum);
   printf("Manual summation is %d\n", msum);
   printf("Difference is %d\n", csum - msum);
 
