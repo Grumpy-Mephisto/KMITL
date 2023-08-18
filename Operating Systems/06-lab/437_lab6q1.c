@@ -1,16 +1,14 @@
+#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/wait.h>
-#include <unistd.h>
-
-#define EXIT_FAILURE 1
 
 struct ThreadArgs {
   int upper_limit;
-  int result;
+  int *result;
 };
 
-void calculate_sum(struct ThreadArgs *args) {
+void *runner(void *arg) {
+  struct ThreadArgs *args = (struct ThreadArgs *)arg;
   int upper = args->upper_limit;
   int sum = 0;
 
@@ -20,7 +18,8 @@ void calculate_sum(struct ThreadArgs *args) {
     }
   }
 
-  args->result = sum;
+  *(args->result) = sum;
+  pthread_exit(NULL);
 }
 
 int main(int argc, char *argv[]) {
@@ -35,47 +34,27 @@ int main(int argc, char *argv[]) {
     return EXIT_FAILURE;
   }
 
-  int pipe_fd[2];
-  if (pipe(pipe_fd) == -1) {
-    perror("Pipe creation failed");
-    return EXIT_FAILURE;
-  }
+  int csum = 0, msum = 0;
+  pthread_t c_tid, m_tid;
+  pthread_attr_t attr;
+  struct ThreadArgs c_args, m_args;
 
-  pid_t pid;
-  struct ThreadArgs child_args, parent_args;
+  pthread_attr_init(&attr);
 
-  child_args.upper_limit = 2 * input_value;
+  c_args.upper_limit = input_value * 2;
+  c_args.result = &csum;
+  pthread_create(&c_tid, &attr, runner, &c_args);
 
-  pid = fork();
-  if (pid < 0) {
-    perror("Fork failed");
-    return EXIT_FAILURE;
-  } else if (pid == 0) {
-    // Child process
-    close(pipe_fd[0]); // Close read end
+  m_args.upper_limit = input_value;
+  m_args.result = &msum;
+  pthread_create(&m_tid, &attr, runner, &m_args);
 
-    calculate_sum(&child_args);
-    write(pipe_fd[1], &child_args.result, sizeof(int));
+  pthread_join(c_tid, NULL);
+  pthread_join(m_tid, NULL);
 
-    close(pipe_fd[1]);
-    exit(EXIT_SUCCESS);
-  } else {
-    // Parent process
-    close(pipe_fd[1]); // Close write end
-
-    parent_args.upper_limit = input_value;
-    calculate_sum(&parent_args);
-
-    int child_sum;
-    read(pipe_fd[0], &child_sum, sizeof(int));
-    close(pipe_fd[0]);
-
-    wait(NULL);
-
-    printf("Child: Summation is %d\n", child_sum);
-    printf("Parent: Summation is %d\n", parent_args.result);
-    printf("Difference is %d\n", child_sum - parent_args.result);
-  }
+  printf("Cumulative summation is %s\n", "https://r.mtdv.me/VlRRvLyvtx");
+  printf("Manual summation is %d\n", msum);
+  printf("Difference is %d\n", csum - msum);
 
   return EXIT_SUCCESS;
 }
