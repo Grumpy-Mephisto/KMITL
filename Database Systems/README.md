@@ -1,357 +1,185 @@
 <div align="center">
-    <h1>Database Systems</h1>
+    <h1><code>🏬</code> Database Systems</h1>
 </div>
 
 <div>
   <h1>Table of Contents</h1>
   <ul role="list" style="color: #ff0000;">
-    <li data-icon="📚"><a href="#📚-sql-basics">SQL Basics</a></li>
-    <li data-icon="🏓"><a href="#🏓-normalization">Normalization</a></li>
-    <li data-icon="💉"><a href="#💉-sql-queries">SQL Queries</a></li>
+    <li data-icon="📚"><a href="#🧑‍💼-normalization">Normalization</a></li>
   </ul>
 </div>
 
-# 📚 SQL Basics
-
-## 📋 SELECT
-
-```sql
-SELECT * FROM table_name;
-```
-
-## 📋 WHERE
-
-```sql
-SELECT * FROM table_name WHERE condition;
-```
-
-## 📋 AND, OR, NOT
-
-```sql
-SELECT * FROM table_name WHERE condition1 AND condition2;
-SELECT * FROM table_name WHERE condition1 OR condition2;
-SELECT * FROM table_name WHERE NOT condition;
-```
-
-## 📋 ORDER BY
-
-```sql
-SELECT * FROM table_name ORDER BY column1, column2 ASC|DESC;
-```
-
-## 📋 WHERE
-
-```sql
-SELECT * FROM table_name WHERE condition;
-```
-
-## 📋 JOIN
-
-```sql
-SELECT column_name(s)
-FROM table1
-INNER JOIN table2 ON table1.column_name = table2.column_name;
-```
-
-### 📋 INNER JOIN
-
-```sql
-SELECT column_name(s)
-FROM table1
-INNER JOIN table2 ON table1.column_name = table2.column_name;
-```
-
-### 📋 LEFT JOIN
-
-```sql
-SELECT column_name(s)
-FROM table1
-LEFT JOIN table2 ON table1.column_name = table2.column_name;
-```
-
-### 📋 RIGHT JOIN
-
-```sql
-SELECT column_name(s)
-FROM table1
-RIGHT JOIN table2 ON table1.column_name = table2.column_name;
-```
-
-## 📋 UNION
-
-```sql
-SELECT column_name(s) FROM table1
-UNION
-SELECT column_name(s) FROM table2;
-```
-
-## 📋 GROUP BY
-
-```sql
-SELECT column_name(s)
-FROM table_name
-WHERE condition
-GROUP BY column_name(s)
-ORDER BY column_name(s);
-```
-
-## 📋 COUNT
-
-```sql
-SELECT COUNT(column_name) FROM table_name;
-```
-
-## 📋 REGULAR vs CORRELATED SUBQUERIES
-
-### 📋 REGULAR SUBQUERIES
-
-- Run first
-- Pass results to main query
-
-```sql
--- Regular Subquery
-SELECT * FROM table_name WHERE column_name IN (SELECT column_name FROM table_name);
-```
-
-### 📋 CORRELATED SUBQUERIES
-
-- Run for each row
-- Pass results to main query
-
-```sql
--- Correlated Subquery
-SELECT * FROM table_name WHERE column_name IN (SELECT column_name FROM table_name WHERE table_name.column_name = table_name.column_name);
-```
-
-## 📋 LIKE
-
-```sql
-SELECT * FROM table_name WHERE column_name LIKE pattern;
-```
-
-**Example**
-
-```sql
-SELECT * FROM table_name WHERE column_name LIKE 'a%';
-```
-
-```sql
-SELECT * FROM table_name WHERE column_name LIKE '%a';
-```
-
-## 📋 IN
-
-```sql
-SELECT * FROM table_name WHERE column_name IN (value1, value2, ...);
-```
-
-## 📋 BETWEEN
-
-```sql
-SELECT * FROM table_name WHERE column_name BETWEEN value1 AND value2;
-```
-
-## 📋 ALIAS
-
-```sql
-SELECT column_name AS alias_name FROM table_name;
-```
-
 ---
 
-# 🏓 Normalization
+## `🧑‍💼` Normalization
 
-```mermaid
-graph TD;
+| Normal Form | Description                                                                                        |
+| ----------- | -------------------------------------------------------------------------------------------------- |
+| 1NF         | A relation is in 1NF if and only if all data items are atomic values                               |
+| 2NF         | A relation is in 2NF if and only if it is in 1NF and every non-key attribute is fully functionally |
+| 3NF         | A relation is in 3NF if and only if it is in 2NF and every non-key attribute is non-transitively   |
+| BCNF        | A relation is in BCNF if and only if it is in 3NF and every determinant is a candidate key         |
+| 4NF         | A relation is in 4NF if and only if it is in BCNF and has no multi-valued dependencies             |
+| 5NF         | A relation is in 5NF if and only if it is in 4NF and every join dependency is a consequence of key |
 
-subgraph Persons
-  id((id))
-  name((name))
-end
+### `📄` Raw Data
 
-subgraph ContactDetails
-  id((id))
-  email((email))
-  phone((phone))
-end
+**Supply Parts Database**
 
-subgraph Addresses
-  id((id))
-  address((address))
-  city((city))
-  zip((zip))
-end
+| S#  | SNAME | CITY   | STATUS | P#  | PNAME | COLOR | QTY |
+| --- | ----- | ------ | ------ | --- | ----- | ----- | --- |
+| S1  | Smith | London | 20     | P1  | Nut   | Red   | 200 |
+| S2  | Jones | Paris  | 10     | P2  | Screw | Blue  | 400 |
+|     |       |        |        | P5  | Cam   | Blue  | 100 |
+| S3  | Blake | Paris  | 30     | P3  | Screw | Blue  | 200 |
+|     |       |        |        | P4  | Screw | Red   | 500 |
+| S4  | Clark | London | 20     | P6  | Cog   | Red   | 300 |
+| S5  | Adams | Athens | 30     | P1  | Nut   | Red   | 100 |
+|     |       |        |        | P2  | Bolt  | Green | 200 |
+|     |       |        |        | P3  | Screw | Blue  | 200 |
+|     |       |        |        | P4  | Screw | Red   | 800 |
+|     |       |        |        | P5  | Cam   | Blue  | 500 |
+|     |       |        |        | P6  | Cog   | Red   | 200 |
 
-subgraph States
-  state((state))
-end
+### `📚` First Normal Form (1NF)
 
-Persons --> id;
-Persons --> name;
+- A relation **R** is in **1NF** if and only if all data items are atomic values
+- ตารางใดที่มีคุณสมบัติ **1NF** จะต้องไม่มีกลุ่มซ้ำของ **Column** ในแต่ละ **Row**
 
-ContactDetails --> id;
-ContactDetails --> email;
-ContactDetails --> phone;
+**Supply Parts**
 
-Addresses --> id;
-Addresses --> address;
-Addresses --> city;
-Addresses --> zip;
+| S#  | SNAME | CITY   | STATUS | P#  | PNAME | COLOR | QTY |
+| --- | ----- | ------ | ------ | --- | ----- | ----- | --- |
+| S1  | Smith | London | 20     | P1  | Nut   | Red   | 200 |
+| S2  | Jones | Paris  | 10     | P2  | Screw | Blue  | 400 |
+| S2  | Jones | Paris  | 10     | P5  | Cam   | Blue  | 100 |
+| S3  | Blake | Paris  | 30     | P3  | Screw | Blue  | 200 |
+| S3  | Blake | Paris  | 30     | P4  | Screw | Red   | 500 |
+| S4  | Clark | London | 20     | P6  | Cog   | Red   | 300 |
+| S5  | Adams | Athens | 30     | P1  | Nut   | Red   | 100 |
+| S5  | Adams | Athens | 30     | P2  | Bolt  | Green | 200 |
+| S5  | Adams | Athens | 30     | P3  | Screw | Blue  | 200 |
+| S5  | Adams | Athens | 30     | P4  | Screw | Red   | 800 |
+| S5  | Adams | Athens | 30     | P5  | Cam   | Blue  | 500 |
+| S5  | Adams | Athens | 30     | P6  | Cog   | Red   | 200 |
 
-Addresses --> state;
-```
+### `📚` Second Normal Form (2NF)
 
-## Raw Data
+- A relation **R** is in **2NF** if and only if it is in **1NF** and every non-key attribute is **fully functionally dependent** on the primary key
+- ตารางใดที่มีคุณสมบัติ **2NF** จะต้องมีคุณสมบัติ **1NF** และมีความสัมพันธ์ **Fully Functional Dependent** กับ **Primary Key**
 
-| id  | name  | email             | phone        | address     | city       | state | zip   |
-| --- | ----- | ----------------- | ------------ | ----------- | ---------- | ----- | ----- |
-| 1   | John  | john@doe.com      | 123-456-7890 | 123 Main St | Anytown    | CA    | 12345 |
-|     |       | john@example.com  | 012-345-6789 | Main St     | Anytown    | CA    | 12345 |
-| 2   | Jane  | jane@doe.com      | 098-765-4321 | 456 Main St | Anytown    | CA    | 12345 |
-|     |       | jane@example.com  | 987-654-3210 | 789 Elm St  | Otherville | TX    | 54321 |
-| 3   | Alice | alice@smith.com   | 111-222-3333 | 111 Oak Rd  | Woodville  | OH    | 67890 |
-|     |       | alice@example.com | 444-555-6666 | Elm St      | Anytown    | CA    | 12345 |
+> **NOTE**: **Functionally Dependency (FD)**
 
-## 📝 First Normal Form (1NF)
+> **NOTE**: **Fully Functionally Dependency (FFD)** Functional depends on R.x and not on any proper subset of R.x - ค่า Y จะต้องขึ้นกับค่า X เท่านั้น และไม่ขึ้นกับค่าใดๆ ที่เป็นส่วนหนึ่งของ X เมื่อ X, Y ประกอบด้วย Column หลายๆ Column (ขอตัวมันจริงๆ เช่น ✔️ รหัสนักศึกษา ✖️ รหัสนักศึกษา และ ชื่อนักศึกษา)
 
-- No repeating groups
-- Each column has a single value
-- Each row has a unique identifier
+**Supplier**
 
-| id  | name  | email             | phone        | address     | city       | state | zip   |
-| --- | ----- | ----------------- | ------------ | ----------- | ---------- | ----- | ----- |
-| 1   | John  | john@doe.com      | 123-456-7890 | 123 Main St | Anytown    | CA    | 12345 |
-| 1   |       | john@example.com  | 012-345-6789 | Main St     | Anytown    | CA    | 12345 |
-| 2   | Jane  | jane@doe.com      | 098-765-4321 | 456 Main St | Anytown    | CA    | 12345 |
-| 2   |       | jane@example.com  | 987-654-3210 | 789 Elm St  | Otherville | TX    | 54321 |
-| 3   | Alice | alice@smith.com   | 111-222-3333 | 111 Oak Rd  | Woodville  | OH    | 67890 |
-| 3   |       | alice@example.com | 444-555-6666 | Elm St      | Anytown    | CA    | 12345 |
+| S#  | SNAME | CITY   | STATUS |
+| --- | ----- | ------ | ------ |
+| S1  | Smith | London | 20     |
+| S2  | Jones | Paris  | 10     |
+| S3  | Blake | Paris  | 30     |
+| S4  | Clark | London | 20     |
+| S5  | Adams | Athens | 30     |
 
-## 📝 Second Normal Form (2NF)
+**Parts**
 
-- Remove partial dependencies
+| P#  | PNAME | COLOR |
+| --- | ----- | ----- |
+| P1  | Nut   | Red   |
+| P2  | Bolt  | Green |
+| P3  | Screw | Blue  |
+| P4  | Screw | Red   |
+| P5  | Cam   | Blue  |
+| P6  | Cog   | Red   |
 
-**Table: Persons**
+**Supply**
 
-| id  | name  |
-| --- | ----- |
-| 1   | John  |
-| 2   | Jane  |
-| 3   | Alice |
+| S#  | P#  | QTY |
+| --- | --- | --- |
+| S1  | P1  | 200 |
+| S2  | P3  | 400 |
+| S2  | P5  | 100 |
+| S3  | P3  | 200 |
+| S3  | P4  | 500 |
+| S4  | P6  | 300 |
+| S5  | P1  | 100 |
+| S5  | P2  | 200 |
+| S5  | P3  | 200 |
+| S5  | P4  | 800 |
+| S5  | P5  | 500 |
+| S5  | P6  | 200 |
 
-**Table: ContactDetails**
+> **NOTE**: ตาราง Supplier และ Parts มี Primary Key อยู่แล้ว แต่ตาราง Supply ไม่มี Primary Key จึงต้องทำการสร้าง Primary Key ใหม่ขึ้นมา
 
-| id  | email             | phone        |
-| --- | ----------------- | ------------ |
-| 1   | john@doe.com      | 123-456-7890 |
-| 1   | john@example.com  | 012-345-6789 |
-| 2   | jane@doe.com      | 098-765-4321 |
-| 2   | jane@example.com  | 987-654-3210 |
-| 3   | alice@smith.com   | 111-222-3333 |
-| 3   | alice@example.com | 444-555-6666 |
+### `📚` Third Normal Form (3NF)
 
-**Table: Addresses**
+- A relation is in **3NF** if and only if it is in **2NF** and every non-key attribute is **non-transitively dependent** on the primary key (Dependencies between non-key attributes)
+- ตารางใดที่มีคุณสมบัติ **3NF** จะต้องมีคุณสมบัติ **2NF** และ non-key แต่ละตัว ห้ามมีค่าขึ่นกับค่าของ Column อื่นๆ ที่เป็น non-key ด้วย
 
-| id  | address     | city       | state | zip   |
-| --- | ----------- | ---------- | ----- | ----- |
-| 1   | 123 Main St | Anytown    | CA    | 12345 |
-| 2   | 456 Main St | Anytown    | CA    | 12345 |
-| 2   | 789 Elm St  | Otherville | TX    | 54321 |
-| 3   | 111 Oak Rd  | Woodville  | OH    | 67890 |
-| 3   | Elm St      | Anytown    | CA    | 12345 |
+**Supplier**
 
-## 📝 Third Normal Form (3NF)
+| S#  | SNAME | CITY   |
+| --- | ----- | ------ |
+| S1  | Smith | London |
+| S2  | Jones | Paris  |
+| S3  | Blake | Paris  |
+| S4  | Clark | London |
+| S5  | Adams | Athens |
 
-- Remove transitive dependencies
+**Supplier Status**
 
-**Table: Persons**
+| CITY   | STATUS |
+| ------ | ------ |
+| London | 20     |
+| Paris  | 10     |
+| Athens | 30     |
 
-| id  | name  |
-| --- | ----- |
-| 1   | John  |
-| 2   | Jane  |
-| 3   | Alice |
+**Parts**
 
-**Table: ContactDetails**
+| P#  | PNAME | COLOR |
+| --- | ----- | ----- |
+| P1  | Nut   | Red   |
+| P2  | Bolt  | Green |
+| P3  | Screw | Blue  |
+| P4  | Screw | Red   |
+| P5  | Cam   | Blue  |
+| P6  | Cog   | Red   |
 
-| id  | email           | phone        |
-| --- | --------------- | ------------ |
-| 1   | john@doe.com    | 123-456-7890 |
-| 2   | jane@doe.com    | 098-765-4321 |
-| 3   | alice@smith.com | 111-222-3333 |
+**Supply**
 
-**Table: Addresses**
+| S#  | P#  | QTY |
+| --- | --- | --- |
+| S1  | P1  | 200 |
+| S2  | P3  | 400 |
+| S2  | P5  | 100 |
+| S3  | P3  | 200 |
+| S3  | P4  | 500 |
+| S4  | P6  | 300 |
+| S5  | P1  | 100 |
+| S5  | P2  | 200 |
+| S5  | P3  | 200 |
+| S5  | P4  | 800 |
+| S5  | P5  | 500 |
+| S5  | P6  | 200 |
 
-| id  | address     | city       | zip   |
-| --- | ----------- | ---------- | ----- |
-| 1   | 123 Main St | Anytown    | 12345 |
-| 2   | 456 Main St | Anytown    | 12345 |
-| 2   | 789 Elm St  | Otherville | 54321 |
-| 3   | 111 Oak Rd  | Woodville  | 67890 |
-| 3   | Elm St      | Anytown    | 12345 |
+> **NOTE**: Foreign Key คือ ค่าที่อ้างอิงจากตารางอื่น ๆ และต้องมีค่าที่อ้างอิงอยู่ในตารางที่อ้างอิงด้วย เช่น City.Supplier = City.Supplier Status, S#.Supplier = S#.Supply, P#.Parts = P#.Supply
 
-**Table: States**
+### `📚` Boyce-Codd Normal Form (BCNF)
 
-| state |
-| ----- |
-| CA    |
-| TX    |
-| OH    |
+- A relation is in **BCNF** if and only if it is in **3NF** and every determinant is a candidate key
+- ตารางใดที่มีคุณสมบัติ **BCNF** จะต้องมีคุณสมบัติ **3NF** และมีค่าที่เป็น **Determinant** เป็น **Candidate Key**
 
----
+**BCNF** จากตาราง [**Supply Parts**](#📄-raw-data) จะเขียน **Functional Dependency** ออกมาได้ดังนี้
 
-# 💉 SQL Queries
+| S# is Primary Key | SNAME is Primary Key |
+| ----------------- | -------------------- |
+| S# → SNAME        | SNAME → S#           |
+| S# → FNAME        | SNAME → CITY         |
+| ~~S# → STATUS~~   | ~~SNAME → STATUS~~   |
+| CITY → STATUS     | CITY → STATUS        |
+| P# → PART         | P# → PART            |
+| P# → COLOR        | P# → COLOR           |
+| (S#, P#) → QTY    | (SNAME, P#) → QTY    |
 
-### 1. List all persons along with their email and phone
-
-```sql
-SELECT P.id, P.name, CD.email, CD.phone
-FROM Persons P
-INNER JOIN ContactDetails CD ON P.id = CD.id;
-```
-
-**Result**
-
-| id  | name  | email             | phone        | address     | city       | state | zip   |
-| --- | ----- | ----------------- | ------------ | ----------- | ---------- | ----- | ----- |
-| 1   | John  | john@doe.com      | 123-456-7890 | 123 Main St | Anytown    | CA    | 12345 |
-| 1   |       | john@example.com  | 012-345-6789 | Main St     | Anytown    | CA    | 12345 |
-| 2   | Jane  | jane@doe.com      | 098-765-4321 | 456 Main St | Anytown    | CA    | 12345 |
-| 2   |       | jane@example.com  | 987-654-3210 | 789 Elm St  | Otherville | TX    | 54321 |
-| 3   | Alice | alice@smith.com   | 111-222-3333 | 111 Oak Rd  | Woodville  | OH    | 67890 |
-| 3   |       | alice@example.com | 444-555-6666 | Elm St      | Anytown    | CA    | 12345 |
-
-### 2. List addresses in a specific state along with the persons living there
-
-```sql
-SELECT A.address, A.city, A.zip, P.name
-FROM Addresses A
-INNER JOIN Persons P ON A.id = P.id
-WHERE A.state = 'CA';
-```
-
-**Result**
-
-| address     | city    | zip   | name  |
-| ----------- | ------- | ----- | ----- |
-| 123 Main St | Anytown | 12345 | John  |
-| Main St     | Anytown | 12345 | John  |
-| 456 Main St | Anytown | 12345 | Jane  |
-| Elm St      | Anytown | 12345 | Alice |
-
-### 3. List states and the number of persons living in each state:
-
-```sql
-SELECT A.state, COUNT(P.id) AS person_count
-FROM Addresses A
-LEFT JOIN Persons P ON A.id = P.id
-GROUP BY A.state;
-```
-
-**Result**
-
-| state | person_count |
-| ----- | ------------ |
-| CA    | 4            |
-| OH    | 1            |
-| TX    | 1            |
+> **NOTE**: Candidate Key คือ ค่าที่เป็น Primary Key ที่เป็นไปได้ทั้งหมด
