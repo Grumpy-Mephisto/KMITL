@@ -7,11 +7,11 @@ WHERE
     E.WORKSTATUS = 'W'
     AND E.SALARY < (
         SELECT
-            AVG(E.SALARY)
+            AVG(S.SALARY)
         FROM
             EMPLOYEE S
         WHERE
-            E.WORKSTATUS = 'W'
+            S.WORKSTATUS = 'W'
             AND S.DEPTCODE = E.DEPTCODE
         GROUP BY
             S.DEPTCODE
