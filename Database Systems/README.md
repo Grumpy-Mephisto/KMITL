@@ -69,11 +69,11 @@
 - ตารางใดที่มีคุณสมบัติ **2NF** จะต้องมีคุณสมบัติ **1NF** และมีความสัมพันธ์ **Fully Functional Dependent** กับ **Primary Key**
 
 > **Note**
-> Functionally Dependency (FD) is Functional depends on attribute(s) R.x in Relation R (R.x -> R.y) if and only if given a single value of x, there must be onlyone corresponding value of Y
+> Functionally Dependency (FD) is Functional depends on attribute(s) R.x in Relation R (R.x -> R.y) if and only if given a single value of x, there must be onlyone corresponding value of Y \
 > ค่า X เป็นตัวกำหนดค่า Y หรือ ค่า Y ขึ้นอยู่กับค่า X (เช่น รหัสนักศึกษา ขึ้นอยู่กับ ชื่อนักศึกษา)
 
 > **Note**
-> Fully Functionally Dependency (FFD) is Functional depends on R.x and not on any proper subset of R.x
+> Fully Functionally Dependency (FFD) is Functional depends on R.x and not on any proper subset of R.x \
 > ค่า Y จะต้องขึ้นกับค่า X เท่านั้น และไม่ขึ้นกับค่าใดๆ ที่เป็นส่วนหนึ่งของ X เมื่อ X, Y ประกอบด้วย Column หลายๆ Column (ขอตัวมันจริงๆ เช่น ✔️ รหัสนักศึกษา ✖️ รหัสนักศึกษา และ ชื่อนักศึกษา)
 
 **Supplier**
