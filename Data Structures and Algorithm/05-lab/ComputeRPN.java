@@ -40,7 +40,6 @@ public class ComputeRPN {
     }
 
     public static void main(String[] args) {
-        // args = new String[] {"5 1 2 + 4 * + 3 -"};
         System.out.println("Result: " + RPN(args[0]));
     }
 }
