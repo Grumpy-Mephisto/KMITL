@@ -13,6 +13,9 @@ public class Lab_MatrixMul {
 
         MyData matC = new MyData(matC_r, matC_c);
 
+        /**
+         * Q4
+         */
         Thread[] threads = new Thread[matC_r * matC_c];
         int threadCount = 0;
 
@@ -24,6 +27,9 @@ public class Lab_MatrixMul {
             }
         }
 
+        /**
+         * Q5
+         */
         for (int i = 0; i < matC_r * matC_c; i++) {
             try {
                 threads[i].join();
@@ -42,6 +48,9 @@ class MatrixMulThread implements Runnable {
     MyData datA, datB, datC;
 
     MatrixMulThread(int tRow, int tCol, MyData a, MyData b, MyData c) {
+        /**
+         * Q1
+         */
         processingRow = tRow;
         processingCol = tCol;
         datA = a;
@@ -49,7 +58,13 @@ class MatrixMulThread implements Runnable {
         datC = c;
     }
 
+    /**
+     * Q2
+     */
     public void run() {
+        /**
+         * Q3
+         */
         int sum = 0;
         for (int i = 0; i < datA.data[0].length; i++) {
             sum += datA.data[processingRow][i] * datB.data[i][processingCol];
