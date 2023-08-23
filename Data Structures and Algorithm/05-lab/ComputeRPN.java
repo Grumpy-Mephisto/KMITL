@@ -40,6 +40,14 @@ public class ComputeRPN {
     }
 
     public static void main(String[] args) {
-        System.out.println("Result: " + RPN(args[0]));
+        String data;
+        try {
+            data = args[0].trim();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Usage: java ComputeRPN \"<RPN expression>\"");
+            return;
+        }
+
+        System.out.println("RPN expression: " + data);
     }
 }
