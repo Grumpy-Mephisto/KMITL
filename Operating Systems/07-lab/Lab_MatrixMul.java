@@ -75,11 +75,6 @@ class MyData {
     }
 
     public void show() {
-        for (int[] row : data) {
-            for (int col : row) {
-                System.out.print(col + " ");
-            }
-            System.out.println();
-        }
+        System.out.println(Arrays.deepToString(data));
     }
 }
