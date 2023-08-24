@@ -5,7 +5,6 @@
 ## `📚` Table of Contents
 
 - [Normalization](#-normalization)
-  - [Raw Data](#-raw-data)
   - [First Normal Form (1NF)](#-first-normal-form-1nf)
   - [Second Normal Form (2NF)](#-second-normal-form-2nf)
   - [Third Normal Form (3NF)](#-third-normal-form-3nf)
