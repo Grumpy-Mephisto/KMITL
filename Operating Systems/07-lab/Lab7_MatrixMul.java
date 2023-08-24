@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Lab_MatrixMul {
+public class Lab7_MatrixMul {
     public static void main(String[] args) {
         int[][] inputA = {{5, 6, 7}, {4, 8, 9}};
         int[][] inputB = {{6, 4}, {5, 7}, {1, 1}};
