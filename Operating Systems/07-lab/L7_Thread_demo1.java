@@ -43,7 +43,7 @@ class WorkerDemo1 implements Runnable {
     public void run() {
         // o.inc(3);
         System.out.println("From WorkerDemo1 " + Thread.currentThread().getId() + " x value is "
-                + o.getValue()); // o.getValue() is equal 3
+                + o.getValue()); // o.getValue() is equal 0, but if uncomment o.inc(3), it will be 3
     }
 }
 
