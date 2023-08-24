@@ -331,5 +331,5 @@
 | S4   | D      | ง    | Ad1     |
 
 > **Important**
-> JD คือ **\*((S_No, S_Name), (S_No, City), (S_No, Address))** และ CK คือ **S_No** \
+> JD คือ `*((S_No, S_Name), (S_No, City), (S_No, Address))` และ CK คือ **S_No** \
 > และเป็น **5NF** ไม่ต้อง split เนื่องจาก **S_No** เป็น CK ที่ติดไปทุกตารางย่อย
