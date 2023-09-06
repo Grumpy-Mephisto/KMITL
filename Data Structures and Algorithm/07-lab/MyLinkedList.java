@@ -6,7 +6,6 @@ public class MyLinkedList implements InterfaceLinkedList<Object> {
 
     public Node head;
     public int size;
-    public Object next;
 
     public MyLinkedList() {
         head = null;
