@@ -1,41 +1,59 @@
-// Author: 65050437
-// Output on line 20 (but line 13 on PDF): 2 Power 20 = 2432902008176640000
-
 #include <signal.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <wait.h>
 
-signed long prev_computed, i;
+int not_done = 1;
+volatile int count = 0;
 
-/**
- * Signal handler for SIGINT
- * @param sig signal number
- * @return void
- * @brief This function is called when SIGINT is received
- * @note This function is called when SIGINT is received
- */
-void SIGhandler(int sig) {
-  printf("\nReceived SIGINT\n");
-  printf("SIGUSR1 the maximum value of signed long has been reached\n");
-  printf("2 Power %ld = %ld\n", i - 1, prev_computed);
-  exit(0);
+void mySIGhandler(int sig) {
+  signal(SIGALRM, SIG_IGN);
+  not_done = 0;
+  printf("SIGALRM received\n");
+}
+
+void mySIGKILLhandler(int sig) {
+  signal(SIGKILL, SIG_IGN);
+  not_done = 0;
+  printf("SIGKILL received\n");
 }
 
 int main(int argc, char const *argv[]) {
-  signed long current_value;
+  signal(SIGALRM, mySIGhandler);
+  pid_t pid = fork();
 
-  printf("2 Power n:\n");
-
-  signal(SIGUSR1, SIGhandler);
-
-  prev_computed = 1;
-  for (i = 1;; i++) {
-    current_value = prev_computed * i;
-    if (current_value < prev_computed) {
-      raise(SIGUSR1);
+  // if (pid == 0) {
+  //   sleep(4);
+  //   printf("Child sending SIGALRM\n");
+  //   kill(getppid(), SIGALRM);
+  //   exit(0);
+  // } else {
+  //   printf("Parent waiting for SIGALRM\n");
+  //   while (not_done) {
+  //     count++;
+  //   }
+  // }
+  if (pid == 0) {
+    printf("Child created\n");
+    while (1) {
+      sleep(1);
+      printf("Child sending SIGALRM\n");
+      kill(getppid(), SIGALRM);
     }
-    prev_computed = current_value;
+    printf("This line should not be printed\n");
+    exit(0);
+  } else {
+    printf("Parent waiting for SIGALRM\n");
+    while (not_done) {
+      count++;
+    }
+    kill(pid, SIGKILL);
+    printf("Parent sending SIGKILL\n");
+    wait(NULL);
   }
 
+  printf("Parent received SIGALRM after %d iterations\n", count);
   return 0;
 }
