@@ -43,25 +43,17 @@ class GaussianElimination:
 
     def forward_elimination(self):
         for pivot_row in range(self.n):
-            max_row = pivot_row
-            for i in range(pivot_row + 1, self.n):
-                if abs(self.A[i][pivot_row]) > abs(self.A[max_row][pivot_row]):
-                    max_row = i
-            self.A[pivot_row], self.A[max_row] = self.A[max_row], self.A[pivot_row]
-            self.b[pivot_row], self.b[max_row] = self.b[max_row], self.b[pivot_row]
-
             pivot = self.A[pivot_row][pivot_row]
             if pivot == 0:
                 raise GaussianEliminationError(
                     "Zero pivot encountered. The matrix may be singular."
                 )
 
-            for row in range(self.n):
-                if row != pivot_row:
-                    factor = self.A[row][pivot_row] / pivot
-                    for col in range(self.n):
-                        self.A[row][col] -= factor * self.A[pivot_row][col]
-                    self.b[row] -= factor * self.b[pivot_row]
+            for row in range(pivot_row + 1, self.n):
+                factor = self.A[row][pivot_row] / pivot
+                for col in range(self.n):
+                    self.A[row][col] -= factor * self.A[pivot_row][col]
+                self.b[row] -= factor * self.b[pivot_row]
 
             self.display_step(pivot_row)
 
