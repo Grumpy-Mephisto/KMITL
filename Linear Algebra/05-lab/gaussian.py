@@ -51,6 +51,7 @@ class GaussianElimination:
             for i in range(pivot_row + 1, self.n):
                 if abs(self.A[i][pivot_row]) > abs(self.A[max_row][pivot_row]):
                     max_row = i
+
             self.A[pivot_row], self.A[max_row] = self.A[max_row], self.A[pivot_row]
             self.b[pivot_row], self.b[max_row] = self.b[max_row], self.b[pivot_row]
 
@@ -85,6 +86,7 @@ class GaussianElimination:
             self.display_step(i, "Backward Substitution")
 
     def display_original_equations(self):
+        """Displays the original equations."""
         print("\nOriginal Equations:")
         for i in range(self.n):
             equation = " + ".join([f"{self.A[i][j]}x{j + 1}" for j in range(self.n)])
@@ -92,7 +94,8 @@ class GaussianElimination:
         print("\n")
 
     def display_step(self, step, method):
-        print(f"Step {step + 1} ({method}):\n")
+        """Displays the current coefficient matrix A and the constants vector b."""
+        print(f"————— Step {step + 1} ({method}) —————\n")
 
         coefficient_matrix = [
             [self.A[i][j] for j in range(self.n)] for i in range(self.n)
@@ -102,12 +105,12 @@ class GaussianElimination:
         coefficient_table = tabulate(coefficient_matrix, headers, tablefmt="fancy_grid")
         constants_table = tabulate(constants_vector, ["b"], tablefmt="fancy_grid")
 
-        print("Current Coefficient Matrix A:")
+        print("\n————— Current Coefficient Matrix A —————\n")
         print(coefficient_table)
-        print("\nCurrent Constants Vector b:")
+        print("\n————— Current Constants Vector b —————\n")
         print(constants_table)
 
-        print("\nIntermediate Steps:")
+        print("\n————— Intermediate Steps —————\n")
         for i in range(self.n):
             print(f"Row {i + 1}:")
             pivot_element = self.A[i][i]
@@ -134,12 +137,14 @@ class GaussianElimination:
         print("\n")
 
     def display_solution(self):
+        """Displays the solution of the system of linear equations."""
         print("\nSolution:")
         for i, sol in enumerate(self.x):
             print(f"x{i + 1} = {sol:.4f}", end="\t")
         print("\n")
 
     def solve(self):
+        """Solves the system of linear equations."""
         self.input_data()
         self.display_original_equations()
         self.forward_elimination()
