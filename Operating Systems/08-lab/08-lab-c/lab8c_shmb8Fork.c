@@ -21,7 +21,7 @@ int main(int argc, char const *argv[]) {
    * Q5.2
    * Answer: (int *)
    */
-  count = (int *)shmat(shmid, (void *)0, 0);
+  count = (int *)shmat(shmid, NULL, 0);
 
   count[0] = 5;
 
