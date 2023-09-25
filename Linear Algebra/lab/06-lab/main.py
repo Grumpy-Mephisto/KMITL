@@ -31,6 +31,31 @@ class Vector:
 class VectorMethod:
     """คลาสสำหรับการดำเนินการเวกเตอร์"""
 
+    def __instancecheck__(self, instance) -> bool:
+        """
+        เช็คว่าวัตถุที่ส่งเข้ามาเป็น Vector หรือไม่
+
+        Args:
+            instance (any): วัตถุที่ต้องการเช็ค
+
+        Returns:
+            bool: ผลลัพธ์จากการเช็คว่าวัตถุที่ส่งเข้ามาเป็น Vector หรือไม่
+        """
+        return self.__subclasscheck__(type(instance))
+
+    def __subclasscheck__(self, subclass: type) -> bool:
+        """
+        เช็คว่าคลาสที่ส่งเข้ามาเป็น Vector หรือไม่
+
+        Args:
+            __subclass (type): คลาสที่ต้องการเช็ค
+
+
+        Returns:
+            bool: ผลลัพธ์จากการเช็คว่าคลาสที่ส่งเข้ามาเป็น Vector หรือไม่
+        """
+        return hasattr(subclass, "vector")
+
     def __init__(self, vector: Vector) -> None:
         """
         กำหนดค่าเริ่มต้นของวัตถุ VectorMethod
@@ -38,9 +63,7 @@ class VectorMethod:
         Args:
             vector (Vector): วัตถุ Vector
         """
-        if not isinstance(vector, Vector):
-            raise ValueError("Input must be a Vector object")
-        self.vector = vector.vector
+        self.vector = vector
 
     @staticmethod
     def add(vec1: Vector, vec2: Vector) -> Vector:
