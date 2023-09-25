@@ -41,20 +41,7 @@ class VectorMethod:
         Returns:
             bool: ผลลัพธ์จากการเช็คว่าวัตถุที่ส่งเข้ามาเป็น Vector หรือไม่
         """
-        return self.__subclasscheck__(type(instance))
-
-    def __subclasscheck__(self, subclass: type) -> bool:
-        """
-        เช็คว่าคลาสที่ส่งเข้ามาเป็น Vector หรือไม่
-
-        Args:
-            __subclass (type): คลาสที่ต้องการเช็ค
-
-
-        Returns:
-            bool: ผลลัพธ์จากการเช็คว่าคลาสที่ส่งเข้ามาเป็น Vector หรือไม่
-        """
-        return hasattr(subclass, "vector")
+        return self.__subclasshook__(type(instance))
 
     def __init__(self, vector: Vector) -> None:
         """
