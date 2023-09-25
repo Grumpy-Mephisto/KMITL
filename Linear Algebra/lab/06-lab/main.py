@@ -128,6 +128,19 @@ class VectorMethod:
             raise ValueError("Division by zero is not allowed")
         return Vector(np.divide(vec1.vector, vec2.vector))
 
+    @staticmethod
+    def magnitude(vector: Vector) -> float:
+        """
+        คำนวณความยาวของเวกเตอร์
+
+        Args:
+            vector (Vector): เวกเตอร์
+
+        Returns:
+            float: ความยาวของเวกเตอร์
+        """
+        return np.sqrt(VectorMethod.dot_product(vector, vector))
+
 
 if __name__ == "__main__":
     u = Vector([2, -5, 7])  # u = 2i - 5j + 7k
@@ -142,7 +155,8 @@ if __name__ == "__main__":
     e = VectorMethod.dot_product(a, u)  # e = (u + v) • u
     f = VectorMethod.cross_product(VectorMethod.subtract(u, v), v)  # f = (u - v) x v
     g = VectorMethod.elementwise_divide(
-        VectorMethod.subtract(v, u), Vector([np.sqrt(VectorMethod.dot_product(u, u))])
+        VectorMethod.subtract(v, u),
+        Vector([VectorMethod.magnitude(u)]),
     )  # g = (v - u) / sqr(u • u)
     h = VectorMethod.elementwise_multiply(
         Vector([VectorMethod.dot_product(u, v) / VectorMethod.dot_product(v, v)]), w
