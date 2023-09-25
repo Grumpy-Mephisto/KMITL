@@ -31,17 +31,18 @@ class Vector:
 class VectorMethod:
     """คลาสสำหรับการดำเนินการเวกเตอร์"""
 
-    def __instancecheck__(self, instance) -> bool:
+    @classmethod
+    def __subclasshook__(cls, subclass) -> bool:
         """
         เช็คว่าวัตถุที่ส่งเข้ามาเป็น Vector หรือไม่
 
         Args:
-            instance (any): วัตถุที่ต้องการเช็ค
+            subclass (any): วัตถุที่ต้องการเช็ค
 
         Returns:
             bool: ผลลัพธ์จากการเช็คว่าวัตถุที่ส่งเข้ามาเป็น Vector หรือไม่
         """
-        return self.__subclasshook__(type(instance))
+        return hasattr(subclass, "vector")
 
     def __init__(self, vector: Vector) -> None:
         """
