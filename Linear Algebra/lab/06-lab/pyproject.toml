@@ -1,0 +1,22 @@
+[project]
+name = "06-lab"
+version = "0.1.0"
+description = "Vector methods for exercise 06"
+authors = [
+    { name = "PunGrumpy", email = "108584943+PunGrumpy@users.noreply.github.com" }
+]
+dependencies = [
+    "numpy>=1.24.4",
+]
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
