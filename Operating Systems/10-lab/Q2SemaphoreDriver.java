@@ -37,6 +37,9 @@ public class Q2SemaphoreDriver {
 }
 
 
+/**
+ * Semaphone Method
+ */
 class SharedNum2 {
     private int val = 0;
     Semaphore mutex;
@@ -62,6 +65,9 @@ class SharedNum2 {
 }
 
 
+/**
+ * Synchronized Method
+ */
 class SharedNum3 {
     private int val = 0;
 
@@ -79,6 +85,9 @@ class SharedNum3 {
 }
 
 
+/**
+ * Synchronized Block
+ */
 class SharedNum4 {
     private int val = 0;
 
