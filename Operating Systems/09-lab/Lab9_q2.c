@@ -23,7 +23,8 @@ void *Count(void *a) {
   void *lastSeen = malloc(sizeof(int));
   if (pthread_self() == tid[0]) {
     *(int *)lastSeen = cnt;
-    printf("thr %lu exits. lastSeen = %d\n", pthread_self(), *(int *)lastSeen);
+    printf("Thread 1 exits. Last seen = %d, PTHREAD_SELF = %lu\n",
+           *(int *)lastSeen, pthread_self());
     pthread_exit((void *)lastSeen);
   }
 }
