@@ -1,0 +1,3 @@
+thr 140624328283840 exits. lastSeen = 194919
+Last count from tid[0] is 194919
+Final count from tid[1] is 200000
