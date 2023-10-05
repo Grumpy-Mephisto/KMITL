@@ -1,3 +1,3 @@
-Thread 1 exits. Last seen = 174735, PTHREAD_SELF = 140043159881408
-Last count from tid[0] is 174735
+Thread 140600684263104 exits. Last seen is 199890
+Last count from tid[0] is 199890
 Final count from tid[1] is 200000
