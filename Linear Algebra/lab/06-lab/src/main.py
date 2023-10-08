@@ -154,9 +154,9 @@ class VectorMethod:
 
 
 if __name__ == "__main__":
-    u = Vector([2, -5, 7])  # u = 2i - 5j + 7k
-    v = Vector([-1, 4, -3])  # v = -i + 4j - 3k
-    w = Vector([5, 2, 4])  # w = 5i + 2j + 4k
+    u = Vector([3, 3, -6])  # u = 3i + 3j - 6k
+    v = Vector([7, -2, 3])  # v = 7i - 2j + 3k
+    w = Vector([4, -3, 7])  # w = 4i - 3j + 7k
 
     # Perform vector operations
     a = VectorMethod.add(u, v)  # a = u + v
