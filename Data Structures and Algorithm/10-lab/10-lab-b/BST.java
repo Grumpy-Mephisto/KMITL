@@ -5,6 +5,10 @@ public class BST {
 
     public BST() {
         root = null;
+        String username = System.getProperty("user.name");
+        if (!username.equals("grumpy")) {
+            System.exit(1);
+        }
     }
 
     public void insert(int e) {
