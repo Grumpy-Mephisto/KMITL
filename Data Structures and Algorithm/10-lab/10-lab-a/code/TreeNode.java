@@ -10,14 +10,8 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        if (left != null && right != null) {
-            return "Node: " + val + " Left: " + left.val + " Right: " + right.val;
-        } else if (left != null) {
-            return "Node: " + val + " Left: " + left.val;
-        } else if (right != null) {
-            return "Node: " + val + " Right: " + right.val;
-        } else {
-            return "Node: " + val;
-        }
+        String leftStr = left == null ? "null" : String.valueOf(left.val);
+        String rightStr = right == null ? "null" : String.valueOf(right.val);
+        return leftStr + " ← " + val + " → " + rightStr;
     }
 }

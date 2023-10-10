@@ -21,6 +21,7 @@ public class driver {
         System.out.println();
         bst.printPostOrder();
         System.out.println();
+        System.out.println();
 
         demo3(bst);
     }
