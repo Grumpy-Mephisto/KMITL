@@ -7,8 +7,28 @@ public class PrimEdge implements Comparable<PrimEdge> {
         this.weight = weight;
     }
 
-    public int getters() {
+    public int getU() {
+        return this.u;
+    }
+
+    public int getV() {
+        return this.v;
+    }
+
+    public int getWeight() {
         return this.weight;
+    }
+
+    public void setU(int u) {
+        this.u = u;
+    }
+
+    public void setV(int v) {
+        this.v = v;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     @Override
