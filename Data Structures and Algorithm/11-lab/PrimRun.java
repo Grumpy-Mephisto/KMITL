@@ -11,17 +11,9 @@ public class PrimRun {
             System.out.println(Arrays.toString(row));
         }
         System.out.println("⋯⋯⋯");
-        // System.out.println(
-        // "Expected: \n[0, 2, 0, 6, 0]\n[0, 0, 3, 0, 5]\n[0, 0, 0, 0, 0]\n[0, 0, 0, 0, 0]\n[0, 0,
-        // 0, 0, 0]\n\n");
-        // System.out.println("Actual: ");
         Prim.showTreeAdjacency(mst.getMST());
 
         System.out.println("⋯⋯⋯");
-        // System.out.println(
-        // "Expected: \n[0, 0, 0, 6, 0]\n[2, 0, 0, 0, 5]\n[0, 3, 0, 0, 0]\n[0, 0, 0, 0, 0]\n[0, 0,
-        // 0, 0, 0]\n\n");
-        // System.out.println("Actual: ");
         Prim.showTreeAdjacency(mst.getMST(2));
     }
 }
