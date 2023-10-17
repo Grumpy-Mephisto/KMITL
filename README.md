@@ -4,8 +4,8 @@
 </div>
 
 <div align="center">
-  <a href="http://api.pungrumpy.com:3001/img/KMITL">
-    <img src="https://t.ly/o55jV" alt="KMITL" width="200">
+  <a href="https://image.pungrumpy.cloud/img/KMITL">
+    <img src="http://api.pungrumpy.com:3001/img/KMITL" alt="KMITL" width="200">
   </a>
 </div>
 
