@@ -5,7 +5,7 @@
 
 <div align="center">
   <a href="http://api.pungrumpy.com:3001/img/KMITL">
-    <img src="https://shorturl.at/CDFHU" alt="KMITL" width="200">
+    <img src="https://t.ly/o55jV" alt="KMITL" width="200">
   </a>
 </div>
 
