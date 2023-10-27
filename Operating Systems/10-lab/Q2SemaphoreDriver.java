@@ -11,7 +11,7 @@ public class Q2SemaphoreDriver {
         // int v = 4;
         Thread[] thr = new Thread[nThread];
         for (int i = 0; i < nThread; i++) {
-            thr[i] = new Thread(new Runnable() {
+            thr[i] = new Thread(new Runnable() { // สร้าง thread แบบ anonymous inner class
                 @Override
                 public void run() {
                     sn.increment();
@@ -46,14 +46,14 @@ class SharedNum2 {
 
     public SharedNum2() {
         val = 0;
-        mutex = new Semaphore(1);
+        mutex = new Semaphore(1); // สร้าง semaphore ที่มีสถานะเริ่มต้นเป็น 1
     }
 
     public void increment() {
         try {
-            mutex.acquire();
+            mutex.acquire(); // ล็อก semaphore
             val++;
-            mutex.release();
+            mutex.release(); // ปลดล็อก semaphore
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -1,7 +1,7 @@
 public class Q5WaitNotifyDriver {
     public static void main(String[] args) {
         SharedNum5 sn = new SharedNum5();
-        (new Thread(new Runnable() {
+        (new Thread(new Runnable() { // สร้าง thread แบบ anonymous inner class
             @Override
             public void run() {
                 System.out.printf("You got it %d\n", sn.getVal());
@@ -9,11 +9,11 @@ public class Q5WaitNotifyDriver {
         })).start();
 
         try {
-            Thread.sleep(2);
+            Thread.sleep(2); // หยุด thread นี้ 2 วินาที
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        (new Thread(new Runnable() {
+        (new Thread(new Runnable() { // สร้าง thread แบบ anonymous inner class
             @Override
             public void run() {
                 sn.setVal(2021);
@@ -48,7 +48,7 @@ class SharedNum5 {
     public void setVal(int v) {
         synchronized (lock) {
             val = v;
-            lock.notifyAll();
+            lock.notifyAll(); // ปลุก thread ที่รออยู่ทั้งหมด
         }
     }
 }

@@ -4,19 +4,19 @@ public class Q1InnerAndNotSyncDriver {
         SharedNum1 sn = new SharedNum1();
         Thread[] thr = new Thread[nThread];
 
-        for (int i = 0; i < nThread; i++) {
-            thr[i] = new Thread(new Runnable() {
+        for (int i = 0; i < nThread; i++) { // สร้าง thread 100,000 ตัว
+            thr[i] = new Thread(new Runnable() { // สร้าง thread แบบ anonymous inner class
                 @Override
                 public void run() {
                     sn.increment();
                 }
             });
-            thr[i].start();
+            thr[i].start(); // สั่งให้ thread ทำงาน
         }
 
         for (int i = 0; i < nThread; i++) {
             try {
-                thr[i].join();
+                thr[i].join(); // รอให้ thread ทำงานเสร็จ
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
