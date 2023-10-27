@@ -26,13 +26,13 @@ int main(int argc, char const *argv[]) {
 
   printf("2 Power n:\n");
 
-  signal(SIGUSR1, SIGhandler);
+  signal(SIGUSR1, SIGhandler); // Register การรับสัญญาณ SIGUSR1
 
   prev_computed = 1;
   for (i = 1;; i++) {
     current_value = prev_computed * i;
     if (current_value < prev_computed) {
-      raise(SIGUSR1);
+      raise(SIGUSR1); // Raise SIGUSR1 เมื่อค่าเกินขอบเขตของ signed long
     }
     prev_computed = current_value;
   }

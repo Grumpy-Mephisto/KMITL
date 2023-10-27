@@ -15,17 +15,27 @@ int main(int argc, char const *argv[]) {
    * b. shmid = shmget(key, sizeof(int), 0666);
    * Answer: a
    */
-  shmid = shmget(IPC_PRIVATE, sizeof(int), IPC_CREAT | 0666);
+  shmid = shmget(IPC_PRIVATE, sizeof(int), IPC_CREAT | 0666); // สร้าง shared
+                                                              // memory โดยใช้
+                                                              // shmget()
+                                                              // โดยกำหนดขนาด
+                                                              // 1024 bytes
+                                                              // และสร้าง
+                                                              // shared memory
+                                                              // ใหม่ หากยังไม่มี
+                                                              // shared memory นี้
 
   /**
    * Q5.2
    * Answer: (int *)
    */
-  count = (int *)shmat(shmid, NULL, 0);
+  count = (int *)shmat(shmid, NULL, 0); // ทำการ attach ไปยัง shared memory
+                                        // โดยใช้ shmat() โดยกำหนดให้ str เป็น
+                                        // pointer ชี้ไปยัง shared memory
 
   count[0] = 5;
 
-  pid_t pid;
+  pid_t pid; // สร้าง process ใหม่
   if ((pid = fork()) == 0) {
     int temp = count[0];
     sleep(1);
@@ -51,8 +61,8 @@ int main(int argc, char const *argv[]) {
   sleep(1);
   printf("Final value: %d\n", count[0]);
 
-  shmdt(count);
-  shmctl(shmid, IPC_RMID, NULL);
+  shmdt(count); // ทำการ detach จาก shared memory โดยใช้ shmdt()
+  shmctl(shmid, IPC_RMID, NULL); // ทำการลบ shared memory โดยใช้ shmctl()
 
   return 0;
 }

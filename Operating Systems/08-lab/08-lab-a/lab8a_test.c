@@ -18,14 +18,14 @@ int main(int argc, char const *argv[]) {
   while (1) {
     // CPU can be allocated to other processes
     printf("Press Ctrl-C to exit\n");
-    pause();
+    pause(); // รอรับสัญญาณจาก keyboard
   }
 
   return 0;
 }
 
 void INThandler(int sig) {
-  signal(sig, SIG_IGN);
+  signal(sig, SIG_IGN); // ไม่สนใจสัญญาณ SIGINT ที่ส่งมา
   printf("\nCtrl-C pressed\nWould you like to exit? [y/n] ");
 
   char c;
@@ -33,6 +33,6 @@ void INThandler(int sig) {
   if (c == 'y' || c == 'Y') {
     exit(0);
   } else {
-    signal(SIGINT, INThandler);
+    signal(SIGINT, INThandler); // รอรับสัญญาณ SIGINT อีกครั้ง
   }
 }
