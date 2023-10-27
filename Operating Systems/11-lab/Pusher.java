@@ -3,6 +3,7 @@ import java.util.Random;
 public class Pusher extends Thread {
     public int turns;
     public StackForConcurrent stack;
+    // StackForConcurrent คือ stack ที่สามารถทำงานได้หลาย thread พร้อมกัน
 
     public Pusher(int turns, StackForConcurrent stack) {
         this.turns = turns;

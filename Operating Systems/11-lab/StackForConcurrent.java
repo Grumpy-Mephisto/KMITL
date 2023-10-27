@@ -7,28 +7,28 @@ public class StackForConcurrent {
         size = 0;
     }
 
-    public synchronized void push(int i) {
+    public synchronized void push(int i) { // ถ้าเป็น public void push(int i) จะเกิด deadlock ได้
         top = new Node(i, top);
         size++;
         if (top.next == null) {
             /*
              * Q1
              */
-            notifyAll();
+            notifyAll(); // ถ้าเป็น notify() จะเกิด deadlock ได้
         }
     }
 
     /*
      * Q2
      */
-    public synchronized int pop() {
+    public synchronized int pop() { // ถ้าเป็น public int pop() จะเกิด deadlock ได้
         try {
             while (top == null) {
                 System.out.println("Empty stack, waiting...");
                 /*
                  * Q3
                  */
-                wait();
+                wait(); // ถ้าเป็น notify() จะเกิด deadlock ได้
             }
             /*
              * Q4.1

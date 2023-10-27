@@ -3,8 +3,10 @@ public class Lab11_Q3DriverSol {
         int numPopper = 1, numPusher = 1;
         int numTurns = 10;
         StackForConcurrent stack = new StackForConcurrent();
-        Pusher[] pushArr = new Pusher[numPusher];
-        Popper[] popArr = new Popper[numPopper];
+        Pusher[] pushArr = new Pusher[numPusher]; // สร้าง array ของ Pusher
+        Popper[] popArr = new Popper[numPopper]; // สร้าง array ของ Popper
+        // Pusher คือ thread ที่จะ push ข้อมูลเข้า stack
+        // Popper คือ thread ที่จะ pop ข้อมูลออกจาก stack
 
         for (int i = 0; i < numPusher; i++) {
             pushArr[i] = new Pusher(numTurns, stack);

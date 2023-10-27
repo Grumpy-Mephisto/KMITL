@@ -25,23 +25,24 @@ public class Lab11_ApdxBlockingQueue<E> {
      * @throws InterruptedException ถ้ามีการ interrupt ในขณะที่รอ
      */
     public void put(E value) throws InterruptedException {
-        lock.lock();
+        lock.lock(); // รอให้มีสถานะ lock
         try {
             while (curSize == items.length) {
                 System.out.println("Queue is full, waiting...");
-                notFull.await();
+                notFull.await(); // รอให้มีสถานะ notFull
                 System.out.println("Queue is not full, continue...");
             }
             items[putPointer++] = value;
             if (putPointer == items.length) {
                 putPointer = 0;
             }
-            synchronized (items) {
+            synchronized (items) { // ไม่ต้องใส่ synchronized ก็ได้
+                                   // แต่เพื่อให้เห็นว่ามีการเปลี่ยนแปลงค่าของ curSize
                 curSize++;
             }
-            notEmpty.signalAll();
+            notEmpty.signalAll(); // ส่ง signal ไปที่ทุก thread ที่รออยู่ที่ notEmpty
         } finally {
-            lock.unlock();
+            lock.unlock(); // ปลด lock
         }
     }
 
@@ -52,11 +53,11 @@ public class Lab11_ApdxBlockingQueue<E> {
      * @throws InterruptedException ถ้ามีการ interrupt ในขณะที่รอ
      */
     public E take() throws InterruptedException {
-        lock.lock();
+        lock.lock(); // รอให้มีสถานะ lock
         try {
             while (curSize == 0) {
                 System.out.println("Queue is empty, waiting...");
-                notEmpty.await();
+                notEmpty.await(); // รอให้มีสถานะ notEmpty
                 System.out.println("Queue is not empty, continue...");
             }
             @SuppressWarnings("unchecked")
@@ -64,13 +65,14 @@ public class Lab11_ApdxBlockingQueue<E> {
             if (takePointer == items.length) {
                 takePointer = 0;
             }
-            synchronized (items) {
+            synchronized (items) { // ไม่ต้องใส่ synchronized ก็ได้
+                                   // แต่เพื่อให้เห็นว่ามีการเปลี่ยนแปลงค่าของ curSize
                 curSize--;
             }
             notFull.signalAll();
             return value;
         } finally {
-            lock.unlock();
+            lock.unlock(); // ปลด lock
         }
     }
 
