@@ -133,15 +133,34 @@ BEGIN
 END;
 ```
 
-- สร้าง Trigger ที่ไว้ตรวจสอบการเพิ่มข้อมูลในตาราง Employee โดยที่จะต้องมีการเพิ่มข้อมูลใน Column Salary ให้มีค่ามากกว่า 10000
+- สร้าง Trigger ชื่อว่า "display_salary_changes" ที่ทำงานก่อนที่จะมีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers
 
-```sql
-CREATE OR REPLACE TRIGGER trigger_name
-BEFORE INSERT OR UPDATE ON Employee
+```plsql
+CREATE OR REPLACE TRIGGER display_salary_changes
+BEFORE DELETE OR INSERT OR UPDATE ON customers
 FOR EACH ROW
+WHEN (NEW.ID > 0)
+DECLARE
+  sal_diff number;
 BEGIN
-  IF :NEW.Salary < 10000 THEN
-    RAISE_APPLICATION_ERROR(-20001, 'Salary must be greater than 10000');
+  sal_diff := :NEW.salary  - :OLD.salary;
+  dbms_output.put_line('Old salary: ' || :OLD.salary);
+  dbms_output.put_line('New salary: ' || :NEW.salary);
+  dbms_output.put_line('Salary difference: ' || sal_diff);
+END;
+```
+
+- สร้าง Trigger ชื่อว่า "check_salary" ที่ทำงานก่อนที่จะมีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers
+
+```plsql
+CREATE OR REPLACE TRIGGER check_salary
+BEFORE DELETE OR INSERT OR UPDATE ON customers
+FOR EACH ROW
+DECLARE
+  sal_diff number;
+BEGIN
+  IF :NEW.salary < 10000 THEN
+    RAISE_APPLICATION_ERROR (-20001, 'Salary is too low');
   END IF;
 END;
 ```
