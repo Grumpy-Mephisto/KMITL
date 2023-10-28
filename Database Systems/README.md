@@ -133,23 +133,6 @@ BEGIN
 END;
 ```
 
-- สร้าง Trigger ชื่อว่า "display_salary_changes" ที่ทำงานก่อนที่จะมีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers
-
-```plsql
-CREATE OR REPLACE TRIGGER display_salary_changes
-BEFORE DELETE OR INSERT OR UPDATE ON customers
-FOR EACH ROW
-WHEN (NEW.ID > 0)
-DECLARE
-  sal_diff number;
-BEGIN
-  sal_diff := :NEW.salary  - :OLD.salary;
-  dbms_output.put_line('Old salary: ' || :OLD.salary);
-  dbms_output.put_line('New salary: ' || :NEW.salary);
-  dbms_output.put_line('Salary difference: ' || sal_diff);
-END;
-```
-
 - สร้าง Trigger ชื่อว่า "check_salary" ที่ทำงานก่อนที่จะมีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers โดยที่ Trigger นี้จะทำงานทุกครั้งที่มีการลบ หรือเพิ่ม หรือแก้ไขข้อมูลในตาราง customers
 
 ```plsql
