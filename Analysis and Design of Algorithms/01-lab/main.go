@@ -35,7 +35,14 @@ func getCoefficients(equation string) (float64, float64, float64) {
 }
 
 func calculateDiscriminant(a, b, c float64) float64 {
-	return math.Pow(b, 2) - 4*a*c
+	if a == 0 {
+		fmt.Println("A cannot be 0")
+		return 0
+	}
+
+	result := math.Pow(b, 2) - 4*a*c
+
+	return result
 }
 
 func calculateRoots(a, b, discriminant float64) (float64, float64) {
