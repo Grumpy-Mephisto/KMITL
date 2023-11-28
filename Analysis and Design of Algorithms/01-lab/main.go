@@ -40,7 +40,8 @@ func calculateDiscriminant(a, b, c float64) float64 {
 		return 0
 	}
 
-	result := math.Pow(b, 2) - 4*a*c
+	bSquared := b * b
+	result := bSquared - (4 * a * c)
 
 	return result
 }
