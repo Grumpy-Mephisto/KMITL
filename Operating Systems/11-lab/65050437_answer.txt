@@ -1,5 +1,0 @@
-Q1:   notifyAll();
-Q2:   public synchronized
-Q3:   wait();
-Q4.2: size--;
-Q5:   public
