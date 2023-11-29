@@ -1,0 +1,7 @@
+name: nlp
+channels:
+  - defaults
+dependencies:
+  - pip
+  - jupyter
+  - keras
