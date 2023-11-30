@@ -4,9 +4,7 @@
 </div>
 
 <div align="center">
-  <a href="https://image.pungrumpy.cloud/img/KMITL">
-    <img src="https://image.pungrumpy.cloud/img/KMITL" alt="KMITL" width="200">
-  </a>
+  <img src="https://estamps.kmitl.ac.th/kmitl-logo.png" alt="KMITL" width="200">
 </div>
 
 ## `📃` Description
