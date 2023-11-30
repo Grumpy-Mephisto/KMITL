@@ -7,10 +7,32 @@
   <img src="https://estamps.kmitl.ac.th/kmitl-logo.png" alt="KMITL" width="70%">
 </div>
 
-## `📃` Description
+## `🚀` Dive into the Knowledge Universe
 
-This repository contains all of my projects, assignments, and notes from my Computer Science degree at King Mongkut's University of Technology Ladkrabang.
+Explore this repository, a treasure trove housing a myriad of my projects, assignments, and comprehensive notes derived from my enriching journey in Computer Science at King Mongkut's University of Technology Ladkrabang.
 
-## `📚` How to see
+## `📚` Navigation Guide
 
-You can searching for year and semester with branch name.
+Effortlessly discover your desired year and semester by simply navigating through the branch names.
+
+## `🦧` Meet the Team
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/PunGrumpy">
+        <img src="https://avatars.githubusercontent.com/u/108584943?v=4" width="100px;" alt="PunGrumpy"/>
+        <br />
+        <sub><b>Noppakorn Kaewsalabnil</b></sub>
+      </a>
+      <br />
+      <a href="/" title="Maintainer">👑</a>
+      <a href="https://github.com/PunGrumpy" title="GitHub">😺</a>
+      <a href="https://pungrumpy.com" title="Website">🌍</a>
+    </td>
+  </tr>
+</table>
+
+## `📝` Licensing
+
+This project is licensed under the [MIT License](LICENSE).
