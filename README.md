@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-  <img src="https://estamps.kmitl.ac.th/kmitl-logo.png" alt="KMITL" width="200">
+  <img src="https://estamps.kmitl.ac.th/kmitl-logo.png" alt="KMITL" width="70%">
 </div>
 
 ## `📃` Description
