@@ -17,21 +17,8 @@ Effortlessly discover your desired year and semester by simply navigating throug
 
 ## `🦧` Meet the Team
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/PunGrumpy">
-        <img src="https://avatars.githubusercontent.com/u/108584943?v=4" width="100px;" alt="PunGrumpy"/>
-        <br />
-        <sub><b>Noppakorn Kaewsalabnil</b></sub>
-      </a>
-      <br />
-      <a href="/" title="Maintainer">👑</a>
-      <a href="https://github.com/PunGrumpy" title="GitHub">😺</a>
-      <a href="https://pungrumpy.com" title="Website">🌍</a>
-    </td>
-  </tr>
-</table>
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 
 ## `📝` Licensing
 
