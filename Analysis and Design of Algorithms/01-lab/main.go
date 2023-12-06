@@ -1,3 +1,9 @@
+/*
+File: main.go
+Description: This file implements a quadratic equation solver.
+             It reads coefficients from user input and calculates the roots.
+*/
+
 package main
 
 import (
@@ -5,6 +11,13 @@ import (
 	"math"
 )
 
+/*
+main is the entry point of the program.
+It defines the quadratic equation as a string,
+gets the coefficients from the user,
+calculates the discriminant and the roots,
+and prints out the results.
+*/
 func main() {
 	equation := "Ax^2 + Bx + C = 0"
 
@@ -17,6 +30,10 @@ func main() {
 	printResults(root1, root2)
 }
 
+/*
+getCoefficients prompts the user to enter the coefficients (A, B, C) for the given quadratic equation.
+It returns the coefficients as three float64 values.
+*/
 func getCoefficients(equation string) (float64, float64, float64) {
 	fmt.Println("Enter the coefficients for the equation: ", equation)
 
@@ -34,6 +51,11 @@ func getCoefficients(equation string) (float64, float64, float64) {
 	return a, b, c
 }
 
+/*
+calculateDiscriminant computes the discriminant for the quadratic equation based on coefficients A, B, and C.
+It returns the discriminant as a float64 value.
+If A is 0, it outputs an error message as the equation would not be quadratic.
+*/
 func calculateDiscriminant(a, b, c float64) float64 {
 	if a == 0 {
 		fmt.Println("A cannot be 0")
@@ -46,6 +68,11 @@ func calculateDiscriminant(a, b, c float64) float64 {
 	return result
 }
 
+/*
+calculateRoots computes the roots of the quadratic equation using the quadratic formula.
+The discriminant is used to check for the presence of real roots.
+It returns two float64 values representing the roots of the equation.
+*/
 func calculateRoots(a, b, discriminant float64) (float64, float64) {
 	root1 := (-b + math.Sqrt(discriminant)) / (2 * a)
 	root2 := (-b - math.Sqrt(discriminant)) / (2 * a)
@@ -53,6 +80,10 @@ func calculateRoots(a, b, discriminant float64) (float64, float64) {
 	return root1, root2
 }
 
+/*
+printResults outputs the results of the quadratic equation solver.
+It takes two float64 values representing the roots and prints them.
+*/
 func printResults(root1, root2 float64) {
 	fmt.Println("Root 1: ", root1)
 	fmt.Println("Root 2: ", root2)
