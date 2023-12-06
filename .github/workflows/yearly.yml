@@ -1,0 +1,29 @@
+name: 👶 Automatic Yearly
+on:
+  schedule:
+    - cron: '0 0 1 1 *' # Run on the first day of every year at 00:00 UTC
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛫 Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: 📅 Update Yearly
+        shell: bash
+        run: |
+          bash .github/scripts/update-yearly.sh
+      - name: 🆕 Check for Changed
+        id: check
+        uses: tj-actions/changed-files@v40
+        with:
+          files: README.md
+      - name: 🚀 Push
+        if: ${{ steps.check.outputs.files_changed }}
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          force: true
