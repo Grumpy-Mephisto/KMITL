@@ -32,7 +32,7 @@ jobs:
         if: ${{ steps.check.outputs.files_changed == 'true' }}
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PATH_TOKEN }}
           commit-message: 'docs(yearly): 📅 Update Yearly'
           title: 📅 Update Yearly
           body: |
