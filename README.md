@@ -40,5 +40,5 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <div align="center">
-  <sub> © 2022 Noppakorn Kaewsalabnil. All rights reserved. </sub>
+  <sub> © 2023 Noppakorn Kaewsalabnil. All rights reserved. </sub>
 </div>
