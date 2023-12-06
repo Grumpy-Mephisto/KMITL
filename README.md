@@ -24,6 +24,23 @@ Effortlessly discover your desired year and semester by simply navigating throug
 The heart and soul of this repository are the dedicated individuals who contribute to the vibrant educational ecosystem. Here you will find the profiles and contributions of students, faculty, and collaborators who have made a mark on this academic journey.
 
 <!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/PunGrumpy">
+            <img src="https://avatars.githubusercontent.com/u/108584943?v=4" width="100;" alt="PunGrumpy"/>
+            <br />
+            <sub><b>Noppakorn Kaewsalabnil</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/pungrumpy-bot">
+            <img src="https://avatars.githubusercontent.com/u/151485456?v=4" width="100;" alt="pungrumpy-bot"/>
+            <br />
+            <sub><b>PunGrumpy Bot</b></sub>
+        </a>
+    </td></tr>
+</table>
 <!-- readme: contributors -end -->
 
 ## `📝` Licensing
