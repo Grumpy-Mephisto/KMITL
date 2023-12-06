@@ -26,8 +26,13 @@ jobs:
           fi
       - name: 🚀 Push
         if: ${{ steps.check.outputs.files_changed == 'true' }}
-        uses: ad-m/github-push-action@master
+        uses: peter-evans/create-pull-request@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          force: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'docs(yearly): 📅 Update Yearly'
+          title: 📅 Update Yearly
+          body: |
+            This is an automatic pull request to update the yearly.
+          branch: yearly
+          branch-suffix: timestamp
+          delete-branch: true
