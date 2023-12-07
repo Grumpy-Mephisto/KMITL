@@ -1,0 +1,19 @@
+name: 🍵 Gitea
+on:
+  push:
+    branches:
+      - 'Year*-*'
+jobs:
+  commit:
+    name: 🫖 Commit to Gitea
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+      - name: 📝 Commit
+        id: commit
+        run: |
+          git config --global user.name 'PunGrumpy'
+          git config --global user.email ${{ secrets.EMAIL_GITEA }}
+          git remote add gitea https://gitea.com/Mephisto/KMITL.git
+          git push gitea HEAD:${{ github.ref }}
