@@ -14,6 +14,15 @@
   "skipCi": true,
   "contributors": [
     {
+      "login": "Mephisto-Grumpy",
+      "name": "Mephisto-Grumpy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99166827?v=4",
+      "profile": "https://github.com/Mephisto-Grumpy",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
       "login": "PunGrumpy",
       "name": "Noppakorn Kaewsalabnil",
       "avatar_url": "https://avatars.githubusercontent.com/u/108584943?v=4",
@@ -54,15 +63,6 @@
       "profile": "https://allcontributors.org",
       "contributions": [
         "doc"
-      ]
-    },
-    {
-      "login": "Mephisto-Grumpy",
-      "name": "Mephisto-Grumpy",
-      "avatar_url": "https://avatars.githubusercontent.com/u/99166827?v=4",
-      "profile": "https://github.com/Mephisto-Grumpy",
-      "contributions": [
-        "maintenance"
       ]
     }
   ]
