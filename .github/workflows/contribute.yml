@@ -1,0 +1,50 @@
+name: 🎭 Contribute List
+on:
+  push:
+    branches:
+      - 'Year*-*'
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📂 Checkout
+        uses: actions/checkout@v4
+      - name: 🔰 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: 📦 Install Dependencies
+        run: npm install -g all-contributors-cli
+      - name: 📝 Generate Contributors
+        run: all-contributors generate
+      - name: 📤 Commit Contributors
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: pungrumpy-bot
+          author_email: 151485456+pungrumpy-bot@users.noreply.github.com
+          message: 'docs(contributors): update contributors [skip ci]'
+          add: 'README.md'
+          commit: '--signoff'
+          new_branch: 'all-contributors/add-pungrumpy-bot'
+          push: true
+          fetch: false
+      - name: 📤 Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+          commit-message: 'docs(contributors): update contributors [skip ci]'
+          branch: all-contributors/add-pungrumpy-bot
+          title: '📄 Update Contributors Table'
+          body: |
+            ## 🆕 What does this PR do?
+
+            This PR updates the list of contributors to this repository as part of the
+            [All Contributors](https://allcontributors.org) specification. See the
+            [All Contributors documentation](https://allcontributors.org/docs/en/bot/usage)
+            for more details.
+          labels: all-contributors
+          reviewers: PunGrumpy
+          assignees: pungrumpy-bot
