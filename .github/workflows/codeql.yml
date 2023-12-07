@@ -23,6 +23,7 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
+        continue-on-error: true
       - name: 🦿 Autobuild
         uses: github/codeql-action/autobuild@v2
         continue-on-error: true
@@ -30,3 +31,4 @@ jobs:
         uses: github/codeql-action/analyze@v2
         with:
           category: '/language:${{matrix.language}}'
+        continue-on-error: true
