@@ -1,0 +1,30 @@
+name: 🤖 CodeQL
+on:
+  push:
+    branches:
+      - 'Year*-*'
+  pull_request:
+    branches:
+      - 'Year*-*'
+jobs:
+  analyze:
+    name: 🧠 Analysis Code
+    strategy:
+      matrix:
+        language:
+          ['c-cpp', 'go', 'java-kotlin', 'javascript-typescript', 'python']
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+      - name: 📦 Setup CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: ${{ matrix.language }}
+      - name: 🦿 Autobuild
+        uses: github/codeql-action/autobuild@v2
+        continue-on-error: true
+      - name: 🧪 Run CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          category: '/language:${{matrix.language}}'
