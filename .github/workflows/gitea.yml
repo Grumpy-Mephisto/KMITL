@@ -16,4 +16,7 @@ jobs:
           git config --global user.name 'PunGrumpy'
           git config --global user.email ${{ secrets.EMAIL_GITEA }}
           git remote add gitea https://PunGrumpy:${{ secrets.GITEA_TOKEN }}@gitea.com/Mephisto/KMITL.git
+          git fetch --unshallow
+          git add .
+          git commit -m "📝 Update ${{ github.ref }}#${{ github.run_number }} by ${{ github.actor }} [skip ci]"
           git push -f gitea HEAD:${{ github.ref }}
