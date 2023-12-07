@@ -9,51 +9,7 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "gitmoji",
-  "contributors": [
-    {
-      "login": "PunGrumpy",
-      "name": "Noppakorn Kaewsalabnil",
-      "avatar_url": "https://avatars.githubusercontent.com/u/108584943?v=4",
-      "profile": "https://pungrumpy.com",
-      "contributions": [
-        "maintenance",
-        "code",
-        "doc",
-        "design",
-        "security"
-      ]
-    },
-    {
-      "login": "pungrumpy-bot",
-      "name": "PunGrumpy Bot",
-      "avatar_url": "https://avatars.githubusercontent.com/u/151485456?v=4",
-      "profile": "https://github.com/pungrumpy-bot",
-      "contributions": [
-        "doc"
-      ]
-    },
-    {
-      "login": "sweep-ai[bot]",
-      "name": "sweep-ai[bot]",
-      "avatar_url": "https://avatars.githubusercontent.com/ml/15116?s=82&v=4",
-      "profile": "https://github.com/apps/sweep-ai",
-      "contributions": [
-        "ideas",
-        "security",
-        "test",
-        "bug"
-      ]
-    },
-    {
-      "login": "all-contributors",
-      "name": "All Contributors",
-      "avatar_url": "https://avatars.githubusercontent.com/u/46410174?v=4",
-      "profile": "https://allcontributors.org",
-      "contributions": [
-        "doc"
-      ]
-    }
-  ],
+  "contributors": [],
   "contributorsPerLine": 7,
   "linkToUsage": false,
   "skipCi": true
