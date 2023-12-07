@@ -6,6 +6,8 @@ on:
   pull_request:
     branches:
       - 'Year*-*'
+  schedule:
+    - cron: '0 0 * * *'
 jobs:
   analyze:
     name: 🧠 Analysis Code
