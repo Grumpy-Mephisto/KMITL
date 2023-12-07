@@ -1,4 +1,7 @@
 <div align="center">
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <h1><code>🏫</code> Comprehensive Guide to the KMITL CS Repository</h1>
   <p>Welcome to this collection of projects and experiences compiled throughout the Computer Science program at Kings Mongkut's University of Technology Ladkrabang. In this repository, you'll find a structured summary of learning materials, real-world project applications, and a variety of resources designed to support both current and future students in their academic endeavors. Delve into the codebases, study materials, and project examples that will take you on a journey through the fascinating world of Computer Science.</p>
 </div>
@@ -19,25 +22,13 @@ This guide will help you to quickly access specific course materials, semester p
 
 The heart and soul of this repository are the dedicated individuals who contribute to the vibrant educational ecosystem. Here you will find the profiles and contributions of students, faculty, and collaborators who have made a mark on this academic journey.
 
-<!-- readme: contributors -start -->
-<table>
-<tr>
-    <td align="center">
-        <a href="https://github.com/PunGrumpy">
-            <img src="https://avatars.githubusercontent.com/u/108584943?v=4" width="100;" alt="PunGrumpy"/>
-            <br />
-            <sub><b>Noppakorn Kaewsalabnil</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/pungrumpy-bot">
-            <img src="https://avatars.githubusercontent.com/u/151485456?v=4" width="100;" alt="pungrumpy-bot"/>
-            <br />
-            <sub><b>PunGrumpy Bot</b></sub>
-        </a>
-    </td></tr>
-</table>
-<!-- readme: contributors -end -->
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## `📝` Licensing
 
