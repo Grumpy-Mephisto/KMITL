@@ -55,5 +55,6 @@
     }
   ],
   "contributorsPerLine": 7,
-  "linkToUsage": false
+  "linkToUsage": false,
+  "skipCi": true
 }
