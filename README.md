@@ -11,13 +11,9 @@
 
 Embark on an educational odyssey through the various branches of Computer Science. This section contains a curated list of academic projects and research, illustrating the diversity and depth of the field.
 
-Explore this repository, a treasure trove housing a myriad of my projects, assignments, and comprehensive notes derived from my enriching journey in Computer Science at King Mongkut's University of Technology Ladkrabang.
-
 ## `📚` Navigation Guide
 
 This guide will help you to quickly access specific course materials, semester projects, and snippets of knowledge. Use the branching system to maneuver through different semesters, courses, and topics with ease.
-
-Effortlessly discover your desired year and semester by simply navigating through the branch names.
 
 ## `🦧` Meet the Team
 
@@ -45,9 +41,7 @@ The heart and soul of this repository are the dedicated individuals who contribu
 
 ## `📝` Licensing
 
-This section provides details on the terms of use and redistribution of the content found within the repository. The MIT License offers a permissive framework that enables others to freely use, modify, and share this body of work while maintaining proper acknowledgment of the authors.
-
-This project is licensed under the [MIT License](LICENSE).
+This section provides details on the terms of use and redistribution of the content found within the repository. The [MIT License](LICENSE) offers a permissive framework that enables others to freely use, modify, and share this body of work while maintaining proper acknowledgment of the authors.
 
 ---
 
