@@ -55,6 +55,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Mephisto-Grumpy",
+      "name": "Mephisto-Grumpy",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99166827?v=4",
+      "profile": "https://github.com/Mephisto-Grumpy",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ]
 }
