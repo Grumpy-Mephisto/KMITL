@@ -1,7 +1,4 @@
 <div align="center">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   <h1><code>🏫</code> Comprehensive Guide to the KMITL CS Repository</h1>
   <p>Welcome to this collection of projects and experiences compiled throughout the Computer Science program at Kings Mongkut's University of Technology Ladkrabang. In this repository, you'll find a structured summary of learning materials, real-world project applications, and a variety of resources designed to support both current and future students in their academic endeavors. Delve into the codebases, study materials, and project examples that will take you on a journey through the fascinating world of Computer Science.</p>
 </div>
