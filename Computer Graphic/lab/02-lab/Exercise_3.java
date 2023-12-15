@@ -38,8 +38,12 @@ public class Exercise_3 extends JPanel {
         }
     }
 
-    /*
-     * Task 1
+    /**
+     * This method implements the Bresenham's line algorithm.
+     * @param x1 the x-coordinate of the first point
+     * @param y1 the y-coordinate of the first point
+     * @param x2 the x-coordinate of the second point
+     * @param y2 the y-coordinate of the second point
      */
     public void BresenhamLine(float x1, float y1, float x2, float y2) {
         float dx = Math.abs(x2 - x1);
