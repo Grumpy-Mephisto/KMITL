@@ -2,6 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Exercise_3.java
+ *
+ * This file contains the implementation of the Exercise_3 class which handles drawing
+ * lines on a panel using the Bresenham line drawing algorithm. It includes methods
+ * for creating a line between two points, swapping values for line calculation, and drawing
+ * on a JPanel.
+ */
 public class Exercise_3 extends JPanel {
     private static ArrayList<Point> points = new ArrayList<>();
 
