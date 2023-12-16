@@ -89,7 +89,7 @@ public class Exercise_2 extends JPanel {
     }
 
     private void plot(Graphics g, int x, int y) {
-        g.drawLine(x, y, x, y);
+        g.fillRect(x, y, 1, 1);
     }
 
 }
