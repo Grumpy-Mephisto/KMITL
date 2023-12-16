@@ -100,7 +100,8 @@ public class Exercise_3 extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        Color Gray = Color.decode("#B6BBC4");
+        // hsl(219, 11%, 74%)
+        Color Gray = Color.getHSBColor(219f / 360f, 11f / 100f, 74f / 100f);
         g.setColor(Gray);
         for (Point point : points) {
             plot(g, (int) point.x, (int) point.y);
