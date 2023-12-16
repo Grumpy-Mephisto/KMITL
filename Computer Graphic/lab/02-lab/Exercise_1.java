@@ -57,7 +57,8 @@ public class Exercise_1 extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        Color DarkGunmetal = Color.decode("#161A30");
+        // hsl(231, 37%, 14%)
+        Color DarkGunmetal = Color.getHSBColor(231 / 360f, 37 / 100f, 14 / 100f);
         g.setColor(DarkGunmetal);
         for (Point point : points) {
             plot(g, (int) point.x, (int) point.y);
