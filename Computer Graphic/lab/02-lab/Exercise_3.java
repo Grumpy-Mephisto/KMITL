@@ -52,7 +52,10 @@ public class Exercise_3 extends JPanel {
         boolean isSwap = false;
 
         if (dy > dx) {
-            Swap(dx, dy);
+            float[] values = {dx, dy};
+            Swap(values);
+            dx = values[0];
+            dy = values[1];
             isSwap = true;
         }
 
@@ -64,7 +67,7 @@ public class Exercise_3 extends JPanel {
         for (int i = 1; i <= dx; i++) {
             points.add(new Point(x, y));
 
-            while (D >= 0) {
+            if (D >= 0) {
                 if (isSwap) {
                     x += sx;
                 } else {
@@ -82,10 +85,10 @@ public class Exercise_3 extends JPanel {
         }
     }
 
-    private void Swap(float a, float b) {
-        float temp = a;
-        a = b;
-        b = temp;
+    private void Swap(float[] values) {
+        float temp = values[0];
+        values[0] = values[1];
+        values[1] = temp;
     }
 
     @Override
