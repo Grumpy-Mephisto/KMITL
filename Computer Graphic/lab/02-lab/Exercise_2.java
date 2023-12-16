@@ -79,16 +79,19 @@ public class Exercise_2 extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
 
         Color Jacarta = Color.decode("#31304D");
-        g2d.setColor(Jacarta);
+        g.setColor(Jacarta);
         for (Point point : points) {
-            int x = Math.round(point.x);
-            int y = Math.round(point.y);
-            g2d.drawLine(x, y, x, y);
+            plot(g, (int) point.x, (int) point.y);
         }
+
     }
+
+    private void plot(Graphics g, int x, int y) {
+        g.drawLine(x, y, x, y);
+    }
+
 }
 
 /*
