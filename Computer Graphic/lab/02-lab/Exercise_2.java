@@ -1,3 +1,7 @@
+/**
+ * Exercise 2: Digital Differential Analyzer (DDA) Line Drawing Algorithm Implementation.
+ * This exercise demonstrates line drawing using the DDA algorithm in a Java Swing application.
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -5,6 +9,10 @@ import java.util.ArrayList;
 public class Exercise_2 extends JPanel {
     private static ArrayList<Point> points = new ArrayList<>();
 
+    /**
+     * The entry point of the application. Initializes the drawing panel and frame.
+     * Lines are drawn on the panel using the DDA algorithm, and the frame is displayed.
+     */
     public static void main(String[] args) {
         Exercise_2 panel = new Exercise_2();
         /*
@@ -41,6 +49,14 @@ public class Exercise_2 extends JPanel {
     /*
      * Task 1
      */
+    /**
+     * Draws a line between two points using the DDA line drawing algorithm.
+     *
+     * @param x1 The x-coordinate of the starting point.
+     * @param y1 The y-coordinate of the starting point.
+     * @param x2 The x-coordinate of the ending point.
+     * @param y2 The y-coordinate of the ending point.
+     */
     public void DDALine(float x1, float y1, float x2, float y2) {
         float dx = x2 - x1;
         float dy = y2 - y1;
@@ -76,6 +92,12 @@ public class Exercise_2 extends JPanel {
         }
     }
 
+    /**
+     * Overridden method from JPanel to handle custom painting on the panel.
+     * It draws all points calculated by the DDA algorithm.
+     *
+     * @param g The Graphics context to use for painting.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -89,6 +111,13 @@ public class Exercise_2 extends JPanel {
 
     }
 
+    /**
+     * Plots a single pixel at the specified coordinates using the Graphics context.
+     *
+     * @param g The Graphics context to use for painting.
+     * @param x The x-coordinate of the pixel.
+     * @param y The y-coordinate of the pixel.
+     */
     private void plot(Graphics g, int x, int y) {
         g.fillRect(x, y, 1, 1);
     }
