@@ -85,6 +85,11 @@ public class Exercise_3 extends JPanel {
         }
     }
 
+    /**
+     * Swap the first two elements in the given array.
+     * 
+     * @param values The array of float values to be swapped.
+     */
     private void Swap(float[] values) {
         float temp = values[0];
         values[0] = values[1];
