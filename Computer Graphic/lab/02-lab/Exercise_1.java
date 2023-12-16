@@ -1,3 +1,7 @@
+/**
+ * This file contains the implementation of Exercise 1, a simple drawing application.
+ * It demonstrates the use of Java Swing to create a window with custom drawn content.
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -53,6 +57,12 @@ public class Exercise_1 extends JPanel {
         }
     }
 
+    /**
+     * Called by the Swing framework to render the custom component.
+     * It iterates over each point and plots it on the component.
+     *
+     * @param g The Graphics context to use for drawing.
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -65,6 +75,13 @@ public class Exercise_1 extends JPanel {
         }
     }
 
+    /**
+     * Plots a single pixel at the specified coordinates.
+     * 
+     * @param g The Graphics context to use for painting.
+     * @param x The x-coordinate of the pixel.
+     * @param y The y-coordinate of the pixel.
+     */
     private void plot(Graphics g, int x, int y) {
         g.fillRect(x, y, 1, 1);
     }
