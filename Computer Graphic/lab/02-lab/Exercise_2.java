@@ -80,7 +80,8 @@ public class Exercise_2 extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        Color Jacarta = Color.decode("#31304D");
+        // hsl(242, 23%, 25%)
+        Color Jacarta = Color.getHSBColor(242 / 360f, 23 / 100f, 25 / 100f);
         g.setColor(Jacarta);
         for (Point point : points) {
             plot(g, (int) point.x, (int) point.y);
