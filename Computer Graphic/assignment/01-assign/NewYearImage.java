@@ -1,48 +1,49 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.*;
 
 public class NewYearImage extends JFrame {
     public NewYearImage() {
-        setTitle("Cartoon Image");
+        setTitle("Mickey Mouse");
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        getContentPane().add(new CartoonPanel());
+        getContentPane().add(new MickeyMousePanel());
         setVisible(true);
     }
 
-    class CartoonPanel extends JPanel {
+    class MickeyMousePanel extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             Graphics2D g2d = (Graphics2D) g;
 
-            // Draw cartoon-style elements
+            // Draw Mickey Mouse
             g2d.setColor(Color.BLACK);
 
-            // Draw cartoon character (basic shapes)
-            g2d.fillOval(200, 200, 200, 200); // Head
-            g2d.fillRect(240, 300, 120, 40); // Body
-            g2d.fillOval(230, 180, 40, 60); // Left eye
-            g2d.fillOval(330, 180, 40, 60); // Right eye
-            g2d.drawArc(250, 260, 100, 80, 180, 180); // Mouth
+            // Draw head (large circle)
+            g2d.fillOval(200, 100, 200, 200);
 
-            // Draw other cartoon elements using Bresenham's lines, Bezier curves, or filled
-            // polygons
-            // Example:
+            // Draw ears (smaller circles)
+            g2d.fillOval(150, 100, 100, 100);
+            g2d.fillOval(350, 100, 100, 100);
+
+            // Draw eyes (smaller filled circles)
+            g2d.setColor(Color.WHITE);
+            g2d.fillOval(250, 150, 30, 30);
+            g2d.fillOval(320, 150, 30, 30);
+
+            // Draw pupils (even smaller filled circles)
+            g2d.setColor(Color.BLACK);
+            g2d.fillOval(260, 160, 10, 10);
+            g2d.fillOval(330, 160, 10, 10);
+
+            // Draw nose (small filled circle)
             g2d.setColor(Color.RED);
+            g2d.fillOval(295, 195, 10, 10);
 
-            // Example Bresenham's Line
-            g2d.drawLine(100, 100, 300, 300);
-
-            // Example Bezier Curve
-            g2d.draw(new CubicCurve2D.Double(50, 50, 150, 200, 250, 200, 350, 50));
-
-            // Example Filled Polygon
-            int[] xPoly = {400, 450, 500, 450};
-            int[] yPoly = {400, 450, 400, 350};
-            g2d.fillPolygon(xPoly, yPoly, 4);
+            // Draw smiling mouth (curved line)
+            g2d.setColor(Color.RED);
+            g2d.drawArc(250, 200, 100, 60, 180, 180);
         }
     }
 
