@@ -1,8 +1,7 @@
 package com.cgassign.components;
 
-import com.cgassign.function.Triangle;
-
 import java.awt.*;
+import com.cgassign.functions.Triangle;
 
 public class Tree {
     private Triangle triangle = new Triangle();

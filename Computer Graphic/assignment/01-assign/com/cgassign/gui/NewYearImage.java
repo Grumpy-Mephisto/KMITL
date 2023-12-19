@@ -1,7 +1,7 @@
 package com.cgassign.gui;
 
-import com.cgassign.function.*;
 import com.cgassign.components.*;
+// import com.cgassign.functions.*;
 
 import java.awt.*;
 import javax.swing.*;

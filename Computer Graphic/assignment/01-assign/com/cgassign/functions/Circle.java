@@ -1,4 +1,4 @@
-package com.cgassign.function;
+package com.cgassign.functions;
 
 import java.awt.Graphics;
 

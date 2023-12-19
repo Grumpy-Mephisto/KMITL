@@ -1,9 +1,8 @@
 package com.cgassign.components;
 
-import com.cgassign.function.Line;
-
 import java.awt.*;
 import java.util.Random;
+import com.cgassign.functions.Line;
 
 public class Snow {
     private Line line = new Line();
