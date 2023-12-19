@@ -13,6 +13,16 @@ public class NewYearImage extends JPanel {
     // private Triangle triangle = new Triangle();
 
     private Snow Snow = new Snow();
+
+    private void drawSnow(Graphics2D g2d, int width, int height) {
+        // Code for drawing snowflakes
+        Snow.draw(g2d, width, height);
+    }
+    private void drawTree(Graphics2D g2d, int width, int height) {
+        // Code for drawing Christmas tree
+        ChristmasTree.draw(g2d, width, height);
+    }
+
     private Tree ChristmasTree = new Tree();
 
 
@@ -29,9 +39,9 @@ public class NewYearImage extends JPanel {
         g2d.fillRect(0, 0, getWidth(), getHeight());
 
         // Snow
-        Snow.draw(g2d, getWidth(), getHeight());
+        drawSnow(g2d, getWidth(), getHeight());
 
         // Tree
-        ChristmasTree.draw(g2d, getWidth(), getHeight());
+        drawTree(g2d, getWidth(), getHeight());
     }
 }
