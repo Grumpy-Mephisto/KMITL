@@ -2,7 +2,6 @@ package com.cgassign.gui;
 
 import com.cgassign.components.*;
 // import com.cgassign.functions.*;
-
 import java.awt.*;
 import javax.swing.*;
 
@@ -15,7 +14,6 @@ public class NewYearImage extends JPanel {
     private Snow Snow = new Snow();
     private Tree ChristmasTree = new Tree();
 
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -24,8 +22,12 @@ public class NewYearImage extends JPanel {
         // Set rendering hints for smoother shapes
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Background color
-        g2d.setColor(Color.BLACK);
+        // Background
+        Color[] BackgroundColors =
+                {Color.decode("#0c1445"), Color.decode("#2d2351"), Color.decode("#4c408e")};
+        float[] BackgroundDist = {0.0f, 0.5f, 1.0f};
+        g2d.setPaint(new LinearGradientPaint(getWidth() / 2, 0, getWidth() / 2, getHeight(),
+                BackgroundDist, BackgroundColors));
         g2d.fillRect(0, 0, getWidth(), getHeight());
 
         // Snow
