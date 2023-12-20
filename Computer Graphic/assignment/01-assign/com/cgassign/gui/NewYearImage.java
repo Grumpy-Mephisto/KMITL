@@ -5,6 +5,10 @@ import com.cgassign.components.*;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * This class represents a panel that displays a New Year image.
+ * It contains methods for painting the background, snow, and Christmas tree.
+ */
 public class NewYearImage extends JPanel {
     // private Line line = new Line();
     // private Curve curve = new Curve();
