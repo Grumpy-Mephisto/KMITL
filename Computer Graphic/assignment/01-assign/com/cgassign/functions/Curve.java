@@ -1,16 +1,38 @@
 package com.cgassign.functions;
 
+import java.awt.Point;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Path2D;
+import java.awt.RenderingHints;
 
 public class Curve {
-    public void drawBezierCurve(Graphics g, int x0, int y0, int x1, int y1, int x2, int y2) {
-        double t;
-        int x, y;
+    public void drawBezierCurve(Graphics g, Point p0, Point p1, Point p2, Point p3) {
+        if (p0 != null && p1 != null && p2 != null && p3 != null) {
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON);
 
-        for (t = 0.0; t <= 1.0; t += 0.001) {
-            x = (int) (Math.pow(1 - t, 2) * x0 + 2 * t * (1 - t) * x1 + Math.pow(t, 2) * x2);
-            y = (int) (Math.pow(1 - t, 2) * y0 + 2 * t * (1 - t) * y1 + Math.pow(t, 2) * y2);
-            g.drawLine(x, y, x, y);
+            Path2D.Double path = new Path2D.Double();
+            path.moveTo(p0.getX(), p0.getY());
+
+            for (double t = 0.0; t <= 1.0; t += 0.001) {
+                double oneMinusT = 1 - t;
+                double oneMinusTSquared = oneMinusT * oneMinusT;
+                double tSquared = t * t;
+
+                double x = oneMinusT * oneMinusT * oneMinusT * p0.getX()
+                        + 3 * oneMinusT * oneMinusTSquared * p1.getX()
+                        + 3 * oneMinusTSquared * t * p2.getX() + tSquared * t * p3.getX();
+
+                double y = oneMinusT * oneMinusT * oneMinusT * p0.getY()
+                        + 3 * oneMinusT * oneMinusTSquared * p1.getY()
+                        + 3 * oneMinusTSquared * t * p2.getY() + tSquared * t * p3.getY();
+
+                path.lineTo(x, y);
+            }
+
+            g2d.draw(path);
         }
     }
 }
