@@ -24,21 +24,19 @@ public class Lab3 extends JPanel {
         });
     }
 
-    public void Bezierpve(Graphics2D g2d, int x1, int y1, int x2, int y2, int x3, int y3, int x4,
-            int y4) {
-        int n = 1000;
-
-        for (int i = 0; i < n; i++) {
-            float t = i / (float) n;
-            float u = 1 - t;
-            float coef1 = u * u * u;
-            float coef2 = 3 * u * u * t;
-            float coef3 = 3 * u * t * t;
-            float coef4 = t * t * t;
-            int x = Math.round(coef1 * x1 + coef2 * x2 + coef3 * x3 + coef4 * x4);
-            int y = Math.round(coef1 * y1 + coef2 * y2 + coef3 * y3 + coef4 * y4);
-            plot(g2d, x, y);
-        }
+    public Point calculateBezier(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4, float t) {
+        float u = 1 - t;
+        float coef1 = u * u * u;
+        float coef2 = 3 * u * u * t;
+        float coef3 = 3 * u * t * t;
+        float coef4 = t * t * t;
+        int x = Math.round(coef1 * x1 + coef2 * x2 + coef3 * x3 + coef4 * x4);
+        int y = Math.round(coef1 * y1 + coef2 * y2 + coef3 * y3 + coef4 * y4);
+        return new Point(x, y);
+    }
+    
+    public void plotBezier(Graphics2D g2d, Point point) {
+        plot(g2d, point.x, point.y);
     }
 
     public void floodFill(BufferedImage img, int x, int y, Color targetColor,
@@ -92,8 +90,13 @@ public class Lab3 extends JPanel {
 
             // Exercise 1 (Bezier pve)
             g2d.setColor(Color.BLUE);
-            Bezierpve(g2d, xPoly[0] - 50, yPoly[0], xPoly[1] - 50, yPoly[1] - 150, xPoly[2],
-                    yPoly[2] - 150, xPoly[3] + 150, yPoly[3] + 150);
+            int n = 1000;
+            for (int i = 0; i < n; i++) {
+                float t = i / (float) n;
+                Point point = calculateBezier(xPoly[0] - 50, yPoly[0], xPoly[1] - 50, yPoly[1] - 150, xPoly[2],
+                                yPoly[2] - 150, xPoly[3] + 150, yPoly[3] + 150, t);
+                plotBezier(g2d, point);
+            }
 
             // Exercise 2 (Drawing the polygon)
             Polygon polygon = new Polygon(xPoly, yPoly, xPoly.length);
