@@ -1,3 +1,11 @@
+/**
+ * Lab3: Graphics Processing Demo
+ * 
+ * This file contains code to demonstrate graphics processing concepts such as drawing
+ * Bezier curves, fill algorithms, and simple graphic components rendering in a Java Swing
+ * application. The drawing is performed on a JPanel which then gets rendered on a JFrame.
+ * 
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -24,6 +32,19 @@ public class Lab3 extends JPanel {
         });
     }
 
+    /**
+     * Draws a Bezier curve based on the given control points.
+     *
+     * @param g2d The Graphics2D object for drawing
+     * @param x1 The x coordinate of the first control point
+     * @param y1 The y coordinate of the first control point
+     * @param x2 The x coordinate of the second control point
+     * @param y2 The y coordinate of the second control point
+     * @param x3 The x coordinate of the third control point
+     * @param y3 The y coordinate of the third control point
+     * @param x4 The x coordinate of the fourth control point
+     * @param y4 The y coordinate of the fourth control point
+     */
     public void Bezierpve(Graphics2D g2d, int x1, int y1, int x2, int y2, int x3, int y3, int x4,
             int y4) {
         int n = 1000;
@@ -41,6 +62,15 @@ public class Lab3 extends JPanel {
         }
     }
 
+    /**
+     * Fills a region of the image with a specified color starting from a point.
+     *
+     * @param img The BufferedImage object representing the image to be filled
+     * @param x The x coordinate of the starting point
+     * @param y The y coordinate of the starting point
+     * @param targetColor The color being replaced
+     * @param replacementColor The color to use for the fill
+     */
     public void floodFill(BufferedImage img, int x, int y, Color targetColor,
             Color replacementColor) {
         Queue<Point> q = new LinkedList<>();
@@ -66,6 +96,11 @@ public class Lab3 extends JPanel {
         }
     }
 
+    /**
+     * Custom painting code for rendering the JPanel.
+     *
+     * @param g The Graphics object to be used for drawing
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -109,6 +144,13 @@ public class Lab3 extends JPanel {
         g.drawImage(image, 0, 0, this);
     }
 
+    /**
+     * Draws a single pixel at the specified coordinates using the Graphics2D object.
+     *
+     * @param g The Graphics2D object for drawing
+     * @param x The x coordinate of the pixel
+     * @param y The y coordinate of the pixel
+     */
     private void plot(Graphics2D g, int x, int y) {
         g.fillRect(x, y, 1, 1);
     }
