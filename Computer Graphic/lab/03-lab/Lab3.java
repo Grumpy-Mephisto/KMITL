@@ -41,6 +41,15 @@ public class Lab3 extends JPanel {
         }
     }
 
+    private void drawBezierPve(Graphics2D g2d, int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+        Bezierpve(g2d, x1, y1, x2, y2, x3, y3, x4, y4);
+    }
+
+    private void drawPolygon(Graphics2D g2d, int[] xPoints, int[] yPoints, int nPoints) {
+        Polygon polygon = new Polygon(xPoints, yPoints, nPoints);
+        g2d.drawPolygon(polygon);
+    }
+
     public void floodFill(BufferedImage img, int x, int y, Color targetColor,
             Color replacementColor) {
         Queue<Point> q = new LinkedList<>();
@@ -91,14 +100,11 @@ public class Lab3 extends JPanel {
             g2d.fillRect(0, 0, getWidth(), getHeight());
 
             // Exercise 1 (Bezier pve)
-            g2d.setColor(Color.BLUE);
-            Bezierpve(g2d, xPoly[0] - 50, yPoly[0], xPoly[1] - 50, yPoly[1] - 150, xPoly[2],
+            drawBezierPve(g2d, xPoly[0] - 50, yPoly[0], xPoly[1] - 50, yPoly[1] - 150, xPoly[2],
                     yPoly[2] - 150, xPoly[3] + 150, yPoly[3] + 150);
 
             // Exercise 2 (Drawing the polygon)
-            Polygon polygon = new Polygon(xPoly, yPoly, xPoly.length);
-            g2d.setColor(Color.CYAN);
-            g2d.drawPolygon(polygon);
+            drawPolygon(g2d, xPoly, yPoly, xPoly.length);
 
             // Exercise 3 (Flood fill)
             floodFill(image, 200, 150, Color.WHITE, Color.BLACK);
