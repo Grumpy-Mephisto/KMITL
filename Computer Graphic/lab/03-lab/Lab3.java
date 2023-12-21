@@ -39,23 +39,28 @@ public class Lab3 extends JPanel {
         plot(g2d, point.x, point.y);
     }
 
-    public void floodFill(BufferedImage img, int x, int y, Color targetColor,
-            Color replacementColor) {
-        Queue<Point> q = new LinkedList<>();
+    public boolean shouldFill(BufferedImage img, Point point, Color targetColor) {
         int targetRGB = targetColor.getRGB();
+        return img.getRGB(point.x, point.y) == targetRGB;
+    }
+
+    public void performFill(BufferedImage img, Point point, Color replacementColor) {
         int replacementRGB = replacementColor.getRGB();
-
-        if (img.getRGB(x, y) == replacementRGB)
+        img.setRGB(point.x, point.y, replacementRGB);
+    }
+    public void floodFill(BufferedImage img, int x, int y, Color targetColor, Color replacementColor) {
+        Queue<Point> q = new LinkedList<>();
+        if (!shouldFill(img, new Point(x, y), targetColor))
             return;
-
+        performFill(img, new Point(x, y), replacementColor);
         q.add(new Point(x, y));
 
         while (!q.isEmpty()) {
             Point p = q.poll();
             if (p.x < 0 || p.y < 0 || p.x >= img.getWidth() || p.y >= img.getHeight())
                 continue;
-            if (img.getRGB(p.x, p.y) == targetRGB) {
-                img.setRGB(p.x, p.y, replacementRGB);
+            if (shouldFill(img, p, targetColor)) {
+                performFill(img, p, replacementColor);
                 q.add(new Point(p.x - 1, p.y));
                 q.add(new Point(p.x + 1, p.y));
                 q.add(new Point(p.x, p.y - 1));
@@ -104,7 +109,26 @@ public class Lab3 extends JPanel {
             g2d.drawPolygon(polygon);
 
             // Exercise 3 (Flood fill)
-            floodFill(image, 200, 150, Color.WHITE, Color.BLACK);
+            Color targetColor = Color.WHITE;
+            Color replacementColor = Color.BLACK;
+            Queue<Point> q = new LinkedList<>();
+            Point startPoint = new Point(200, 150);
+            if (shouldFill(image, startPoint, targetColor)) {
+                performFill(image, startPoint, replacementColor);
+                q.add(startPoint);
+            }
+            while (!q.isEmpty()) {
+                Point p = q.poll();
+                if (p.x < 0 || p.y < 0 || p.x >= image.getWidth() || p.y >= img.getHeight())
+                    continue;
+                if (shouldFill(image, p, targetColor)) {
+                    performFill(image, p, replacementColor);
+                    q.add(new Point(p.x - 1, p.y));
+                    q.add(new Point(p.x + 1, p.y));
+                    q.add(new Point(p.x, p.y - 1));
+                    q.add(new Point(p.x, p.y + 1));
+                }
+            }
 
             g2d.dispose(); // Release resources
         }
