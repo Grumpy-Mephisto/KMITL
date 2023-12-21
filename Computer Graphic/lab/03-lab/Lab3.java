@@ -24,6 +24,14 @@ public class Lab3 extends JPanel {
         });
     }
 
+/**
+     * This function calculates and plots a Bezier curve given four control points.
+     * @param g2d the Graphics2D object to which the Bezier curve is plotted.
+     * @param x1, y1 the coordinates of the first control point.
+     * @param x2, y2 the coordinates of the second control point.
+     * @param x3, y3 the coordinates of the third control point.
+     * @param x4, y4 the coordinates of the fourth control point.
+     */
     public void Bezierpve(Graphics2D g2d, int x1, int y1, int x2, int y2, int x3, int y3, int x4,
             int y4) {
         int n = 1000;
