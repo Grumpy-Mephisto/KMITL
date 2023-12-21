@@ -90,6 +90,11 @@ public class Lab3 extends JPanel {
             g2d.setColor(Color.WHITE);
             g2d.fillRect(0, 0, getWidth(), getHeight());
 
+            // Exercise 1 (Bezier pve)
+            g2d.setColor(Color.BLUE);
+            Bezierpve(g2d, xPoly[0] - 50, yPoly[0], xPoly[1] - 50, yPoly[1] - 150, xPoly[2],
+                    yPoly[2] - 150, xPoly[3] + 150, yPoly[3] + 150);
+
             // Exercise 2 (Drawing the polygon)
             Polygon polygon = new Polygon(xPoly, yPoly, xPoly.length);
             g2d.setColor(Color.CYAN);
@@ -97,11 +102,6 @@ public class Lab3 extends JPanel {
 
             // Exercise 3 (Flood fill)
             floodFill(image, 200, 200, Color.WHITE, Color.BLACK);
-
-            // Exercise 1 (Bezier pve)
-            g2d.setColor(Color.BLUE);
-            Bezierpve(g2d, xPoly[0] - 50, yPoly[0], xPoly[1] - 50, yPoly[1] - 150, xPoly[2],
-                    yPoly[2] - 150, xPoly[3] + 150, yPoly[3] + 150);
 
             g2d.dispose(); // Release resources
         }
