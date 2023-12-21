@@ -101,7 +101,7 @@ public class Lab3 extends JPanel {
             g2d.drawPolygon(polygon);
 
             // Exercise 3 (Flood fill)
-            floodFill(image, 200, 200, Color.WHITE, Color.BLACK);
+            floodFill(image, 200, 150, Color.WHITE, Color.BLACK);
 
             g2d.dispose(); // Release resources
         }
