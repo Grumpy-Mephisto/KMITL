@@ -7,6 +7,43 @@ import java.util.Queue;
 public class Lab3 extends JPanel {
     private BufferedImage image;
 
+    private Graphics2D setupImage(BufferedImage image) {
+        Graphics2D g2d = image.createGraphics();
+
+        // Anti-aliasing
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        return g2d;
+    }
+
+    private void drawExercise1(Graphics2D g2d, int[] xPoly, int[] yPoly) {
+        g2d.setColor(Color.BLUE);
+        int n = 1000;
+        for (int i = 0; i < n; i++) {
+            float t = i / (float)n;
+            Point point = calculateBezier(xPoly[0] - 50, yPoly[0], xPoly[1] - 50, yPoly[1] - 150, xPoly[2],
+                            yPoly[2] - 150, xPoly[3] + 150, yPoly[3] + 150, t);
+            plotBezier(g2d, point);
+        }
+    }
+
+    private void drawExercise2(Graphics2D g2d, int[] xPoly, int[] yPoly) {
+        Polygon polygon = new Polygon(xPoly, yPoly, xPoly.length);
+        g2d.setColor(Color.CYAN);
+        g2d.drawPolygon(polygon);
+    }
+
+    private void drawExercise3(BufferedImage image, int x, int y, Color targetColor, Color replacementColor) {
+        floodFill(image, x, y, targetColor, replacementColor);
+    }
+
+    private void drawImage(Graphics g, BufferedImage image) {
+        g.drawImage(image, 0, 0, this);
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             JFrame frame = new JFrame("Lab 3 by 65050437");
@@ -78,13 +115,7 @@ public class Lab3 extends JPanel {
             // and plus 1 to avoid the right and bottom borders
             image = new BufferedImage(getWidth() + 1, getHeight() + 1, BufferedImage.TYPE_INT_RGB);
 
-            Graphics2D g2d = image.createGraphics();
-
-            // Anti-aliasing
-            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                    RenderingHints.VALUE_ANTIALIAS_ON);
-            g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-                    RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+            Graphics2D g2d = setupImage(image);
 
             int xPoly[] = {150, 250, 325, 375, 400, 275, 100};
             int yPoly[] = {150, 100, 125, 225, 325, 375, 300};
@@ -93,25 +124,13 @@ public class Lab3 extends JPanel {
             g2d.setColor(Color.WHITE);
             g2d.fillRect(0, 0, getWidth(), getHeight());
 
-            // Exercise 1 (Bezier pve)
-            g2d.setColor(Color.BLUE);
-            int n = 1000;
-            for (int i = 0; i < n; i++) {
-                float t = i / (float) n;
-                Point point = calculateBezier(xPoly[0] - 50, yPoly[0], xPoly[1] - 50, yPoly[1] - 150, xPoly[2],
-                                yPoly[2] - 150, xPoly[3] + 150, yPoly[3] + 150, t);
-                plotBezier(g2d, point);
-            }
+            drawExercise1(g2d, xPoly, yPoly);
 
             // Exercise 2 (Drawing the polygon)
-            Polygon polygon = new Polygon(xPoly, yPoly, xPoly.length);
+            drawExercise2(g2d, xPoly, yPoly);
             g2d.setColor(Color.CYAN);
-            g2d.drawPolygon(polygon);
-
             // Exercise 3 (Flood fill)
-            Color targetColor = Color.WHITE;
-            Color replacementColor = Color.BLACK;
-            Queue<Point> q = new LinkedList<>();
+            drawExercise3(image, 200, 150, Color.WHITE, Color.BLACK);
             Point startPoint = new Point(200, 150);
             if (shouldFill(image, startPoint, targetColor)) {
                 performFill(image, startPoint, replacementColor);
@@ -130,10 +149,8 @@ public class Lab3 extends JPanel {
                 }
             }
 
-            g2d.dispose(); // Release resources
         }
-
-        g.drawImage(image, 0, 0, this);
+        drawImage(g, image);
     }
 
     private void plot(Graphics2D g, int x, int y) {
