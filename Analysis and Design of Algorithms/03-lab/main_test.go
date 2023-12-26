@@ -35,7 +35,7 @@ func TestKnapsackAlgorithm(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			result := knapsackAlgorithm(tc.knapsackCapacity, tc.items)
+			result := performKnapsackAlgorithm(tc.knapsackCapacity, tc.items)
 			if result != tc.expectedResult {
 				t.Errorf("Expected %d, but got %d", tc.expectedResult, result)
 			}
