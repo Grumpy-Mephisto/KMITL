@@ -49,6 +49,8 @@ func knapsackAlgorithm(knapsackCapacity int, items []Item) int {
 	return knapsackResultantProfit
 }
 
+// getInput is a function that prompts the user for input and returns the entered value.
+// It takes a prompt string as input and returns an integer.
 func getInput(prompt string) int {
 	var input int
 	fmt.Print(prompt)
