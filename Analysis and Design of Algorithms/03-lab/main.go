@@ -9,7 +9,7 @@ type Item struct {
 	Weight int
 }
 
-func knapsackAlgorithm(knapsackCapacity int, items []Item) int {
+func performKnapsackAlgorithm(knapsackCapacity int, items []Item) int {
 	numOfObjects := len(items)
 
 	densityArr := make([]float64, numOfObjects)
@@ -47,40 +47,27 @@ func knapsackAlgorithm(knapsackCapacity int, items []Item) int {
 	return knapsackResultantProfit
 }
 
-func getInput(prompt string) int {
-	var input int
-	fmt.Print(prompt)
-	_, err := fmt.Scanln(&input)
-	if err != nil {
-		fmt.Println("Please enter a valid number.")
-		return getInput(prompt)
-	}
-	return input
+func printOutput(result int) {
+	fmt.Println("Knapsack Algorithm Result:", result)
+	fmt.Println("===== Thank you for using the Knapsack Algorithm =====")
 }
+
+
 
 func main() {
 	fmt.Println("===== Welcome to the Knapsack Algorithm =====")
 
-	numOfObjects := getInput("Enter the number of objects: ")
+	numOfObjects := getUserInput("Enter the number of objects: ")
 
-	knapsackCapacity := getInput("Enter the knapsack capacity: ")
+	knapsackCapacity := getUserInput("Enter the knapsack capacity: ")
 
 	items := make([]Item, numOfObjects)
-
 	for i := 0; i < numOfObjects; i++ {
-		profit := getInput(fmt.Sprintf("Enter profit for item %d: ", i+1))
-		weight := getInput(fmt.Sprintf("Enter weight for item %d: ", i+1))
-
-		if weight > knapsackCapacity {
-			fmt.Println("Please enter a valid weight.")
-			i--
-		} else {
-			items[i] = Item{Profit: profit, Weight: weight}
-		}
+		profit := getUserInput(fmt.Sprintf("Enter profit for item %d: ", i+1))
+		weight := getUserInput(fmt.Sprintf("Enter weight for item %d: ", i+1))
+		items[i] = Item{Profit: profit, Weight: weight}
 	}
 
-	knapsackResult := knapsackAlgorithm(knapsackCapacity, items)
-
-	fmt.Println("Knapsack Algorithm Result:", knapsackResult)
-	fmt.Println("===== Thank you for using the Knapsack Algorithm =====")
+	knapsackResult := performKnapsackAlgorithm(knapsackCapacity, items)
+	printOutput(knapsackResult)
 }
