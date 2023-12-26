@@ -9,6 +9,8 @@ type Item struct {
 	Weight int
 }
 
+// knapsackAlgorithm is a function that implements the knapsack algorithm.
+// It takes the knapsack capacity and a list of items as input and returns the resultant profit.
 func knapsackAlgorithm(knapsackCapacity int, items []Item) int {
 	numOfObjects := len(items)
 
