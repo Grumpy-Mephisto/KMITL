@@ -73,7 +73,7 @@ func main() {
 
 		if weight > knapsackCapacity {
 			fmt.Println("Please enter a valid weight.")
-			i--
+			return
 		} else {
 			items[i] = Item{Profit: profit, Weight: weight}
 		}
