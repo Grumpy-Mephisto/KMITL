@@ -1,3 +1,6 @@
+// Package main provides a sample implementation of the knapsack algorithm.
+// It prompts the user to input knapsack capacity and a list of items
+// and prints the maximum profit that can be taken.
 package main
 
 import (
