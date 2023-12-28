@@ -133,3 +133,22 @@ func TestMain(t *testing.T) {
 		}
 	})
 }
+
+func TestMainFunction(t *testing.T) {
+	testCases := []struct {
+		name           string
+		input          string
+		expectedOutput []float64
+	}{
+		// TODO: Add test cases here
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			// TODO: Implement the testing logic for main function
+			// Simulate input and capture the output
+			// Assert the output matches the expected roots of the quadratic equation
+			// If not, use t.Errorf to report an error
+		})
+	}
+}
