@@ -1,3 +1,6 @@
+// Package main contains unit tests for Prim's algorithm implementation.
+// It includes tests for the algorithm correctness and the main function execution.
+
 package main
 
 import (
@@ -6,6 +9,15 @@ import (
 	"testing"
 )
 
+// TestPrimAlgorithm checks the correctness of the Prim's algorithm implementation.
+// It runs a test case to ensure that the calculated minimum cost to construct
+// a minimum spanning tree is as expected.
+//
+// Parameters:
+// - t *testing.T: The test handler provided by the testing package.
+//
+// Side Effects:
+// - If the test fails, the error is logged and the test state is set to failed.
 func TestPrimAlgorithm(t *testing.T) {
 	testCases := []struct {
 		name           string
