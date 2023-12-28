@@ -1,3 +1,6 @@
+// Package main contains the tests for the implementation of Kruskal's algorithm.
+// It verifies the functionality and correctness of the algorithm's process to determine the minimum spanning tree.
+
 package main
 
 import (
@@ -6,6 +9,14 @@ import (
 	"testing"
 )
 
+// TestKruskalAlgorithm checks the correctness of the kruskal function.
+// It runs several test cases, each representing a graph, to verify that the minimum spanning tree costs match the expected results.
+//
+// Parameters:
+// - t *testing.T: The test handler provided by the testing package.
+//
+// Side Effects:
+// - If the test fails, the test handler will log the error.
 func TestKruskalAlgorithm(t *testing.T) {
 	testCases := []struct {
 		name           string
@@ -52,6 +63,17 @@ func TestKruskalAlgorithm(t *testing.T) {
 	}
 }
 
+// TestMain checks the main function's handling of user inputs and outputs.
+// It verifies that the main function processes inputs correctly and generates the expected output.
+//
+// Note that this test uses temporary files to simulate user input and capture output.
+//
+// Parameters:
+// - t *testing.T: The test handler provided by the testing package.
+//
+// Side Effects:
+// - If the test fails, the test handler will log the error.
+// - Creates temporary files which are cleaned up after the test.
 func TestMain(t *testing.T) {
 	t.Run("Valid input", func(t *testing.T) {
 		testCases := []struct {
