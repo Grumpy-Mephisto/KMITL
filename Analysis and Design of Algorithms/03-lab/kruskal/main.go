@@ -1,3 +1,6 @@
+// This file contains an implementation of Kruskal's algorithm to find the minimum spanning tree of a graph.
+// It includes structures and methods for graph representation and the union-find algorithm.
+
 package main
 
 import (
@@ -36,6 +39,14 @@ func newUnionFind(size int) *UnionFind {
 	return &uf
 }
 
+// find returns the representative of the set that element x is part of.
+// It uses path compression to flatten the structure of the tree for efficiency.
+// 
+// Parameter:
+// - x: the element for which to find the representative.
+// 
+// Returns:
+// - The representative of the set containing x.
 func (uf *UnionFind) find(x int) int {
 	if uf.parent[x] != x {
 		uf.parent[x] = uf.find(uf.parent[x])
@@ -55,6 +66,10 @@ func (uf *UnionFind) union(x, y int) {
 	}
 }
 
+// kruskal calculates the minimum cost to construct a minimum spanning tree using Kruskal's algorithm.
+// 
+// Returns:
+// - The minimum cost to construct the minimum spanning tree.
 func (g *Graph) kruskal() int {
 	sort.Slice(g.edges, func(i, j int) bool {
 		return g.edges[i].w < g.edges[j].w
