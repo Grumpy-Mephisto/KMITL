@@ -27,6 +27,9 @@ func TestUnion(t *testing.T) {
 	// Test data and logic here
 }
 
+// TestKruskal tests the kruskal function for correct implementation of Kruskal's algorithm.
+// It verifies the minimum spanning tree output for predefined graph inputs.
+// This function does not return any values and uses the testing framework to report errors.
 func TestKruskal(t *testing.T) {
 	// Test data and logic here
 }
@@ -35,6 +38,9 @@ func TestGetUserInput(t *testing.T) {
 	// Test data and logic here
 }
 
+// TestMain tests the main function to ensure correct execution of the program.
+// It may validate user input handling, program output, and integration of kruskal function.
+// This function does not return any values and uses the testing framework to report errors.
 func TestMain(t *testing.T) {
 	// Test data and logic here
 }
