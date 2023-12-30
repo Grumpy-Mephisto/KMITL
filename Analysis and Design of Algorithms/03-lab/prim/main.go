@@ -28,6 +28,10 @@ func (g *Graph) addEdge(src, dst, weight int) {
 	g.matrix[dst][src] = weight
 }
 
+// prim is a function that implements Prim's Algorithm to find the minimum spanning tree of a weighted graph.
+// The graph is represented as an adjacency matrix stored in the Graph struct.
+// The function does not take any parameters as it operates on the Graph struct it is a method of.
+// It returns the total weight of the minimum spanning tree.
 func (g *Graph) prim() int {
 	selected := make([]bool, g.vertices)
 	selected[0] = true // Start from vertex 0
