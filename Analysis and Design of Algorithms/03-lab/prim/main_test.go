@@ -1,3 +1,4 @@
+// This file contains tests for the implementation of Prim's algorithm and the main function in the main.go file.
 package main
 
 import (
@@ -6,6 +7,9 @@ import (
 	"testing"
 )
 
+// TestPrimAlgorithm tests the implementation of Prim's algorithm on different test cases.
+// Each test case includes a graph and the expected minimum cost of a spanning tree.
+// The function asserts that the actual output from the algorithm matches the expected output.
 func TestPrimAlgorithm(t *testing.T) {
 	testCases := []struct {
 		name           string
@@ -73,6 +77,9 @@ func TestPrimAlgorithm(t *testing.T) {
 	}
 }
 
+// TestMain tests the main function with different inputs and expected outputs.
+// The function redirects standard input and output to temporary files, runs the main function,
+// and then checks the output against the expected output. The function tests both valid and invalid inputs.
 func TestMain(t *testing.T) {
 	t.Run("Valid input", func(t *testing.T) {
 		testCases := []struct {
