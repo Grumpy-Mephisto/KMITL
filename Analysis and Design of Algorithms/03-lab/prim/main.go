@@ -54,13 +54,13 @@ func (g *Graph) prim() int {
 	return minWeight
 }
 
-func getUserInput(prompt string) int {
+func readUserInput(prompt string) int {
 	var input int
 	fmt.Print(prompt)
 	_, err := fmt.Scanln(&input)
 	if err != nil {
 		fmt.Println("Please enter a valid number.")
-		return getUserInput(prompt)
+		return readUserInput(prompt)
 	}
 	return input
 }
@@ -68,25 +68,36 @@ func getUserInput(prompt string) int {
 func main() {
 	fmt.Println("===== Prim's Algorithm =====")
 
-	numOfVertices := getUserInput("Enter the number of vertices: ")
-	numOfEdges := getUserInput("Enter the number of edges: ")
+	graph := createAndPopulateGraph()
+	minCost := calculateMinimumSpanningTree(graph)
+	printMinimumCost(minCost)
+}
 
+func createAndPopulateGraph() *Graph {
+	numOfVertices := readUserInput("Enter the number of vertices: ")
+	numOfEdges := readUserInput("Enter the number of edges: ")
 	g := Graph{}
 	g.init(numOfVertices)
 
+	if numOfEdges < numOfVertices-1 {
+		fmt.Println("Graph is not connected.")
+		return nil
+	}
+
 	for i := 0; i < numOfEdges; i++ {
-		u := getUserInput(fmt.Sprintf("Enter vertex u for edge %d: ", i+1))
-		v := getUserInput(fmt.Sprintf("Enter vertex v for edge %d: ", i+1))
-		w := getUserInput(fmt.Sprintf("Enter weight w for edge %d: ", i+1))
+		u := readUserInput(fmt.Sprintf("Enter vertex u for edge %d: ", i+1))
+		v := readUserInput(fmt.Sprintf("Enter vertex v for edge %d: ", i+1))
+		w := readUserInput(fmt.Sprintf("Enter weight w for edge %d: ", i+1))
 		g.addEdge(u, v, w)
 	}
 
-	if numOfEdges < numOfVertices-1 {
-		fmt.Println("Graph is not connected.")
-		return
-	}
+	return &g
+}
 
-	minCost := g.prim()
+func calculateMinimumSpanningTree(g *Graph) int {
+	return g.prim()
+}
 
-	fmt.Printf("Minimum cost: %d\n", minCost)
+func printMinimumCost(cost int) {
+	fmt.Printf("Minimum cost: %d\n", cost)
 }
