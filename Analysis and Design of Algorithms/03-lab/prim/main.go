@@ -71,13 +71,32 @@ func main() {
 	numOfVertices := getUserInput("Enter the number of vertices: ")
 	numOfEdges := getUserInput("Enter the number of edges: ")
 
+	if numOfVertices < 1 || numOfEdges < 1 {
+		fmt.Println("Invalid input.")
+		return
+	}
+
 	g := Graph{}
 	g.init(numOfVertices)
 
 	for i := 0; i < numOfEdges; i++ {
-		u := getUserInput(fmt.Sprintf("Enter vertex u for edge %d: ", i+1))
-		v := getUserInput(fmt.Sprintf("Enter vertex v for edge %d: ", i+1))
-		w := getUserInput(fmt.Sprintf("Enter weight w for edge %d: ", i+1))
+		u := getUserInput(fmt.Sprintf("Enter start vertex for edge %d: ", i+1))
+		v := getUserInput(fmt.Sprintf("Enter end vertex for edge %d: ", i+1))
+		w := getUserInput(fmt.Sprintf("Enter weight for edge %d: ", i+1))
+
+		u--
+		v--
+
+		if u < 0 || u >= numOfVertices || v < 0 || v >= numOfVertices {
+			fmt.Println("Invalid vertex index entered.")
+			return
+		}
+
+		if w <= 0 {
+			fmt.Println("Invalid weight entered. Weight must be a positive number.")
+			return
+		}
+
 		g.addEdge(u, v, w)
 	}
 
