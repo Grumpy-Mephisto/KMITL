@@ -56,6 +56,15 @@ public class Lab4 extends JPanel {
         plot(g, xc + y, yc - x); // Octant 8
     }
 
+    /**
+     * This method implements Bresenham's Ellipse Algorithm to draw an ellipse on the graphics object.
+     *
+     * @param g The graphics object on which the ellipse will be drawn.
+     * @param xc The x-coordinate of the center of the ellipse.
+     * @param yc The y-coordinate of the center of the ellipse.
+     * @param a The semi-major axis of the ellipse.
+     * @param b The semi-minor axis of the ellipse.
+     */
     public void Exercise2(Graphics g, int xc, int yc, int a, int b) {
         int a2 = a * a;
         int b2 = b * b;
