@@ -11,6 +11,14 @@ public class Lab4 extends JPanel {
         frame.setLocationRelativeTo(null);
     }
 
+    /**
+     * This method implements Bresenham's Circle Algorithm to draw a circle on the graphics object.
+     *
+     * @param g The graphics object on which the circle will be drawn.
+     * @param xc The x-coordinate of the center of the circle.
+     * @param yc The y-coordinate of the center of the circle.
+     * @param r The radius of the circle.
+     */
     public void Exercise1(Graphics g, int xc, int yc, int r) {
         int x = 0;
         int y = r;
