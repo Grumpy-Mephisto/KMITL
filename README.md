@@ -46,5 +46,5 @@ This section provides details on the terms of use and redistribution of the cont
 ---
 
 <div align="center">
-  <sub> © 2023 Noppakorn Kaewsalabnil. All rights reserved. </sub>
+  <sub> © 2024 Noppakorn Kaewsalabnil. All rights reserved. </sub>
 </div>
