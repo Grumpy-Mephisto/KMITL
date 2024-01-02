@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"os"
 	"testing"
 )
 
@@ -167,5 +169,33 @@ func TestAddEdge(t *testing.T) {
 				}
 			}
 		})
+	}
+}
+
+func TestPrintResult(t *testing.T) {
+	// Setup
+	originalStdout := os.Stdout
+	r, w, _ := os.Pipe()
+	os.Stdout = w
+
+	// Test case
+	testGraph := Graph{
+		result: []int{0, 1, 3},
+	}
+	expectedOutput := "Result: 0 1 3\n"
+
+	// Execution
+	testGraph.printResult()
+
+	// Capture output
+	_ = w.Close()
+	os.Stdout = originalStdout
+	var buf bytes.Buffer
+	_, _ = buf.ReadFrom(r)
+	actualOutput := buf.String()
+
+	// Test assertion
+	if actualOutput != expectedOutput {
+		t.Errorf("TestPrintResult failed: expected %s, got %s", expectedOutput, actualOutput)
 	}
 }
