@@ -293,3 +293,7 @@ func BenchmarkShortestPathAlgorithm(b *testing.B) {
 		graph.shortestPath(0)
 	}
 }
+
+func TestFuzzShortestPathAlgorithm(t *testing.T) {
+	t.Error("TODO: Implement the test cases")
+}
