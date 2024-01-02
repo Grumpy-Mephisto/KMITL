@@ -74,33 +74,37 @@ func (g *Graph) printResult(result []int) {
 	}
 }
 
-func getUserInput(prompt string) int {
-	var input int
-	fmt.Print(prompt)
-	_, err := fmt.Scanln(&input)
-	if err != nil {
-		fmt.Println("Please enter a valid number.")
-		return getUserInput(prompt)
+func getUserInputs() (int, [][]int, int) {
+	numVertices := getUserInput("Enter the number of vertices: ")
+	weights := make([][]int, numVertices)
+	fmt.Println("Enter the graph (use '0' for no connection):")
+	for i := 0; i < numVertices; i++ {
+		weights[i] = make([]int, numVertices)
+		for j := 0; j < numVertices; j++ {
+			weights[i][j] = getUserInput(fmt.Sprintf("Enter the weight from vertex %d to vertex %d: ", i, j))
+		}
 	}
-	return input
+	source := getUserInput("Enter the source vertex: ")
+	return numVertices, weights, source
+}
+
+func createGraph(numVertices int, weights [][]int) *Graph {
+	graph := newGraph(numVertices)
+	for i := 0; i < numVertices; i++ {
+		for j := 0; j < numVertices; j++ {
+			graph.addEdge(i, j, weights[i][j])
+		}
+	}
+	return graph
+}
+
+func printShortestPaths(graph *Graph, source int) {
+	result := graph.shortestPath(source)
+	graph.printResult(result)
 }
 
 func main() {
-	numVertices := getUserInput("Enter the number of vertices: ")
-
-	graph := newGraph(numVertices)
-
-	fmt.Println("Enter the graph (use '0' for no connection):")
-	for i := 0; i < numVertices; i++ {
-		for j := 0; j < numVertices; j++ {
-			weight := getUserInput(fmt.Sprintf("Enter the weight from vertex %d to vertex %d: ", i, j))
-			graph.addEdge(i, j, weight)
-		}
-	}
-
-	source := getUserInput("Enter the source vertex: ")
-
-	result := graph.shortestPath(source)
-
-	graph.printResult(result)
+	numVertices, weights, source := getUserInputs()
+	graph := createGraph(numVertices, weights)
+	printShortestPaths(graph, source)
 }
