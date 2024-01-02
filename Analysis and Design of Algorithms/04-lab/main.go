@@ -1,3 +1,9 @@
+// main.go - Dijkstra's algorithm implementation in Go.
+// This file provides a simple command line application that
+// allows users to create a graph with a specified number of vertices,
+// add weighted edges, and compute the shortest path from a given source vertex
+// using Dijkstra's algorithm.
+
 package main
 
 import (
@@ -12,6 +18,11 @@ type Graph struct {
 	edges       [][]int
 }
 
+// newGraph creates a new graph with a specified number of vertices.
+// Inputs:
+// - numVertices: The number of vertices for the graph.
+// Outputs:
+// - A pointer to the newly created graph with initialized edges.
 func newGraph(numVertices int) *Graph {
 	graph := &Graph{
 		numVertices: numVertices,
@@ -25,10 +36,22 @@ func newGraph(numVertices int) *Graph {
 	return graph
 }
 
+// addEdge adds an edge between two vertices in the graph with a specified weight.
+// Inputs:
+// - from: Source vertex of the edge.
+// - to: Destination vertex of the edge.
+// - weight: Weight of the edge.
 func (g *Graph) addEdge(from, to, weight int) {
 	g.edges[from][to] = weight
 }
 
+// minDistance finds the vertex with the minimum distance value,
+// from the set of vertices not yet included in the shortest path tree.
+// Inputs:
+// - dist: Array of distances from the source vertex.
+// - visited: Array indicating whether a vertex has been visited.
+// Outputs:
+// - The index of the vertex with the minimum distance not yet visited.
 func (g *Graph) minDistance(dist []int, visited []bool) int {
 	min := inf
 	minIndex := -1
@@ -43,6 +66,12 @@ func (g *Graph) minDistance(dist []int, visited []bool) int {
 	return minIndex
 }
 
+// shortestPath implements Dijkstra's single-source shortest path algorithm
+// for a graph represented using adjacency matrix representation.
+// Inputs:
+// - src: The source vertex from which to calculate the shortest paths.
+// Outputs:
+// - An array of minimum distances from the source to each vertex.
 func (g *Graph) shortestPath(src int) []int {
 	dist := make([]int, g.numVertices)
 	visited := make([]bool, g.numVertices)
@@ -67,6 +96,9 @@ func (g *Graph) shortestPath(src int) []int {
 	return dist
 }
 
+// printResult prints the constructed distance array.
+// Inputs:
+// - result: The array containing distances from the source to each vertex.
 func (g *Graph) printResult(result []int) {
 	fmt.Println("Vertex\t\tDistance from Source")
 	for i, r := range result {
@@ -74,6 +106,12 @@ func (g *Graph) printResult(result []int) {
 	}
 }
 
+// getUserInput prompts the user for input with a specified prompt,
+// and returns the user's input as an integer.
+// Inputs:
+// - prompt: The prompt to display to the user.
+// Outputs:
+// - The user's input converted to an integer.
 func getUserInput(prompt string) int {
 	var input int
 	fmt.Print(prompt)
