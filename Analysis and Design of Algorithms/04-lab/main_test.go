@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// //// Test //// //
 func TestShortestPathAlgorithm(t *testing.T) {
 	testCases := []struct {
 		name           string
@@ -233,7 +234,7 @@ func TestPrintResult(t *testing.T) {
 	}
 }
 
-func TestMain(t *testing.T) {
+func TestMainWithInput(t *testing.T) {
 	t.Run("Successful run", func(t *testing.T) {
 		testCases := []struct {
 			name           string
@@ -273,4 +274,22 @@ func TestMain(t *testing.T) {
 			})
 		}
 	})
+}
+
+// //// Benchmarks //// //
+func BenchmarkShortestPathAlgorithm(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		graph := Graph{
+			numVertices: 5,
+			edges: [][]int{
+				{0, 1, 7, 0, 0},
+				{0, 0, 1, 4, 3},
+				{0, 0, 0, 7, 0},
+				{0, 0, 0, 0, 0},
+				{0, 0, 1, 2, 0},
+			},
+		}
+
+		graph.shortestPath(0)
+	}
 }
