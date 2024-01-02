@@ -237,6 +237,8 @@ func TestPrintResult(t *testing.T) {
 	}
 }
 
+// TestMainWithInput tests the main function by creating temporary input and output files
+// and then checks if the output of the main function matches the expected output.
 func TestMainWithInput(t *testing.T) {
 	t.Run("Successful run", func(t *testing.T) {
 		testCases := []struct {
