@@ -8,6 +8,9 @@ import (
 )
 
 // //// Test //// //
+// TestShortestPathAlgorithm tests the shortestPath function in the Graph struct.
+// It creates several test cases with different graphs and expected outputs,
+// then checks if the actual output matches the expected output.
 func TestShortestPathAlgorithm(t *testing.T) {
 	testCases := []struct {
 		name           string
