@@ -281,6 +281,8 @@ func TestMainWithInput(t *testing.T) {
 	})
 }
 
+// BenchmarkShortestPathAlgorithm benchmarks the shortestPath function in the Graph struct.
+// It does this by creating a graph and then repeatedly calling the shortestPath function on this graph.
 // //// Benchmarks //// //
 func BenchmarkShortestPathAlgorithm(b *testing.B) {
 	for i := 0; i < b.N; i++ {
