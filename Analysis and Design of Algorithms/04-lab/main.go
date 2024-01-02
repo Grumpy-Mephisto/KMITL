@@ -29,7 +29,7 @@ func (g *Graph) addEdge(from, to, weight int) {
 	g.edges[from][to] = weight
 }
 
-func minDistance(dist []int, visited []bool) int {
+func (g *Graph) minDistance(dist []int, visited []bool) int {
 	min := inf
 	minIndex := -1
 
@@ -54,7 +54,7 @@ func (g *Graph) shortestPath(src int) []int {
 	dist[src] = 0
 
 	for count := 0; count < g.numVertices-1; count++ {
-		u := minDistance(dist, visited)
+		u := g.minDistance(dist, visited)
 		visited[u] = true
 
 		for v := 0; v < g.numVertices; v++ {
@@ -65,6 +65,13 @@ func (g *Graph) shortestPath(src int) []int {
 	}
 
 	return dist
+}
+
+func (g *Graph) printResult(result []int) {
+	fmt.Println("Vertex\t\tDistance from Source")
+	for i, r := range result {
+		fmt.Printf("%d \t\t %d\n", i, r)
+	}
 }
 
 func getUserInput(prompt string) int {
@@ -95,8 +102,5 @@ func main() {
 
 	result := graph.shortestPath(source)
 
-	fmt.Println("Vertex\t\tDistance from Source")
-	for i := 0; i < graph.numVertices; i++ {
-		fmt.Printf("%d \t\t %d\n", i, result[i])
-	}
+	graph.printResult(result)
 }
