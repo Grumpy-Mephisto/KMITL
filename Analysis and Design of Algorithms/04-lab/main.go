@@ -1,3 +1,7 @@
+// main.go
+// Package main implements a simple graph representation and algorithms to find the shortest path.
+// It includes functions for graph creation, edge addition, and shortest path calculation.
+
 package main
 
 import (
@@ -12,6 +16,10 @@ type Graph struct {
 	edges       [][]int
 }
 
+// newGraph creates a new graph with a specified number of vertices and initializes
+// the adjacency matrix for the edges.
+// numVertices: the number of vertices in the graph.
+// Returns a pointer to the newly created Graph structure.
 func newGraph(numVertices int) *Graph {
 	graph := &Graph{
 		numVertices: numVertices,
@@ -25,10 +33,20 @@ func newGraph(numVertices int) *Graph {
 	return graph
 }
 
+// addEdge adds an edge to the graph from one vertex to another with a specified weight.
+// from: the starting vertex of the edge.
+// to: the ending vertex of the edge.
+// weight: the weight/cost associated with the edge.
+// This method has no return value and modifies the graph's edge matrix.
 func (g *Graph) addEdge(from, to, weight int) {
 	g.edges[from][to] = weight
 }
 
+// minDistance finds the vertex with the minimum distance value from the set of vertices
+// that have not been yet visited.
+// dist: array of distances from the source.
+// visited: array indicating whether a vertex has been visited.
+// Returns the index of the vertex with the minimum distance value.
 func minDistance(dist []int, visited []bool) int {
 	min := inf
 	minIndex := -1
@@ -43,6 +61,10 @@ func minDistance(dist []int, visited []bool) int {
 	return minIndex
 }
 
+// shortestPath computes the shortest path from a source vertex to every other vertex in the graph.
+// src: the starting vertex for the paths.
+// Returns an array of minimum distances from the source to each vertex.
+// The algorithm implemented is a variation of Dijkstra's algorithm.
 func (g *Graph) shortestPath(src int) []int {
 	dist := make([]int, g.numVertices)
 	visited := make([]bool, g.numVertices)
@@ -67,6 +89,9 @@ func (g *Graph) shortestPath(src int) []int {
 	return dist
 }
 
+// getUserInput prompts the user for an input and validates it as an integer.
+// prompt: the message displayed to the user.
+// Returns the user input as an integer. Re-prompts if the input is not a valid number.
 func getUserInput(prompt string) int {
 	var input int
 	fmt.Print(prompt)
