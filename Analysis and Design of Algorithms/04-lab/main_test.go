@@ -1,6 +1,9 @@
 package main
 
 import (
+	"bytes"
+	"os"
+	"strings"
 	"testing"
 )
 
@@ -168,4 +171,106 @@ func TestAddEdge(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestPrintResult(t *testing.T) {
+	testCases := []struct {
+		name           string
+		graph          Graph
+		source         int
+		expectedOutput string
+	}{
+		{
+			name: "Case 1",
+			graph: Graph{
+				numVertices: 3,
+				edges: [][]int{
+					{0, 1, 3},
+					{1, 0, 2},
+					{3, 2, 0},
+				},
+			},
+			source:         0,
+			expectedOutput: "Vertex\t\tDistance from Source\n0 \t\t 0\n1 \t\t 1\n2 \t\t 3\n",
+		},
+		{
+			name: "Case 2",
+			graph: Graph{
+				numVertices: 4,
+				edges: [][]int{
+					{0, 1, 0, 3},
+					{1, 0, 2, 0},
+					{0, 2, 0, 4},
+					{3, 0, 4, 0},
+				},
+			},
+			source:         2,
+			expectedOutput: "Vertex\t\tDistance from Source\n0 \t\t 3\n1 \t\t 2\n2 \t\t 0\n3 \t\t 4\n",
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			result := tc.graph.shortestPath(tc.source)
+
+			originalStdout := os.Stdout
+			r, w, _ := os.Pipe()
+			os.Stdout = w
+
+			tc.graph.printResult(result)
+
+			_ = w.Close()
+			os.Stdout = originalStdout
+
+			var buf bytes.Buffer
+			_, _ = buf.ReadFrom(r)
+			actualOutput := buf.String()
+
+			if strings.Compare(actualOutput, tc.expectedOutput) != 0 {
+				t.Errorf("Test case %s failed: expected %v, got %v", tc.name, tc.expectedOutput, actualOutput)
+			}
+		})
+	}
+}
+
+func TestMain(t *testing.T) {
+	t.Run("Successful run", func(t *testing.T) {
+		testCases := []struct {
+			name           string
+			input          string
+			expectedOutput string
+		}{
+			{
+				name:           "Case 1",
+				input:          "3\n0\n1\n3\n1\n0\n2\n3\n2\n0\n0\n",
+				expectedOutput: "Vertex\t\tDistance from Source\n0 \t\t 0\n1 \t\t 1\n2 \t\t 3\n",
+			},
+		}
+
+		for _, tc := range testCases {
+			t.Run(tc.name, func(t *testing.T) {
+				inputFile, _ := os.CreateTemp("", "")
+				outputFile, _ := os.CreateTemp("", "")
+
+				inputFile.WriteString(tc.input)
+				inputFile.Seek(0, 0)
+
+				oldStdin := os.Stdin
+				oldStdout := os.Stdout
+
+				os.Stdin = inputFile
+				os.Stdout = outputFile
+
+				main()
+
+				os.Stdin = oldStdin
+				os.Stdout = oldStdout
+
+				output, _ := os.ReadFile(outputFile.Name())
+				if !strings.Contains(string(output), tc.expectedOutput) {
+					t.Errorf("Expected output to contain %s, but got %s", tc.expectedOutput, string(output))
+				}
+			})
+		}
+	})
 }
