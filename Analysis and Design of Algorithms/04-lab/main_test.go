@@ -1,9 +1,14 @@
+// main_test.go
+// This file contains unit tests for graph operations.
+
 package main
 
 import (
 	"testing"
 )
 
+// TestShortestPathAlgorithm verifies the shortestPath method's correctness.
+// This function runs through multiple cases to ensure correct shortest paths are calculated.
 func TestShortestPathAlgorithm(t *testing.T) {
 	testCases := []struct {
 		name           string
@@ -69,6 +74,8 @@ func TestShortestPathAlgorithm(t *testing.T) {
 	}
 }
 
+// TestNewGraphInitialization checks that a new graph is initialized correctly.
+// It asserts that the number of vertices and edge weights are set as expected.
 func TestNewGraphInitialization(t *testing.T) {
 	testCases := []struct {
 		name                string
@@ -106,6 +113,8 @@ func TestNewGraphInitialization(t *testing.T) {
 	}
 }
 
+// TestAddEdge ensures that edges are added to the graph with correct weights.
+// The function inspects edge weights after addition to verify correctness.
 func TestAddEdge(t *testing.T) {
 	testCases := []struct {
 		name                string
