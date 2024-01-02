@@ -2,8 +2,8 @@
     <h1>Shortest Path</h1>
     <sub>Program to find the shortest path between two vertices in a graph using Dijkstra's Algorithm</sub>
     <br /> 
-   <br />
-   <img src="./preview.png" width="95%" height="auto" alt="preview" />
+    <br />
+    <img src="./preview.png" width="95%" height="auto" alt="preview" />
 </div>
 
 ## 📖 Description
