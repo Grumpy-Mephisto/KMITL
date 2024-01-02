@@ -169,3 +169,21 @@ func TestAddEdge(t *testing.T) {
 		})
 	}
 }
+
+// TestGetUserInputs checks if user inputs are correctly processed.
+func TestGetUserInputs(t *testing.T) {
+	// Implement test for getUserInputs function - this is a placeholder until the actual tests are written
+	t.Error("getUserInputs test not yet implemented")
+}
+
+// TestCreateGraph checks if the graph is correctly created from input weights.
+func TestCreateGraph(t *testing.T) {
+	// Implement test for createGraph function - this is a placeholder until the actual tests are written
+	t.Error("createGraph test not yet implemented")
+}
+
+// TestPrintShortestPaths checks if shortest paths are correctly printed to the console.
+func TestPrintShortestPaths(t *testing.T) {
+	// Implement test for printShortestPaths function - this is a placeholder until the actual tests are written
+	t.Error("printShortestPaths test not yet implemented")
+}
