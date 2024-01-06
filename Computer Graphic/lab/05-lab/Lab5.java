@@ -8,7 +8,11 @@ public class Lab5 extends JPanel implements Runnable {
     private double circleSpeed = 100;
     private int circleDirection = 1; // 1 = right, -1 = left
     private double squareRotate = 0;
-    private double squareSpeed = 0.5;
+
+    // Animation variables for the new square
+    private double squareY = 600; // Starting position at the bottom-left corner
+    private double squareSpeed = 100;
+    private boolean startMovingSquare = false;
 
     public static void main(String[] args) {
         Lab5 lab5 = new Lab5();
@@ -36,10 +40,14 @@ public class Lab5 extends JPanel implements Runnable {
 
             ///// Animation /////
 
-            // Move circle to the right by 100 pixels per second (100 px/s)
+            if (currentTime >= 3000) {
+                startMovingSquare = true; // Start moving the new square from the 3rd second
+            }
+
+            // Move circle to the right by circleSpeed pixels per second
             circleMove += circleDirection * circleSpeed * elapsedTime / 1000.0;
 
-            // If circle is out of bounds, change direction
+            // Adjust position if circle reaches boundaries
             if (circleMove >= getWidth() - SIZE) {
                 circleMove = getWidth() - SIZE;
                 circleDirection = -1; // Change direction to move left
@@ -48,8 +56,16 @@ public class Lab5 extends JPanel implements Runnable {
                 circleDirection = 1; // Change direction to move right
             }
 
-            // Rotate square by 0.5 radians per second (0.5 rad/s)
-            squareRotate += squareSpeed * elapsedTime / 1000.0;
+            // Move the new square from bottom-left to top-left
+            if (startMovingSquare) {
+                squareY -= squareSpeed * elapsedTime / 1000.0;
+                if (squareY <= 0) {
+                    squareY = 0;
+                }
+            }
+
+            // Rotate square by 0.5 radians per second
+            squareRotate += 0.5 * elapsedTime / 1000.0;
 
             repaint();
 
@@ -77,5 +93,8 @@ public class Lab5 extends JPanel implements Runnable {
         // Animation with square
         g2d.rotate(squareRotate, 300, 300);
         g2d.drawRect(0, 200, SIZE, SIZE);
+
+        // New square moving from bottom-left to top-left
+        g2d.drawRect(0, (int) squareY, SIZE, SIZE);
     }
 }
