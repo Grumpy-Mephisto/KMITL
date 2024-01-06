@@ -1,4 +1,5 @@
 import org.junit.Test;
+import Lab5;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
