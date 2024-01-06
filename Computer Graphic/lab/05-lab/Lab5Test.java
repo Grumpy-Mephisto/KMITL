@@ -26,7 +26,6 @@ public class Lab5Test {
     }
 
     // Add additional test methods for other scenarios if needed
-
     @Test
     public void testSquareMovement() {
         // Create an instance of Lab5
