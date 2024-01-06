@@ -4,7 +4,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.*;
 
-/*** PDE Wave Simulation */
+/**
+ * This file contains the implementation of the Wave class for simulating wave propagation.
+ */
 /*** Pseudo coded by Keenan Crane CMU, USA */
 /*** Java coded by Witchaya T. KMITL, THAILAND */
 
@@ -32,6 +34,9 @@ class Wave extends JPanel implements Runnable {
         (new Thread(m)).start();
     }
 
+        /**
+     * This function runs the wave simulation. It updates the velocity and height of the wave at each time step.
+     */
     public void run() {
         double lastTime = System.currentTimeMillis();
         double currentTime, elapsedTime;
