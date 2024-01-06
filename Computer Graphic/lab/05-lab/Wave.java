@@ -34,8 +34,8 @@ class Wave extends JPanel implements Runnable {
         (new Thread(m)).start();
     }
 
-        /**
-     * This function runs the wave simulation. It updates the velocity and height of the wave at each time step.
+    /**
+     * This function runs the wave simulation, updating the velocity and height of the wave at each time step.
      */
     public void run() {
         double lastTime = System.currentTimeMillis();
