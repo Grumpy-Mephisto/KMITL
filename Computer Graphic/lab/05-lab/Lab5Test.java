@@ -19,10 +19,8 @@ public class Lab5Test {
 
         // Verify the expected position of the square at different time intervals
         // Use assertions to check the expected position of the square
-        // For example:
-        // assertEquals(expectedX, lab5.getSquareX());
-        // assertEquals(expectedY, lab5.getSquareY());
-        // Repeat for different time intervals and scenarios
+        assertEquals(expectedX, lab5.getSquareX());
+        assertEquals(expectedY, lab5.getSquareY());
     }
 
     // Add additional test methods for other scenarios if needed
