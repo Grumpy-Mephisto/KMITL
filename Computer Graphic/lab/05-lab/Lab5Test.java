@@ -15,7 +15,7 @@ public class Lab5Test {
 
         // Set up any necessary dependencies
 
-        // Invoke the logic that moves the new square at different time intervals
+        lab5.moveSquare();
 
         // Verify the expected position of the square at different time intervals
         // Use assertions to check the expected position of the square
