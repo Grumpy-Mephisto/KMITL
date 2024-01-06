@@ -94,7 +94,8 @@ public class Lab5 extends JPanel implements Runnable {
         g2d.rotate(squareRotate, 300, 300);
         g2d.drawRect(0, 200, SIZE, SIZE);
 
-        // New square moving from bottom-left to top-left
+        // Animation with new square (bottom-left to top-left)
+        g2d.rotate(-squareRotate, 300, 300);
         g2d.drawRect(0, (int) squareY, SIZE, SIZE);
     }
 }
