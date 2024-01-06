@@ -1,5 +1,5 @@
 import org.junit.Test;
-import Lab5;import Lab5;
+import Lab5;import java.time.LocalTime;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -11,7 +11,7 @@ public class Lab5Test {
     @Test
     public void testSquareMovement() {
         // Create an instance of Lab5
-        Lab5 lab5 = new Lab5();
+        Lab5 lab5 = new Lab5(LocalTime.of(10, 0));
 
         // Set up any necessary dependencies
 
