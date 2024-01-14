@@ -1,6 +1,9 @@
+import java.io.*;
 import java.awt.*;
 import javax.swing.*;
+import javax.imageio.*;
 import java.awt.geom.*;
+import java.awt.image.*;
 
 public class Lab6 extends JPanel implements Runnable {
     private final int SCREEN = 600;
@@ -18,6 +21,7 @@ public class Lab6 extends JPanel implements Runnable {
         frame.setLocationRelativeTo(null);
 
         (new Thread(lab6)).start();
+        lab6.saveImage("65050437_lab6");
     }
 
     @Override
@@ -39,18 +43,15 @@ public class Lab6 extends JPanel implements Runnable {
                 + g2d.getTransform().getTranslateY() + ")");
 
         // Rotate the square 30 degrees counterclockwise around its center
+        int angleDegree = 30;
         double centerX = WIDTH / 2.0;
         double centerY = HEIGHT / 2.0;
-        boolean isClockwise = true;
-        int angleDegree = 30;
-        double angle = Math.toRadians(angleDegree * (isClockwise ? -1 : 1));
+        boolean isCounterClockwise = true;
+        double angle = Math.toRadians(angleDegree * (isCounterClockwise ? -1 : 1));
 
         double x = centerX + (Math.cos(angle) * (0 - centerX) - Math.sin(angle) * (0 - centerY));
         double y = centerY + (Math.sin(angle) * (0 - centerX) + Math.cos(angle) * (0 - centerY));
 
-        // g2d.setTransform(new AffineTransform());
-        // g2d.translate(x, y);
-        // g2d.rotate(angle);
         g2d.setTransform(new AffineTransform(Math.cos(angle), Math.sin(angle), -Math.sin(angle),
                 Math.cos(angle), x, y));
 
@@ -66,14 +67,29 @@ public class Lab6 extends JPanel implements Runnable {
         double translateX = -50;
         double translateY = 50;
 
-        // g2d.setTransform(new AffineTransform());
-        // g2d.scale(scaleX, scaleY);
-        // g2d.translate(translateX, translateY);
         g2d.setTransform(new AffineTransform(scaleX, 0, 0, scaleY, translateX, translateY));
 
         g2d.setColor(Color.BLUE);
         g2d.drawRect(0, 0, WIDTH, HEIGHT);
         System.out.println("Coordinate: (" + g2d.getTransform().getTranslateX() + ", "
                 + g2d.getTransform().getTranslateY() + ")");
+    }
+
+    private void saveImage(String fileName) {
+        BufferedImage imageBuffer =
+                new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2d = imageBuffer.createGraphics();
+
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        paintComponent(g2d);
+
+        g2d.dispose();
+
+        try {
+            ImageIO.write(imageBuffer, "png", new File(fileName + ".png"));
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+        }
     }
 }
