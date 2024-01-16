@@ -34,6 +34,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 clean:
 	@echo "${RED}Cleaning...${NC}"
 	@rm -rf $(BUILD_DIR)
+	@rm -rf $(BIN_DIR)
 
 run: all
 	@echo "${GREEN}Running: ${BIN_DIR}/${EXECUTABLE}${NC}"
