@@ -1,15 +1,24 @@
 #!/usr/bin/env bash
 
-# This script is used to run the OpenGL project
+EXECUTABLE_NAME="OpenGLFirstProject.out"
+
 echo "==================== Running OpenGL project... ===================="
 
 echo "Compiling..."
-g++ main.cpp Libs/Mesh.cpp Libs/Shader.cpp Libs/Window.cpp -lglfw -lGLEW -lGL -o OpenGLFirstProject.out
+if g++ main.cpp Libs/Mesh.cpp Libs/Shader.cpp Libs/Window.cpp -lglfw -lGLEW -lGL -o "$EXECUTABLE_NAME"; then
+	echo "Compilation successful."
 
-echo "Running..."
-./OpenGLFirstProject.out
+	echo "Running..."
+	if ./"$EXECUTABLE_NAME"; then
+		echo "Execution successful."
+	else
+		echo "Error: Execution failed."
+	fi
 
-echo "Cleaning..."
-rm OpenGLFirstProject.out
+	echo "Cleaning..."
+	rm -rf "$EXECUTABLE_NAME"
+else
+	echo "Error: Compilation failed."
+fi
 
 echo "==================== Finished ===================="
