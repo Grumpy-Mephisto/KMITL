@@ -44,6 +44,10 @@ func main() {
 getCoefficients prompts the user to enter the coefficients (A, B, C) for the given quadratic equation.
 It returns the coefficients as three float64 values.
 */
+/*
+getCoefficients prompts the user to enter the coefficients (A, B, C) for the given quadratic equation.
+It returns the coefficients as three float64 values.
+*/
 func getCoefficients(equation string) (float64, float64, float64) {
 	fmt.Println("Enter the coefficients for the equation: ", equation)
 
