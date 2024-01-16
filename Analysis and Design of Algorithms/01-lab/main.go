@@ -1,5 +1,10 @@
 /*
-File: main.go
+/*
+Package main implements a quadratic equation solver.
+It defines the quadratic equation as a string,
+gets the coefficients from the user,
+calculates the discriminant and the roots,
+and prints out the results.
 Description: This file implements a quadratic equation solver.
              It reads coefficients from user input and calculates the roots.
 */
