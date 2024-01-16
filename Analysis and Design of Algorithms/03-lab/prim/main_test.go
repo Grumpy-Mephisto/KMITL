@@ -73,6 +73,9 @@ func TestPrimAlgorithm(t *testing.T) {
 	}
 }
 
+/*
+TestMain runs tests to validate the input and output behavior of the main function.
+*/
 func TestMain(t *testing.T) {
 	t.Run("Valid input", func(t *testing.T) {
 		testCases := []struct {
