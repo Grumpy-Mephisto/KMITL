@@ -86,6 +86,15 @@ func calculateDiscriminant(a, b, c float64) float64 {
 calculateRoots computes the roots of the quadratic equation using the quadratic formula.
 The discriminant is used to check for the presence of real roots.
 It returns two float64 values representing the roots of the equation.
+
+Parameters:
+- a: coefficient of x^2
+- b: coefficient of x
+- discriminant: discriminant of the quadratic equation
+
+Returns:
+- root1: first root of the equation
+- root2: second root of the equation
 */
 func calculateRoots(a, b, discriminant float64) (float64, float64) {
 	root1 := (-b + math.Sqrt(discriminant)) / (2 * a)
