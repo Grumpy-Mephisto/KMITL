@@ -65,6 +65,11 @@ calculateDiscriminant computes the discriminant for the quadratic equation based
 It returns the discriminant as a float64 value.
 If A is 0, it outputs an error message as the equation would not be quadratic.
 */
+/*
+ * calculateDiscriminant computes the discriminant for the quadratic equation based on coefficients A, B, and C.
+ * It returns the discriminant as a float64 value.
+ * If A is 0, it outputs an error message as the equation would not be quadratic.
+ */
 func calculateDiscriminant(a, b, c float64) float64 {
 	if a == 0 {
 		fmt.Println("A cannot be 0")
