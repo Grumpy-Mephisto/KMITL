@@ -8,3 +8,8 @@ g++ main.cpp Libs/Mesh.cpp Libs/Shader.cpp Libs/Window.cpp -lglfw -lGLEW -lGL -o
 
 echo "Running..."
 ./OpenGLFirstProject.out
+
+echo "Cleaning..."
+rm OpenGLFirstProject.out
+
+echo "==================== Finished ===================="
