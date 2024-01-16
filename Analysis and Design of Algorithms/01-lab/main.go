@@ -104,7 +104,7 @@ func calculateRoots(a, b, discriminant float64) (float64, float64) {
 }
 
 /*
-printResults outputs the results of the quadratic equation solver.
+printResults outputs the results of the quadratic equation solver. It takes two float64 values representing the roots and prints them.
 It takes two float64 values representing the roots and prints them.
 */
 func printResults(root1, root2 float64) {
