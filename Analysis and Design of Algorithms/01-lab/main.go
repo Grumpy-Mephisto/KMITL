@@ -1,4 +1,5 @@
 /*
+Description: This file implements a graph data structure and algorithms for graph operations.
 File: main.go
 Description: This file implements a quadratic equation solver.
              It reads coefficients from user input and calculates the roots.
