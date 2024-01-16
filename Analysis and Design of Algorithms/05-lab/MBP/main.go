@@ -9,17 +9,22 @@ const inf = math.MaxInt32
 
 type Graph struct {
 	V     int
-	E     int
 	Edges [][]int
 }
 
-func newGraph(V, E int) *Graph {
-	edges := make([][]int, 0, E)
-	return &Graph{V, E, edges}
+func newGraph() *Graph {
+	edges := make([][]int, 0)
+	return &Graph{0, edges}
 }
 
 func (g *Graph) addEdge(u, v, w int) {
 	g.Edges = append(g.Edges, []int{u, v, w})
+	if u > g.V {
+		g.V = u
+	}
+	if v > g.V {
+		g.V = v
+	}
 }
 
 func getUserInput(prompt string) int {
@@ -53,8 +58,8 @@ func floydWarshall(g *Graph) [][][]int {
 
 	for _, edge := range g.Edges {
 		u, v, w := edge[0], edge[1], edge[2]
-		distances[0][u][v] = w
-		distances[0][v][u] = w
+		distances[0][u-1][v-1] = w
+		distances[0][v-1][u-1] = w
 	}
 
 	for k := 1; k <= n; k++ {
@@ -72,22 +77,20 @@ func floydWarshall(g *Graph) [][][]int {
 }
 
 func main() {
-	var V, E int
+	g := newGraph()
 
-	V = getUserInput("Enter the number of vertices (V): ")
-	E = getUserInput("Enter the number of edges (E): ")
-
-	g := newGraph(V, E)
-
-	for i := 0; i < E; i++ {
-		u := getUserInput(fmt.Sprintf("Enter the start vertex of edge %d: ", i+1))
-		v := getUserInput(fmt.Sprintf("Enter the end vertex of edge %d: ", i+1))
-		w := getUserInput(fmt.Sprintf("Enter the weight of edge %d: ", i+1))
+	for {
+		u := getUserInput("Enter the start vertex (0 to exit): ")
+		if u == 0 {
+			break
+		}
+		v := getUserInput("Enter the end vertex: ")
+		w := getUserInput("Enter the weight: ")
 		g.addEdge(u, v, w)
 	}
 
 	fmt.Println("The graph is:")
-	fmt.Printf("Vertices: %d, Edges: %d\n", g.V, g.E)
+	fmt.Printf("Vertices: %d\n", g.V)
 	fmt.Println("Edge List:")
 	for _, edge := range g.Edges {
 		fmt.Printf("Start: %d, End: %d, Weight: %d\n", edge[0], edge[1], edge[2])
