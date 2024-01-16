@@ -1,4 +1,10 @@
 /*
+main is the entry point of the program.
+It defines the quadratic equation, retrieves the coefficients, calculates the roots, and prints the results.
+It defines the quadratic equation as a string,
+gets the coefficients from the user,
+calculates the discriminant and the roots,
+and prints out the results.
 File: main.go
 Description: This file implements a quadratic equation solver.
              It reads coefficients from user input and calculates the roots.
