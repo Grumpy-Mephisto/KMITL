@@ -2,6 +2,10 @@
 File: main.go
 Description: This file implements a quadratic equation solver.
              It reads coefficients from user input and calculates the roots.
+
+             File: main.go
+             Purpose: Solve quadratic equations and print the roots.
+             It reads coefficients from user input and calculates the roots.
 */
 
 package main
