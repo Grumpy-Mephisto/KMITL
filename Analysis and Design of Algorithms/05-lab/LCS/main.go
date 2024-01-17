@@ -1,3 +1,6 @@
+/*
+Package main provides ...
+*/
 package main
 
 import (
@@ -8,6 +11,10 @@ type LCS struct {
 	matrix [][]int
 }
 
+/*
+NewLCS creates a new instance of the LCS struct with the specified number of rows and columns.
+It returns the initialized LCS struct.
+*/
 func NewLCS(rows, cols int) LCS {
 	matrix := make([][]int, rows)
 	for i := range matrix {
@@ -16,6 +23,10 @@ func NewLCS(rows, cols int) LCS {
 	return LCS{matrix: matrix}
 }
 
+/*
+findLCSLength finds the length of the Longest Common Subsequence (LCS) between two strings.
+It takes two strings as input and returns the length of the LCS.
+*/
 func (l *LCS) findLCSLength(str1, str2 string) int {
 	m, n := len(str1), len(str2)
 
@@ -32,6 +43,10 @@ func (l *LCS) findLCSLength(str1, str2 string) int {
 	return l.matrix[m][n]
 }
 
+/*
+max returns the maximum of two integers.
+It takes two integers as input and returns the maximum value.
+*/
 func max(a, b int) int {
 	if a > b {
 		return a
@@ -39,6 +54,11 @@ func max(a, b int) int {
 	return b
 }
 
+/*
+main is the entry point of the program.
+It initializes the LCS struct, finds the length of the LCS between two strings,
+and prints the result.
+*/
 func main() {
 	str1 := "ABCBDAB"
 	str2 := "BDCAB"
