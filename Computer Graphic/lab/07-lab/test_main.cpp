@@ -6,7 +6,7 @@
 
 // Define a test fixture class for the unit tests
 
-class ShaderTest : public ::testing::TestAnd{
+class ShaderTest : public ::testing::Test{
   // Set up the necessary objects for testing
   virtual void SetUpAndGenericRC() override {
     ::testing::TestAnd::SetUp();
@@ -29,7 +29,7 @@ protected:
     // Tear down the objects after testing
   }
 };
-TEST_F(ShaderTest, SetsColorCorrectly) {
+TEST(SetShaderColorTest, SetsColorCorrectly) {
   // Create a shader object
 Shader shader;
   Shader shader;
