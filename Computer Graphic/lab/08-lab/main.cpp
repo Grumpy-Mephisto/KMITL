@@ -18,6 +18,8 @@
 #include "Libs/Shader.h"
 #include "Libs/Window.h"
 
+#define NumPyramid 10
+
 const GLint WIDTH = 800, HEIGHT = 600;
 
 Window mainWindow;
@@ -41,7 +43,10 @@ void CreateTriangle() {
 
   Mesh *obj1 = new Mesh();
   obj1->CreateMesh(vertices, indices, numVertices, numIndices);
-  meshList.push_back(obj1);
+
+  for (int i = 0; i < NumPyramid; i++) {
+    meshList.push_back(obj1);
+  }
 }
 
 void CreateShaders() {
@@ -81,8 +86,12 @@ int main() {
   // Declare variables for Model
   GLuint uniformModel = 0, uniformProjection = 0;
 
-  glm::mat4 projection =
-      glm::perspective(45.0f, bufferWidth / bufferHeight, 0.1f, 100.0f);
+  // glm::mat4 projection =
+  //     glm::perspective(45.0f, bufferWidth / bufferHeight, 0.1f, 100.0f); //
+  //     Perspective
+
+  glm::mat4 projection = glm::ortho(-4.0f, 4.0f, -3.0f, 3.0f, 0.1f,
+                                    100.0f); // Orthographic projection
 
   // Loop until window closed
   while (!mainWindow.getShouldClose()) {
@@ -113,6 +122,28 @@ int main() {
     glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
     glUniformMatrix4fv(uniformProjection, 1, GL_FALSE,
                        glm::value_ptr(projection));
+
+    // Pyramid
+    glm::vec3 pyramidPositions[] = {
+        glm::vec3(0.0f, 0.0f, -2.5f),   glm::vec3(2.0f, 5.0f, -15.0f),
+        glm::vec3(-1.5f, -2.2f, -2.5f), glm::vec3(-3.8f, -2.0f, -12.3f),
+        glm::vec3(2.4f, -0.4f, -3.5f),  glm::vec3(-1.7f, 3.0f, -7.5f),
+        glm::vec3(1.3f, -2.0f, -2.5f),  glm::vec3(1.5f, 2.0f, -2.5f),
+        glm::vec3(1.5f, 0.2f, -1.5f),   glm::vec3(-1.3f, 1.0f, -1.5f)};
+
+    for (int i = 0; i < NumPyramid; i++) {
+      glm::mat4 model(1.0f);
+      model = glm::translate(model, pyramidPositions[i]);
+      model = glm::rotate(model, glm::radians(2.0f * i),
+                          glm::vec3(1.0f, 0.3f, 0.5f));
+      model = glm::scale(model, glm::vec3(0.8f, 0.8f, 1.0f));
+
+      glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+      glUniformMatrix4fv(uniformProjection, 1, GL_FALSE,
+                         glm::value_ptr(projection));
+
+      meshList[i]->RenderMesh();
+    }
 
     // Set shader color
     float timeValue = glfwGetTime();
