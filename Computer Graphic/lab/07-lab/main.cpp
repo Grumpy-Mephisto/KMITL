@@ -30,6 +30,9 @@ static const char *vShader = "Shaders/shader.vert";
 // Fragment Shader
 static const char *fShader = "Shaders/shader.frag";
 
+/**
+ * CreateTriangle - Create a triangle mesh and add it to the mesh list.
+ */
 void CreateTriangle() {
   GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 1.0f, -1.0f,
                         0.0f,  0.0f,  1.0f, 0.0f};
@@ -44,12 +47,22 @@ void CreateTriangle() {
   meshList.push_back(obj1);
 }
 
+/**
+ * CreateShaders - Create shaders and add them to the shader list.
+ */
 void CreateShaders() {
   Shader *shader1 = new Shader();
   shader1->CreateFromFiles(vShader, fShader);
   shaderList.push_back(*shader1);
 }
 
+/**
+ * SetShaderColor - Set the color for the given shader.
+ *
+ * @param shader - The shader for which the color needs to be set.
+ * @param red - The value of the red channel (0.0 - 1.0).
+ * @param green - The value of the green channel (0.0 - 1.0).
+ */
 void SetShaderColor(Shader &shader, const GLfloat red, const GLfloat green,
                     const GLfloat blue, const GLfloat alpha) {
   GLuint uniformLocation = shader.GetUniformLocation("inputColor");
@@ -61,6 +74,11 @@ void SetShaderColor(Shader &shader, const GLfloat red, const GLfloat green,
   }
 }
 
+/**
+ * main - The main function for the program.
+ *
+ * @return int - The exit code.
+ */
 int main() {
   mainWindow = Window(WIDTH, HEIGHT, 3, 3);
   mainWindow.initialise();
@@ -87,6 +105,9 @@ int main() {
       glm::perspective(45.0f, bufferWidth / bufferHeight, 0.1f, 100.0f);
 
   // Loop until window closed
+  /**
+   * While loop to handle program execution while the main window is open.
+   */
   while (!mainWindow.getShouldClose()) {
     // Get + Handle user input events
     glfwPollEvents();
@@ -109,6 +130,12 @@ int main() {
     model1 = glm::translate(model1, glm::vec3(0.3f, 0.0f, -2.5f));
     model1 = glm::rotate(model1, 90.0f * 3.1416f / 180.0f,
                          glm::vec3(0.0f, 0.0f, 1.0f));
+    /**
+     * Scale the model by the given factors.
+     *
+     * @param model1 - The model to be scaled.
+     * @param glm::vec3(0.4f, 0.4f, 1.0f) - The scale factors along the x, y, and z axes.
+     */
     model1 = glm::scale(model1, glm::vec3(0.4f, 0.4f, 1.0f));
 
     // Pass the matrices to the shader (projection, model)
@@ -141,6 +168,9 @@ int main() {
     meshList[0]->RenderMesh();
 
     glUseProgram(0);
+    /**
+     * Perform end of draw operations.
+     */
     // end draw
 
     mainWindow.swapBuffers();
