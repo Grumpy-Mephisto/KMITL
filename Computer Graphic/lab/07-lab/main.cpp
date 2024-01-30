@@ -33,6 +33,9 @@ static const char *vShader = "Shaders/shader.vert";
 // Fragment Shader
 static const char *fShader = "Shaders/shader.frag";
 
+/**
+ * This function creates a triangle mesh for rendering.
+ */
 void CreateTriangle() {
   GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 1.0f, -1.0f,
                         0.0f,  0.0f,  1.0f, 0.0f};
@@ -48,6 +51,9 @@ void CreateTriangle() {
   meshList.push_back(obj1);
 }
 
+/**
+ * This function creates shaders for rendering.
+ */
 void CreateShaders() {
   Shader *shader1 = new Shader();
   shader1->CreateFromFiles(vShader, fShader);
