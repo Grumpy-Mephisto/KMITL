@@ -107,6 +107,10 @@ int main() {
 
     model = glm::translate(model, glm::vec3(0.3f, 0.0f, -2.5f));
     model = glm::rotate(model, 90.0f * 3.1416f / 180.0f,
+void RunTests() {
+    TestProjectionMatrixSetup();
+    TestModelMatrixSetup();
+}
                         glm::vec3(0.0f, 0.0f, 1.0f));
     model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
 
