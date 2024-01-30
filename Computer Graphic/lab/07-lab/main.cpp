@@ -7,6 +7,10 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include <cmath>
 #include <vector>
 
@@ -47,6 +51,17 @@ void CreateShaders() {
   shaderList.push_back(*shader1);
 }
 
+void SetShaderColor(Shader &shader, const GLfloat red, const GLfloat green,
+                    const GLfloat blue, const GLfloat alpha) {
+  GLuint uniformLocation = shader.GetUniformLocation("inputColor");
+
+  if (uniformLocation != GL_INVALID_INDEX) {
+    glUniform4f(uniformLocation, red, green, blue, alpha);
+  } else {
+    std::cerr << "Could not find uniform inputColor location" << std::endl;
+  }
+}
+
 int main() {
   mainWindow = Window(WIDTH, HEIGHT, 3, 3);
   mainWindow.initialise();
@@ -67,6 +82,21 @@ int main() {
 
     // draw here
     shaderList[0].UseShader();
+
+    // Model
+    glm::mat4 model = glm::mat4(1.0f); // Identity matrix
+    model = glm::translate(
+        model, glm::vec3(0.0f, 0.5f, 0.0f)); // Translate by 0.5 on x axis
+    model = glm::scale(model,
+                       glm::vec3(0.4f, 0.4f, 0.4f)); // Scale by 0.4 on all axis
+
+    // Pass model (matrix) to shader
+    unsigned int modelLoc = shaderList[0].GetUniformLocation("model");
+    glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+    // Set the color
+    SetShaderColor(shaderList[0], sinf(glfwGetTime() * 2.0f), 0.0f,
+                   cosf(glfwGetTime() * 2.0f), 1.0f);
 
     // Object
     meshList[0]->RenderMesh();
