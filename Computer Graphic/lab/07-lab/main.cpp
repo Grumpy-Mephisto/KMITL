@@ -51,7 +51,7 @@ void CreateShaders() {
   shaderList.push_back(*shader1);
 }
 
-void SetShaderColor(Shader &shader, const GLfloat red, const GLfloat green,
+void Test_SetShaderColor(Shader &shader, const GLfloat red, const GLfloat green,
                     const GLfloat blue, const GLfloat alpha) {
   GLuint uniformLocation = shader.GetUniformLocation("inputColor");
 
