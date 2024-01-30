@@ -34,14 +34,13 @@ void CreateTriangle() {
   GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 1.0f, -1.0f,
                         0.0f,  0.0f,  1.0f, 0.0f};
 
-  unsigned int indices[] = {
-      0,
-      1,
-      2,
-  };
+  unsigned int indices[] = {0, 3, 1, 1, 3, 2, 2, 3, 0, 0, 1, 2};
+
+  int numVertices = sizeof(vertices) / sizeof(vertices[0]);
+  int numIndices = sizeof(indices) / sizeof(indices[0]);
 
   Mesh *obj1 = new Mesh();
-  obj1->CreateMesh(vertices, indices, 9, 9);
+  obj1->CreateMesh(vertices, indices, numVertices, numIndices);
   meshList.push_back(obj1);
 }
 
@@ -120,8 +119,15 @@ void RunTests() {
                        glm::value_ptr(projection));
 
     // Set shader color
-    SetShaderColor(shaderList[0], sinf(glfwGetTime() * 2.0f), 0.0f,
-                   cosf(glfwGetTime() * 2.0f), 1.0f);
+    float timeValue = glfwGetTime();
+    float redValue =
+        sinf(timeValue * 1.0f) * 0.5f + 0.5f; // Frequency = 1.0, range [0, 1]
+    float greenValue = sinf(timeValue * 1.2f + 2.0f) * 0.5f +
+                       0.5f; // Frequency = 1.2, phase offset
+    float blueValue =
+        cosf(timeValue * 1.0f) * 0.5f + 0.5f; // Frequency = 1.0, range [0, 1]
+
+    SetShaderColor(shaderList[0], redValue, greenValue, blueValue, 1.0f);
 
     // Object
     meshList[0]->RenderMesh();
