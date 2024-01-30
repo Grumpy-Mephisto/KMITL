@@ -31,8 +31,8 @@ static const char *vShader = "Shaders/shader.vert";
 static const char *fShader = "Shaders/shader.frag";
 
 void CreateTriangle() {
-  GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 1.0f, -1.0f,
-                        0.0f,  0.0f,  1.0f, 0.0f};
+  GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 0.0f, -1.0f, 1.0f,
+                        1.0f,  -1.0f, 0.0f, 0.0f, 1.0f,  0.0f};
 
   unsigned int indices[] = {0, 3, 1, 1, 3, 2, 2, 3, 0, 0, 1, 2};
 
