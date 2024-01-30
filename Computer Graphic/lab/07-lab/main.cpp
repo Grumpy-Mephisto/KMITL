@@ -50,6 +50,9 @@ void CreateTriangle() {
   meshList.push_back(obj1);
 }
 
+/**
+ * Creates shaders from vertex and fragment shader files and adds them to the `shaderList` for rendering.
+ */
 void CreateShaders() {
   Shader *shader1 = new Shader();
   shader1->CreateFromFiles(vShader, fShader);
