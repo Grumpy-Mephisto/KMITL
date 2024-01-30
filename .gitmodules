@@ -1,6 +1,6 @@
 [submodule "Computer Graphic/assignment/NewYearDraw"]
 	path = Computer Graphic/assignment/NewYearDraw
 	url = git@github.com:Grumpy-Mephisto/NewYearDraw.git
-[submodule "Computer Graphic/assignment/FromBabiesTo..."]
-  path = Computer Graphic/assignment/FromBabiesTo...
-  url = git@github.com:Grumpy-Mephisto/FromBabiesTo....git
+[submodule "Computer Graphic/assignment/FromBabiesTo"] 
+  path = Computer Graphic/assignment/FromBabiesTo
+  url = git@github.com:Grumpy-Mephisto/FromBabiesTo.git
