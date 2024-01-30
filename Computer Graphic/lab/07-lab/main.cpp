@@ -59,6 +59,9 @@ void CreateShaders() {
   shaderList.push_back(*shader1);
 }
 
+/**
+ * Sets the color uniform of a shader to the specified RGBA values. The uniform location is obtained from the shader and the values are passed to the shader for rendering.
+ */
 void SetShaderColor(Shader &shader, const GLfloat red, const GLfloat green,
                     const GLfloat blue, const GLfloat alpha) {
   GLuint uniformLocation = shader.GetUniformLocation("inputColor");
