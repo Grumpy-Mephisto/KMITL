@@ -26,6 +26,12 @@ public:
     return glGetUniformLocation(shader, uniformName);
   }
 
+  GLuint GetModelLocation() { return glGetUniformLocation(shader, "model"); }
+
+  GLuint GetProjectionLocation() {
+    return glGetUniformLocation(shader, "projection");
+  }
+
 private:
   GLuint shader;
   void CompileShaders(const char *vertexCode, const char *fragmentCode);
