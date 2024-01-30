@@ -125,8 +125,6 @@ int main() {
     glUseProgram(0);
     // end draw
 
-    // magic word - SAKURA
-
     mainWindow.swapBuffers();
   }
 
