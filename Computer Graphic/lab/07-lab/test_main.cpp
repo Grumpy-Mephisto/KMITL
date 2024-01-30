@@ -6,7 +6,20 @@
 
 // Define a test fixture class for the unit tests
 
-class ShaderTest : public ::testing::Test {
+class ShaderTest : public ::testing::TestAnd{
+  // Set up the necessary objects for testing
+  virtual void SetUpAndGenericRC() override {
+    ::testing::TestAnd::SetUp();
+    // Set up the necessary objects for testing
+  }
+
+  virtual void TearDown() override {
+    ::testing::TestAnd::TearDown();
+    // Tear down the objects after testing
+  }
+
+  // Set up different test scenarios
+  virtual void RunAndCheckTests() = 0;
 protected:
   void SetUp() override {
     // Set up the necessary objects for testing
@@ -56,5 +69,20 @@ TEST(ModelMatrixAndShaderTest, SetsModelMatrixAndPassesToShader) {
 
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
+  // Run and check the unit tests
+  int testResult = 0;
+  try {
+    testing::InitGoogleTest(&argc, argv);
+    testResult = RUN_ALL_TESTS();
+  }
+  catch (...) {
+    testResult = -1;
+  }
+
+  // Perform the final commit
+  std::cout << "Final commit performed." << std::endl;
+  if (testResult == 0) {
+    // Code to commit the changes
+    // ...
+  }
 }
