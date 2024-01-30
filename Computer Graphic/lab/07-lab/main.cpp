@@ -69,7 +69,21 @@ int main() {
   CreateTriangle();
   CreateShaders();
 
-  // for secret room 3 enter - https://forms.gle/U9VE4pkYAPNvUW1H9
+  // Get buffer size information
+  GLfloat bufferWidth = mainWindow.getBufferWidth();
+  GLfloat bufferHeight = mainWindow.getBufferHeight();
+
+  // Check if buffer width or height is zero
+  if (bufferWidth == 0 || bufferHeight == 0) {
+    std::cerr << "Error: Window buffer width or height is zero." << std::endl;
+    return -1;
+  }
+
+  // Declare variables for Model
+  GLuint uniformModel = 0, uniformProjection = 0;
+
+  glm::mat4 projection =
+      glm::perspective(45.0f, bufferWidth / bufferHeight, 0.1f, 100.0f);
 
   // Loop until window closed
   while (!mainWindow.getShouldClose()) {
@@ -84,17 +98,24 @@ int main() {
     shaderList[0].UseShader();
 
     // Model
-    glm::mat4 model = glm::mat4(1.0f); // Identity matrix
-    model = glm::translate(
-        model, glm::vec3(0.0f, 0.5f, 0.0f)); // Translate by 0.5 on x axis
-    model = glm::scale(model,
-                       glm::vec3(0.4f, 0.4f, 0.4f)); // Scale by 0.4 on all axis
+    uniformModel = shaderList[0].GetModelLocation();
+    uniformProjection = shaderList[0].GetProjectionLocation();
 
-    // Pass model (matrix) to shader
-    unsigned int modelLoc = shaderList[0].GetUniformLocation("model");
-    glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+    glm::mat4 model(1.0f); // Identity matrix
 
-    // Set the color
+    // model = glm::translate(model, glm::vec3(0.3f, 0.0f, -2.5f));
+
+    model = glm::translate(model, glm::vec3(0.3f, 0.0f, -2.5f));
+    model = glm::rotate(model, 90.0f * 3.1416f / 180.0f,
+                        glm::vec3(0.0f, 0.0f, 1.0f));
+    model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
+
+    // Pass the matrices to the shader (projection, model)
+    glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+    glUniformMatrix4fv(uniformProjection, 1, GL_FALSE,
+                       glm::value_ptr(projection));
+
+    // Set shader color
     SetShaderColor(shaderList[0], sinf(glfwGetTime() * 2.0f), 0.0f,
                    cosf(glfwGetTime() * 2.0f), 1.0f);
 
