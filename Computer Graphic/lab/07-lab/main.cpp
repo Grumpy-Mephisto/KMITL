@@ -68,6 +68,8 @@ int main() {
   CreateTriangle();
   CreateShaders();
 
+  CreateTriangle();
+
   // Get buffer size information
   GLfloat bufferWidth = mainWindow.getBufferWidth();
   GLfloat bufferHeight = mainWindow.getBufferHeight();
@@ -100,17 +102,17 @@ int main() {
     uniformModel = shaderList[0].GetModelLocation();
     uniformProjection = shaderList[0].GetProjectionLocation();
 
-    glm::mat4 model(1.0f); // Identity matrix
+    glm::mat4 model1 = glm::mat4(1.0f);
 
-    // model = glm::translate(model, glm::vec3(0.3f, 0.0f, -2.5f));
+    // model1 = glm::translate(model1, glm::vec3(0.3f, 0.0f, -2.5f));
 
-    model = glm::translate(model, glm::vec3(0.3f, 0.0f, -2.5f));
-    model = glm::rotate(model, 90.0f * 3.1416f / 180.0f,
-                        glm::vec3(0.0f, 0.0f, 1.0f));
-    model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
+    model1 = glm::translate(model1, glm::vec3(0.3f, 0.0f, -2.5f));
+    model1 = glm::rotate(model1, 90.0f * 3.1416f / 180.0f,
+                         glm::vec3(0.0f, 0.0f, 1.0f));
+    model1 = glm::scale(model1, glm::vec3(0.4f, 0.4f, 1.0f));
 
     // Pass the matrices to the shader (projection, model)
-    glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+    glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model1));
     glUniformMatrix4fv(uniformProjection, 1, GL_FALSE,
                        glm::value_ptr(projection));
 
@@ -126,6 +128,16 @@ int main() {
     SetShaderColor(shaderList[0], redValue, greenValue, blueValue, 1.0f);
 
     // Object
+    meshList[0]->RenderMesh();
+
+    // Another object
+    glm::mat4 model2 = glm::mat4(1.0f);
+
+    model2 = glm::translate(model2, glm::vec3(-0.3f, 0.0f, -2.5f));
+    model2 = glm::scale(model2, glm::vec3(0.4f, 0.4f, 1.0f));
+
+    glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model2));
+
     meshList[0]->RenderMesh();
 
     glUseProgram(0);
