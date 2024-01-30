@@ -1,3 +1,6 @@
+/**
+ * This file contains the main function for rendering a graphic scene using OpenGL.
+ */
 #undef GLFW_DLL
 #include <iostream>
 #include <stdio.h>
