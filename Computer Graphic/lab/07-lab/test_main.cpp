@@ -4,9 +4,21 @@
 #include "SetShaderColor.h"
 #include <gtest/gtest.h>
 
-// Test SetShaderColor function
-TEST(SetShaderColorTest, SetsColorCorrectly) {
+// Define a test fixture class for the unit tests
+
+class ShaderTest : public ::testing::Test {
+protected:
+  void SetUp() override {
+    // Set up the necessary objects for testing
+  }
+
+  void TearDown() override {
+    // Tear down the objects after testing
+  }
+};
+TEST_F(ShaderTest, SetsColorCorrectly) {
   // Create a shader object
+Shader shader;
   Shader shader;
 
   // Set the shader color
