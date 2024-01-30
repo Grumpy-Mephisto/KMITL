@@ -33,8 +33,8 @@ static const char *vShader = "Shaders/shader.vert";
 static const char *fShader = "Shaders/shader.frag";
 
 void CreateTriangle() {
-  GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 1.0f, -1.0f,
-                        0.0f,  0.0f,  1.0f, 0.0f};
+  GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 0.0f, -1.0f, 1.0f,
+                        1.0f,  -1.0f, 0.0f, 0.0f, 1.0f,  0.0f};
 
   unsigned int indices[] = {0, 3, 1, 1, 3, 2, 2, 3, 0, 0, 1, 2};
 
@@ -84,7 +84,7 @@ int main() {
   }
 
   // Declare variables for Model
-  GLuint uniformModel = 0, uniformProjection = 0;
+  GLuint uniformModel = 0, uniformProjection = 0, uniformView = 0;
 
   // glm::mat4 projection =
   //     glm::perspective(45.0f, bufferWidth / bufferHeight, 0.1f, 100.0f); //
@@ -105,11 +105,43 @@ int main() {
     // draw here
     shaderList[0].UseShader();
 
-    // Model
-    uniformModel = shaderList[0].GetModelLocation();
-    uniformProjection = shaderList[0].GetProjectionLocation();
+    uniformModel = shaderList[0].GetModelLocation();           // Model
+    uniformProjection = shaderList[0].GetProjectionLocation(); // Projection
+    uniformView = shaderList[0].GetViewLocation();             // View
 
-    glm::mat4 model = glm::mat4(1.0f);
+    // Model
+    glm::mat4 model = glm::mat4(1.0f); // Identity matrix
+
+    // Camera
+    glm::mat4 view = glm::mat4(1.0f); // Identity matrix
+    // glm::vec3 cameraPosition = glm::vec3(0.0f, 0.0f, 0.0f);
+    // glm::vec3 cameraTarget = glm::vec3(0.0f, 0.0f, -1.0f);
+    // glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);
+    glm::vec3 cameraPosition = glm::vec3(1.0f, 0.5f, 2.0f);
+    glm::vec3 cameraTarget = glm::vec3(0.0f, -0.3f, -1.0f);
+    glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);
+
+    glm::vec3 cameraDirection = glm::normalize(cameraPosition - cameraTarget);
+    glm::vec3 cameraRight =
+        glm::normalize(glm::cross(upVector, cameraDirection)); // Cross product
+    glm::vec3 cameraUp = glm::cross(cameraDirection, cameraRight);
+
+    glm::mat4 cameraPositionMatrix = glm::mat4(1.0f);
+    cameraPositionMatrix[3][0] = -cameraPosition.x;
+    cameraPositionMatrix[3][1] = -cameraPosition.y;
+    cameraPositionMatrix[3][2] = -cameraPosition.z;
+
+    glm::mat4 cameraRotationMatrix = glm::mat4(1.0f);
+    cameraRotationMatrix[0] =
+        glm::vec4(cameraRight.x, cameraUp.x, cameraDirection.x, 0.0f);
+    cameraRotationMatrix[1] =
+        glm::vec4(cameraRight.y, cameraUp.y, cameraDirection.y, 0.0f);
+    cameraRotationMatrix[2] =
+        glm::vec4(cameraRight.z, cameraUp.z, cameraDirection.z, 0.0f);
+
+    view = cameraRotationMatrix * cameraPositionMatrix; // Order matters
+
+    view = glm::lookAt(cameraPosition, cameraTarget, upVector);
 
     // model = glm::translate(model, glm::vec3(0.3f, 0.0f, -2.5f));
 
@@ -132,7 +164,10 @@ int main() {
         glm::vec3(1.5f, 0.2f, -1.5f),   glm::vec3(-1.3f, 1.0f, -1.5f)};
 
     for (int i = 0; i < NumPyramid; i++) {
-      glm::mat4 model(1.0f);
+      glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(view));
+
+      glm::mat4 model = glm::mat4(1.0f); // Identity matrix
+
       model = glm::translate(model, pyramidPositions[i]);
       model = glm::rotate(model, glm::radians(2.0f * i),
                           glm::vec3(1.0f, 0.3f, 0.5f));
@@ -147,12 +182,9 @@ int main() {
 
     // Set shader color
     float timeValue = glfwGetTime();
-    float redValue =
-        sinf(timeValue * 1.0f) * 0.5f + 0.5f; // Frequency = 1.0, range [0, 1]
-    float greenValue = sinf(timeValue * 1.2f + 2.0f) * 0.5f +
-                       0.5f; // Frequency = 1.2, phase offset
-    float blueValue =
-        cosf(timeValue * 1.0f) * 0.5f + 0.5f; // Frequency = 1.0, range [0, 1]
+    float redValue = sinf(timeValue * 1.0f) * 0.5f + 0.5f;
+    float greenValue = sinf(timeValue * 1.2f + 2.0f) * 0.5f + 0.5f;
+    float blueValue = cosf(timeValue * 1.0f) * 0.5f + 0.5f;
 
     SetShaderColor(shaderList[0], redValue, greenValue, blueValue, 1.0f);
 
