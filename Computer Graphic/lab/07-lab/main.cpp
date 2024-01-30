@@ -1,3 +1,6 @@
+/**
+ * This file contains the main function and supporting functions for the computer graphics application. It sets up the window, creates a triangle mesh, and applies shaders to render the triangle.
+ */
 #undef GLFW_DLL
 #include <iostream>
 #include <stdio.h>
