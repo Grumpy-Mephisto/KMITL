@@ -7,6 +7,15 @@
   <img src="https://estamps.kmitl.ac.th/kmitl-logo.png" alt="KMITL" width="70%">
 </div>
 
+<div align="center">
+  <a href="https://img.shields.io/github/license/Grumpy-Mephisto/KMITL?style=for-the-badge"><img src="https://img.shields.io/github/license/Grumpy-Mephisto/KMITL?style=for-the-badge" alt="License"></a>
+  <a href="https://img.shields.io/github/contributors/Grumpy-Mephisto/KMITL?style=for-the-badge"><img src="https://img.shields.io/github/contributors/Grumpy-Mephisto/KMITL?style=for-the-badge" alt="Contributors"></a>
+  <a href="https://img.shields.io/github/issues-pr/Grumpy-Mephisto/KMITL?style=for-the-badge"><img src="https://img.shields.io/github/issues-pr/Grumpy-Mephisto/KMITL?style=for-the-badge" alt="Pull Requests"></a>
+  <a href="https://img.shields.io/github/issues/Grumpy-Mephisto/KMITL?style=for-the-badge"><img src="https://img.shields.io/github/issues/Grumpy-Mephisto/KMITL?style=for-the-badge" alt="Issues"></a>
+  <a href="https://img.shields.io/github/stars/Grumpy-Mephisto/KMITL?style=for-the-badge"><img src="https://img.shields.io/github/stars/Grumpy-Mephisto/KMITL?style=for-the-badge" alt="Stars"></a>
+  <a href="https://img.shields.io/github/forks/Grumpy-Mephisto/KMITL?style=for-the-badge"><img src="https://img.shields.io/github/forks/Grumpy-Mephisto/KMITL?style=for-the-badge" alt="Forks"></a>
+</div>
+
 ## `🚀` Dive into the Knowledge Universe
 
 Embark on an educational odyssey through the various branches of Computer Science. This section contains a curated list of academic projects and research, illustrating the diversity and depth of the field.
