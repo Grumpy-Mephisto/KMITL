@@ -8,9 +8,9 @@ import (
 )
 
 // //// Test //// //
-func TestShortestPathAlgorithm(t *testing.T) {
+func TestNewBusinessLogic(t *testing.T) {
 	testCases := []struct {
-		name           string
+		graphParam           string
 		graph          Graph
 		source         int
 		expectedOutput []int
