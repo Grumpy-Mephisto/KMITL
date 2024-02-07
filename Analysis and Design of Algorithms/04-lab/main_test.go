@@ -73,7 +73,7 @@ func TestNewBusinessLogic(t *testing.T) {
 	}
 }
 
-func TestNewGraphInitialization(t *testing.T) {
+func TestShortestPathAlgorithm(t *testing.T) {
 	testCases := []struct {
 		name                string
 		numVertices         int
