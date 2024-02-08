@@ -120,17 +120,17 @@ int main() {
     uniformView = shaderList[0].getViewLocation();             // View
 
     // Model
-    glm::mat4 model = glm::mat4(1.0f); // Identity matrix
+    glm::mat4 model = glm::mat4(1.0f);
 
     // Camera
-    glm::mat4 view = glm::mat4(1.0f); // Identity matrix
+    glm::mat4 view = glm::mat4(1.0f);
     glm::vec3 cameraPosition = glm::vec3(1.0f, 0.5f, 2.0f);
     glm::vec3 cameraTarget = glm::vec3(0.0f, -0.3f, -1.0f);
     glm::vec3 upVector = glm::vec3(0.0f, 1.0f, 0.0f);
 
     glm::vec3 cameraDirection = glm::normalize(cameraPosition - cameraTarget);
     glm::vec3 cameraRight =
-        glm::normalize(glm::cross(upVector, cameraDirection)); // Cross product
+        glm::normalize(glm::cross(upVector, cameraDirection));
     glm::vec3 cameraUp = glm::cross(cameraDirection, cameraRight);
 
     glm::mat4 cameraPositionMatrix = glm::mat4(1.0f);
