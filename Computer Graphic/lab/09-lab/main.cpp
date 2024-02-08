@@ -104,7 +104,6 @@ int main() {
 
   glm::mat4 projection = glm::ortho(-4.0f, 4.0f, -3.0f, 3.0f, 0.1f, 100.0f);
 
-  // Loop until window closed
   while (!mainWindow.getShouldClose()) {
     // Get + Handle user input events
     glfwPollEvents();
@@ -147,7 +146,7 @@ int main() {
     cameraRotationMatrix[2] =
         glm::vec4(cameraRight.z, cameraUp.z, cameraDirection.z, 0.0f);
 
-    view = cameraRotationMatrix * cameraPositionMatrix; // Order matters
+    view = cameraRotationMatrix * cameraPositionMatrix;
 
     view = glm::lookAt(cameraPosition, cameraTarget, upVector);
 
