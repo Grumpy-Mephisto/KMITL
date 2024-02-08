@@ -22,17 +22,17 @@ public:
   void UseShader();
   void ClearShader();
 
-  GLuint GetUniformLocation(const char *uniformName) {
+  GLuint getUniformLocation(const char *uniformName) {
     return glGetUniformLocation(shader, uniformName);
   }
 
-  GLuint GetModelLocation() { return glGetUniformLocation(shader, "model"); }
+  GLuint getModelLocation() { return glGetUniformLocation(shader, "model"); }
 
-  GLuint GetProjectionLocation() {
+  GLuint getProjectionLocation() {
     return glGetUniformLocation(shader, "projection");
   }
 
-  GLuint GetViewLocation() { return glGetUniformLocation(shader, "view"); }
+  GLuint getViewLocation() { return glGetUniformLocation(shader, "view"); }
 
 private:
   GLuint shader;

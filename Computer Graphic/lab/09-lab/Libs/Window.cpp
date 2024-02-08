@@ -1,19 +1,14 @@
 #include "Window.h"
+#include <iostream>
 
-Window::Window() {
-  width = 800;
-  height = 600;
-  glfwMajorVersion = 3;
-  glfwMinorVersion = 1;
-}
+Window::Window()
+    : width(800), height(600), glfwMajorVersion(3), glfwMinorVersion(1),
+      windowTitle("Default Window") {}
 
 Window::Window(GLint windowWidth, GLint windowHeight, GLint majorVersion,
-               GLint minorVersion) {
-  width = windowWidth;
-  height = windowHeight;
-  glfwMajorVersion = majorVersion;
-  glfwMinorVersion = minorVersion;
-}
+               GLint minorVersion, const std::string &title)
+    : width(windowWidth), height(windowHeight), glfwMajorVersion(majorVersion),
+      glfwMinorVersion(minorVersion), windowTitle(title) {}
 
 Window::~Window() {
   glfwDestroyWindow(mainWindow);
@@ -21,51 +16,37 @@ Window::~Window() {
 }
 
 int Window::initialise() {
-  // init GLFW
   if (!glfwInit()) {
-    printf("GLFW initialisation failed!");
+    std::cout << "GLFW initialization failed!" << std::endl;
     glfwTerminate();
     return 1;
   }
 
-  // Setup GLFW window properties
-  // OpenGL version (using 3.1)
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, glfwMajorVersion);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, glfwMinorVersion);
-
-  // Core Profile = No Backwards Compatibility
-  glfwWindowHint(GLFW_OPENGL_ANY_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-  // Allow forward compatibility
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
-  mainWindow = glfwCreateWindow(width, height, "Test Window", NULL, NULL);
-
+  mainWindow =
+      glfwCreateWindow(width, height, windowTitle.c_str(), nullptr, nullptr);
   if (!mainWindow) {
-    printf("GLFW window creation failed!");
+    std::cout << "GLFW window creation failed!" << std::endl;
     glfwTerminate();
     return 1;
   }
 
-  // Get Buffer size information
   glfwGetFramebufferSize(mainWindow, &bufferWidth, &bufferHeight);
-
-  // Set context for GLEW to use
   glfwMakeContextCurrent(mainWindow);
-
-  // Allow modern extension features
   glewExperimental = GL_TRUE;
 
   if (glewInit() != GLEW_OK) {
-    printf("GLEW initialisation failed!");
+    std::cout << "GLEW initialization failed!" << std::endl;
     glfwDestroyWindow(mainWindow);
     glfwTerminate();
     return 1;
   }
 
   glEnable(GL_DEPTH_TEST);
-
-  // Setup Viewport size
   glViewport(0, 0, bufferWidth, bufferHeight);
 
   return 0;

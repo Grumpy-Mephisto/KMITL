@@ -19,25 +19,24 @@
 #include "Libs/Window.h"
 #include "Libs/stb_image.h"
 
-#define NumPyramid 10
-
-// #define TextureFile "Textures/container.jpg"
-#define TextureFile "Textures/cloth.jpg"
-
 const GLint WIDTH = 800, HEIGHT = 600;
 
 Window mainWindow;
 std::vector<Mesh *> meshList;
 std::vector<Shader> shaderList;
 
-// Vertex Shader
+// Vertex Shader & Fragment Shader
 static const char *vShader = "Shaders/shader.vert";
-
-// Fragment Shader
 static const char *fShader = "Shaders/shader.frag";
 
+// Pyramid
+static const int NumberPyramid = 10;
+
+// Texture file
+// static const char *TextureFile = "Textures/container.jpg";
+static const char *TextureFile = "Textures/cloth.jpg";
+
 void CreateTriangle() {
-  // Position and Texture Coordinates
   GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 0.0f, 0.0f,  0.0,  -1.0f,
                         1.0f,  0.5f,  0.0f, 1.0f, -1.0f, 0.0f, 1.0f,
                         0.0f,  0.0f,  1.0f, 0.0f, 0.5f,  1.0f};
@@ -50,7 +49,7 @@ void CreateTriangle() {
   Mesh *obj1 = new Mesh();
   obj1->CreateMesh(vertices, indices, numVertices, numIndices);
 
-  for (int i = 0; i < NumPyramid; i++) {
+  for (int i = 0; i < NumberPyramid; i++) {
     meshList.push_back(obj1);
   }
 }
@@ -62,19 +61,17 @@ void CreateShaders() {
 }
 
 int main() {
-  mainWindow = Window(WIDTH, HEIGHT, 3, 3);
+  mainWindow = Window(WIDTH, HEIGHT, 3, 3, "Laboratory 9th");
   mainWindow.initialise();
 
   CreateTriangle();
   CreateShaders();
 
-  // Texture loading
   unsigned int texture;
 
   glGenTextures(1, &texture);
   glBindTexture(GL_TEXTURE_2D, texture);
 
-  // Set the texture wrapping/filtering options (on the currently bound texture
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
@@ -86,7 +83,6 @@ int main() {
   unsigned char *data = stbi_load(TextureFile, &width, &height, &nrChannels, 0);
 
   if (data) {
-    // Bind Texture
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB,
                  GL_UNSIGNED_BYTE, data);
     glGenerateMipmap(GL_TEXTURE_2D);
@@ -96,25 +92,17 @@ int main() {
 
   stbi_image_free(data);
 
-  // Get buffer size information
   GLfloat bufferWidth = mainWindow.getBufferWidth();
   GLfloat bufferHeight = mainWindow.getBufferHeight();
 
-  // Check if buffer width or height is zero
   if (bufferWidth == 0 || bufferHeight == 0) {
     std::cerr << "Error: Window buffer width or height is zero." << std::endl;
     return -1;
   }
 
-  // Declare variables for Model
   GLuint uniformModel = 0, uniformProjection = 0, uniformView = 0;
 
-  // glm::mat4 projection =
-  //     glm::perspective(45.0f, bufferWidth / bufferHeight, 0.1f, 100.0f); //
-  //     Perspective
-
-  glm::mat4 projection = glm::ortho(-4.0f, 4.0f, -3.0f, 3.0f, 0.1f,
-                                    100.0f); // Orthographic projection
+  glm::mat4 projection = glm::ortho(-4.0f, 4.0f, -3.0f, 3.0f, 0.1f, 100.0f);
 
   // Loop until window closed
   while (!mainWindow.getShouldClose()) {
@@ -125,12 +113,12 @@ int main() {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // draw here
+    /* Draw Here */
     shaderList[0].UseShader();
 
-    uniformModel = shaderList[0].GetModelLocation();           // Model
-    uniformProjection = shaderList[0].GetProjectionLocation(); // Projection
-    uniformView = shaderList[0].GetViewLocation();             // View
+    uniformModel = shaderList[0].getModelLocation();           // Model
+    uniformProjection = shaderList[0].getProjectionLocation(); // Projection
+    uniformView = shaderList[0].getViewLocation();             // View
 
     // Model
     glm::mat4 model = glm::mat4(1.0f); // Identity matrix
@@ -168,12 +156,10 @@ int main() {
                         glm::vec3(0.0f, 0.0f, 1.0f));
     model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
 
-    // Pass the matrices to the shader (projection, model)
     glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
     glUniformMatrix4fv(uniformProjection, 1, GL_FALSE,
                        glm::value_ptr(projection));
 
-    // Pyramid
     glm::vec3 pyramidPositions[] = {
         glm::vec3(0.0f, 0.0f, -2.5f),   glm::vec3(2.0f, 5.0f, -15.0f),
         glm::vec3(-1.5f, -2.2f, -2.5f), glm::vec3(-3.8f, -2.0f, -12.3f),
@@ -181,10 +167,10 @@ int main() {
         glm::vec3(1.3f, -2.0f, -2.5f),  glm::vec3(1.5f, 2.0f, -2.5f),
         glm::vec3(1.5f, 0.2f, -1.5f),   glm::vec3(-1.3f, 1.0f, -1.5f)};
 
-    for (int i = 0; i < NumPyramid; i++) {
+    for (int i = 0; i < NumberPyramid; i++) {
       glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(view));
 
-      glm::mat4 model = glm::mat4(1.0f); // Identity matrix
+      glm::mat4 model = glm::mat4(1.0f);
 
       model = glm::translate(model, pyramidPositions[i]);
       model = glm::rotate(model, glm::radians(2.0f * i),
@@ -198,16 +184,14 @@ int main() {
       meshList[i]->RenderMesh();
     }
 
-    // Texture
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture);
     meshList[0]->RenderMesh();
 
-    // Object
     meshList[0]->RenderMesh();
 
     glUseProgram(0);
-    // end draw
+    /* End Here */
 
     mainWindow.swapBuffers();
   }
