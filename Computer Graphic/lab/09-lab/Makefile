@@ -1,3 +1,8 @@
+.SUFFIXES: .cpp .o .d
+.PHONY: all clean run
+.SILENT: clean
+.DEFAULT_GOAL := all
+
 CC := g++
 SRC_DIR := .
 LIB_DIR := Libs
@@ -17,8 +22,6 @@ GREEN := \033[0;32m
 RED := \033[0;31m
 NC := \033[0m  # No Color
 
-.PHONY: all clean run
-
 all: clean $(BIN_DIR)/$(EXECUTABLE)
 
 $(BIN_DIR)/$(EXECUTABLE): $(OBJ)
@@ -29,6 +32,7 @@ $(BIN_DIR)/$(EXECUTABLE): $(OBJ)
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(@D)
 	@echo "${GREEN}Compiling: $< -> $@${NC}"
+	@echo "${RED}Dependencies: $(@:.o=.d)${NC}"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
