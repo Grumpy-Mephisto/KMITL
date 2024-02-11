@@ -33,8 +33,7 @@ static const char *fShader = "Shaders/shader.frag";
 static const int NumberPyramid = 10;
 
 // Texture file
-// static const char *TextureFile = "Textures/container.jpg";
-static const char *TextureFile = "Textures/cloth.jpg";
+static const char *TextureFile = "Textures/abstract.jpg";
 
 void CreateTriangle() {
   GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 0.0f, 0.0f,  0.0,  -1.0f,
