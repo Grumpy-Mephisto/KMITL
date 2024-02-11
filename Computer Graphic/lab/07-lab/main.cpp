@@ -18,6 +18,10 @@
 #include "Libs/Shader.h"
 #include "Libs/Window.h"
 
+/*
+* This file contains the main entry point for the 07-lab project.
+* It creates a triangle mesh, sets up shaders, and renders the mesh using OpenGL.
+*/
 const GLint WIDTH = 800, HEIGHT = 600;
 
 Window mainWindow;
@@ -30,6 +34,10 @@ static const char *vShader = "Shaders/shader.vert";
 // Fragment Shader
 static const char *fShader = "Shaders/shader.frag";
 
+/*
+* Creates a triangle mesh using the specified vertices and indices.
+* The number of vertices and indices should be provided as parameters.
+*/
 void CreateTriangle() {
   GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 0.0f, -1.0f, 1.0f,
                         1.0f,  -1.0f, 0.0f, 0.0f, 1.0f,  0.0f};
@@ -44,12 +52,20 @@ void CreateTriangle() {
   meshList.push_back(obj1);
 }
 
+/*
+* Creates shaders from the specified vertex and fragment shader files.
+* The shader objects are added to the shaderList vector.
+*/
 void CreateShaders() {
   Shader *shader1 = new Shader();
   shader1->CreateFromFiles(vShader, fShader);
   shaderList.push_back(*shader1);
 }
 
+/*
+* Sets the color of the specified shader by updating the 'inputColor' uniform variable.
+* The color components (red, green, blue, alpha) should be provided as parameters.
+*/
 void SetShaderColor(Shader &shader, const GLfloat red, const GLfloat green,
                     const GLfloat blue, const GLfloat alpha) {
   GLuint uniformLocation = shader.GetUniformLocation("inputColor");
@@ -61,6 +77,11 @@ void SetShaderColor(Shader &shader, const GLfloat red, const GLfloat green,
   }
 }
 
+/*
+* The main entry point of the program.
+* Initializes a window, creates a triangle mesh, sets up shaders, and enters a rendering loop.
+* The window dimensions are specified as constants (WIDTH, HEIGHT).
+*/
 int main() {
   mainWindow = Window(WIDTH, HEIGHT, 3, 3);
   mainWindow.initialise();
