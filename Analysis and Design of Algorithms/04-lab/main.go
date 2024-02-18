@@ -15,6 +15,15 @@ type Graph struct {
 	edges       [][]int
 }
 
+/*
+newGraph creates a new graph with the specified number of vertices and initializes the edges with no connections.
+
+Parameters:
+- numVertices: the number of vertices in the graph
+
+Returns:
+- A pointer to the newly created graph
+*/
 func newGraph(numVertices int) *Graph {
 	graph := &Graph{
 		numVertices: numVertices,
