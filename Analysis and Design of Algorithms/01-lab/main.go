@@ -122,3 +122,8 @@ func printResults(root1, root2 float64) {
 	fmt.Println("Root 1: ", root1)
 	fmt.Println("Root 2: ", root2)
 }
+/*
+calculateRoots computes the roots of the quadratic equation using the quadratic formula.
+The discriminant is used to check for the presence of real roots.
+It returns two float64 values representing the roots of the equation.
+*/
