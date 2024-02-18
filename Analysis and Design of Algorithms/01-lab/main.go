@@ -69,6 +69,9 @@ func getCoefficients(equation string) (float64, float64, float64) {
 }
 
 /*
+* calculateDiscriminant computes the discriminant for the quadratic equation based on coefficients A, B, and C.
+* It returns the discriminant as a float64 value.
+*/
 
 // TestNewSubset tests the NewSubset function.
 
