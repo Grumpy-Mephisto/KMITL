@@ -73,6 +73,10 @@ func TestShortestPathAlgorithm(t *testing.T) {
 }
 
 func TestNewGraphInitialization(t *testing.T) {
+	/*
+	TestNewGraphInitialization tests the graph initialization by running multiple test cases to ensure the correct initialization of the graph and its edges.
+	The test cases cover scenarios with different numbers of vertices and check if the graph is initialized with the expected number of vertices and all edge weights set to 0.
+	*/
 	testCases := []struct {
 		name                string
 		numVertices         int
