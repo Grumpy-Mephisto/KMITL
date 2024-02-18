@@ -1,7 +1,10 @@
 require_relative 'main'
 require_relative 'main'
 
-describe Graph do
+describe 'Graph' do
+  before do
+    @graph = Graph.new('ABCDEFGH', ['GFDB', 'AHC', 'B', 'AE', 'FD', 'AE', 'A', 'B'])
+  end
   describe '#initialize' do
     it 'initializes the nodes attribute' do
       graph = Graph.new('ABCDEFGH', ['GFDB', 'AHC', 'B', 'AE', 'FD', 'AE', 'A', 'B'])
