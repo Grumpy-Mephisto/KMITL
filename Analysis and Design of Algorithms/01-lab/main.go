@@ -17,6 +17,12 @@ It defines the quadratic equation as a string,
 gets the coefficients from the user,
 calculates the discriminant and the roots,
 and prints out the results.
+
+Parameters:
+- None
+
+Returns:
+- None
 */
 func main() {
 	equation := "Ax^2 + Bx + C = 0"
@@ -50,7 +56,6 @@ func getCoefficients(equation string) (float64, float64, float64) {
 
 	return a, b, c
 }
-
 /*
 calculateDiscriminant computes the discriminant for the quadratic equation based on coefficients A, B, and C.
 It returns the discriminant as a float64 value.
