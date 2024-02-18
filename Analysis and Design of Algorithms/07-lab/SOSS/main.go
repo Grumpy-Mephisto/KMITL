@@ -55,6 +55,7 @@ func main() {
 	W := []int{11, 13, 3, 7}
 	targetSum := W[1] + W[2] + W[3]
 
+	fmt.Println("Student ID: 65050437")
 	calculator := NewSubsetCalculator()
 	fmt.Println("Target Sum:", targetSum)
 	calculator.FindSubsets(W, targetSum)
