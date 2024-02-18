@@ -43,7 +43,9 @@ func (g *Graph) minDistance(dist []int, visited []bool) int {
 	return minIndex
 }
 
-func (g *Graph) shortestPath(src int) []int {
+// shortestPath finds the shortest path from the source node to all other nodes in the graph.
+// It returns an array of distances representing the shortest path from the source node to each node in the graph.
+func (g *GraphTraversal) shortestPath(src int) []int {
 	dist := make([]int, g.numVertices)
 	visited := make([]bool, g.numVertices)
 
@@ -67,7 +69,9 @@ func (g *Graph) shortestPath(src int) []int {
 	return dist
 }
 
-func (g *Graph) printResult(result []int) {
+// printResult outputs the result representing the shortest path to each node from the source node in the graph.
+// It takes an array of distances as input and prints each node with the corresponding distance from the source node.
+func (g *GraphTraversal) printResult(result []int) {
 	fmt.Println("Vertex\t\tDistance from Source")
 	for i, r := range result {
 		fmt.Printf("%d \t\t %d\n", i, r)
