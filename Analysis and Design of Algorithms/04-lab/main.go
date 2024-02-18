@@ -100,7 +100,16 @@ func (g *GraphTraversal) printResult(result []int) {
 	}
 }
 
-func getUserInput(prompt string) int {
+func DFS(graph *Graph, source int) []int {
+	/*
+	DFS function performs Depth-First Search (DFS) traversal on the graph, starting from the specified source node.
+
+	Parameters:
+	- source: the source node to start the DFS traversal from
+
+	Returns:
+	- An array representing the order of visited nodes during the DFS traversal
+	*/
 	var input int
 	fmt.Print(prompt)
 	_, err := fmt.Scanln(&input)
