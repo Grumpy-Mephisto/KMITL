@@ -91,5 +91,44 @@ end
       graph = Graph.new('ABCDEFGH', ['GFDB', 'AHC', 'B', 'AE', 'FD', 'AE', 'A', 'B'])
       expect(graph.bfs('G')).to eq(['G', 'F', 'D', 'B'])
     end
+
+    it 'handles a graph with different start node correctly' do
+      graph = Graph.new('ABCDEFGH', ['GFDB', 'AHC', 'B', 'AE', 'FD', 'AE', 'A', 'B'])
+      expect(graph.bfs('G')).to eq(['G', 'F', 'D', 'B', 'A', 'E', 'C', 'H'])
+    end
+
+    it 'handles an empty graph with different start node correctly' do
+      graph = Graph.new('', [])
+      expect(graph.bfs('G')).to eq([])
+    end
+
+    it 'handles a graph with a single node with different start node correctly' do
+      graph = Graph.new('A', [''])
+      expect(graph.bfs('G')).to eq([])
+    end
+
+    it 'handles a graph with multiple connected components with different start node correctly' do
+      graph = Graph.new('ABCDEFGH', ['GFDB', 'AHC', 'B', 'AE', 'FD', 'AE', 'A', 'B'])
+      expect(graph.bfs('A')).to eq(['A', 'E', 'D', 'B', 'F', 'G', 'C', 'H'])
+    end
+    it 'returns the correct result for a given start node' do
+      graph = Graph.new('ABCDEFGH', ['GFDB', 'AHC', 'B', 'AE', 'FD', 'AE', 'A', 'B'])
+      expect(graph.bfs('A')).to eq(['A', 'E', 'D', 'B', 'F', 'G', 'C', 'H'])
+    end
+
+    it 'handles an empty graph correctly' do
+      graph = Graph.new('', [])
+      expect(graph.bfs('A')).to eq([])
+    end
+
+    it 'handles a graph with a single node correctly' do
+      graph = Graph.new('A', [''])
+      expect(graph.bfs('A')).to eq(['A'])
+    end
+
+    it 'handles a graph with multiple connected components correctly' do
+      graph = Graph.new('ABCDEFGH', ['GFDB', 'AHC', 'B', 'AE', 'FD', 'AE', 'A', 'B'])
+      expect(graph.bfs('G')).to eq(['G', 'F', 'D', 'B'])
+    end
   end
 end
