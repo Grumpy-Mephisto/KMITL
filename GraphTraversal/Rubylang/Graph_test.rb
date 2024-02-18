@@ -1,4 +1,5 @@
 require_relative 'main'
+require_relative 'main'
 
 describe Graph do
   describe '#initialize' do
