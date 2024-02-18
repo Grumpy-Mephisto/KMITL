@@ -52,6 +52,10 @@ func getCoefficients(equation string) (float64, float64, float64) {
 
 	var a, b, c float64
 
+		/*
+	getCoefficients prompts the user to enter the coefficients (A, B, C) for the given quadratic equation.
+	It returns the coefficients as three float64 values.
+	*/
 	fmt.Print("A: ")
 	fmt.Scan(&a)
 
