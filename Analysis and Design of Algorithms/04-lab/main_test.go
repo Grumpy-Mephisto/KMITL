@@ -180,6 +180,13 @@ func TestAddEdge(t *testing.T) {
 	}
 }
 
+/*
+TestPrintResult tests the printResult function by running multiple test cases to verify its correctness and accuracy.
+*/
+/*
+TestPrintResult tests the printResult function by running multiple test cases to verify its correctness and accuracy.
+It covers scenarios with different numbers of vertices and checks if the printResult provides the expected output.
+*/
 func TestPrintResult(t *testing.T) {
 	testCases := []struct {
 		name           string
