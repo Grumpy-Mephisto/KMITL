@@ -118,6 +118,10 @@ func calculateRoots(a, b, discriminant float64) (float64, float64) {
 printResults outputs the results of the quadratic equation solver.
 It takes two float64 values representing the roots and prints them.
 */
+/*
+	printResults outputs the results of the quadratic equation solver.
+	It takes two float64 values representing the roots and prints them.
+*/
 func printResults(root1, root2 float64) {
 	fmt.Println("Root 1: ", root1)
 	fmt.Println("Root 2: ", root2)
