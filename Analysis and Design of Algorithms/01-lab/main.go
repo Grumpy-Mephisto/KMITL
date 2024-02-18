@@ -1,6 +1,7 @@
 /*
-File: main.go
-Description: This file implements a quadratic equation solver.
+Package main
+
+Description: This file contains functions for implementing a quadratic equation solver.
              It reads coefficients from user input and calculates the roots.
 */
 
@@ -17,6 +18,18 @@ It defines the quadratic equation as a string,
 gets the coefficients from the user,
 calculates the discriminant and the roots,
 and prints out the results.
+*/
+
+/*
+FindSubsets finds subsets of a given set that sum up to a target sum.
+*/
+
+/*
+padLeft pads a string with a specified character on the left side to a specified length.
+*/
+
+/*
+reverseString reverses a given string.
 */
 func main() {
 	equation := "Ax^2 + Bx + C = 0"
@@ -52,6 +65,20 @@ func getCoefficients(equation string) (float64, float64, float64) {
 }
 
 /*
+
+// TestNewSubset tests the NewSubset function.
+
+// TestGenerateSubsets tests the GenerateSubsets function.
+
+// BenchmarkGenerateSubsets benchmarks the GenerateSubsets function.
+
+/*
+
+/*
+
+Description: This file contains test functions for the quadratic equation solver in main.go.
+
+Description: This file contains test functions for the quadratic equation solver in main.go.
 calculateDiscriminant computes the discriminant for the quadratic equation based on coefficients A, B, and C.
 It returns the discriminant as a float64 value.
 If A is 0, it outputs an error message as the equation would not be quadratic.
