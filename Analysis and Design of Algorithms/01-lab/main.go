@@ -14,11 +14,10 @@ import (
 
 /*
 // main is the entry point of the program.
-func main() {
-It defines the quadratic equation as a string,
-gets the coefficients from the user,
-calculates the discriminant and the roots,
-and prints out the results.
+// It defines the quadratic equation as a string,
+// gets the coefficients from the user,
+// calculates the discriminant and the roots,
+// and prints out the results.
 */
 func main() {
 	equation := "Ax^2 + Bx + C = 0"
