@@ -12,7 +12,7 @@ import (
 	"gotest.tools/assert"
 )
 
-func TestDFS(t *testing.T) {
+func TestNewGraph(t *testing.T) {
 	L := "ABCDEFGH"
 	v := [][]byte{
 		[]byte("GFDB"),
@@ -33,7 +33,7 @@ func TestDFS(t *testing.T) {
 	assert.DeepEqual(t, graph.DFS('A'), []byte{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'})
 }
 
-func TestBFS2(t *testing.T) {
+func TestBuildGraph(t *testing.T) {
 	L := "ABCDEFGH"
 	v := [][]byte{
 		[]byte("GFDB"),
