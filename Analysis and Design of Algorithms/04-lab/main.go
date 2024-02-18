@@ -56,7 +56,13 @@ func (g *Graph) minDistance(dist []int, visited []bool) int {
 }
 
 /*
-shortestPath finds the shortest path from the source node to all other nodes in the graph.
+buildGraph creates a new graph with the specified number of vertices and initializes the edges with the provided weights.
+
+Parameters:
+- numVertices: the number of vertices in the graph
+
+Returns:
+- A pointer to the newly created graph
 It returns an array of distances representing the shortest path from the source node to each node in the graph.
 */
 func (g *GraphTraversal) shortestPath(src int) []int {
