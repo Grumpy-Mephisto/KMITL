@@ -6,6 +6,12 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+import (
+	"testing"
+
+	"gotest.tools/assert"
+)
+
 func TestDFS(t *testing.T) {
 	L := "ABCDEFGH"
 	v := [][]byte{
