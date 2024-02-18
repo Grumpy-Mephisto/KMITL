@@ -113,6 +113,9 @@ func TestNewGraphInitialization(t *testing.T) {
 	}
 }
 
+/*
+TestAddEdge tests the addEdge function by running multiple test cases to ensure the correct addition of edges in the graph.
+*/
 func TestAddEdge(t *testing.T) {
 	testCases := []struct {
 		name                string
