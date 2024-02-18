@@ -57,7 +57,12 @@ func (g *Graph) minDistance(dist []int, visited []bool) int {
 
 /*
 buildGraph creates a new graph with the specified number of vertices and initializes the edges with the provided weights.
-
+	// Implement BFS algorithm here
+	// ...
+	return []int{}
+	// Implement BFS algorithm here
+	// ...
+	return []int{}
 Parameters:
 - numVertices: the number of vertices in the graph
 
