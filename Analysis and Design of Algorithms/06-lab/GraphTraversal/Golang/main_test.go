@@ -30,7 +30,7 @@ func TestDFS(t *testing.T) {
 	expectedResult := []byte{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'}
 	actualResult := graph.DFS(L[0])
 
-	assert.Equal(t, expectedResult, actualResult, "DFS result does not match expected result")
+	assert.DeepEqual(t, graph.DFS('A'), []byte{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'})
 }
 
 func TestBFS(t *testing.T) {
