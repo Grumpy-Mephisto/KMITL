@@ -4,6 +4,7 @@ Description: This file implements a quadratic equation solver.
              It reads coefficients from user input and calculates the roots.
 */
 
+// Package main provides a program to calculate subsets of a given target sum.
 package main
 
 import (
@@ -12,7 +13,8 @@ import (
 )
 
 /*
-main is the entry point of the program.
+// main is the entry point of the program.
+func main() {
 It defines the quadratic equation as a string,
 gets the coefficients from the user,
 calculates the discriminant and the roots,
