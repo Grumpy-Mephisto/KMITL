@@ -33,7 +33,7 @@ func TestDFS(t *testing.T) {
 	assert.DeepEqual(t, graph.DFS('A'), []byte{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'})
 }
 
-func TestBFS(t *testing.T) {
+func TestBFS2(t *testing.T) {
 	L := "ABCDEFGH"
 	v := [][]byte{
 		[]byte("GFDB"),
