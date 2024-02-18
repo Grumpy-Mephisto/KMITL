@@ -62,7 +62,6 @@ func TestShortestPathAlgorithm(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			actualOutput := tc.graph.shortestPath(tc.source)
-
 			for i, val := range actualOutput {
 				if val != tc.expectedOutput[i] {
 					t.Errorf("Test case %s failed: expected %v, got %v", tc.name, tc.expectedOutput, actualOutput)
