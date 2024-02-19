@@ -17,7 +17,7 @@
 const GLint WIDTH = 800, HEIGHT = 600;
 const char *vShader = "Shaders/shader.vert";
 const char *fShader = "Shaders/shader.frag";
-const char *TextureFile = "Textures/uvmap.png";
+const char *TextureFile = "Textures/uvmap_red_green.jpg";
 const char *ModelFile = "Models/suzanne.obj";
 const int NumberPyramid = 10;
 
@@ -25,7 +25,7 @@ glm::vec3 cameraPosition(1.0f, 0.5f, 2.0f);
 glm::vec3 cameraDirection(0.0f, 0.0f, -1.0f);
 glm::vec3 upVector(0.0f, 1.0f, 0.0f);
 
-Window mainWindow(WIDTH, HEIGHT, 3, 3, "Laboratory 9th");
+Window mainWindow(WIDTH, HEIGHT, 3, 3, "Laboratory 10th");
 std::vector<Mesh *> meshList;
 std::vector<Shader> shaderList;
 GLuint texture;
