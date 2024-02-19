@@ -1,21 +1,11 @@
-/*
-File: main.cpp
-Description: This file implements the main function for the program.
-             It serves as the entry point of the program and executes the desired functionality.
-*/
-
-#include <iostream>
-
 /**
- * @brief The main function is the entry point of the program.
+ * @brief The CreateTriangle function creates a triangle object.
  * 
- * @param argc The number of command-line arguments.
- * @param argv An array of command-line arguments.
- * @return int The exit status of the program.
+ * @param vertices The vertices of the triangle.
+ * @param indices The indices of the triangle.
+ * @return void
  */
-int main(int argc, char* argv[]) {
-    // Main function implementation
+void CreateTriangle(float* vertices, int* indices) {
+    // Create triangle implementation
     // ...
-
-    return 0;
 }
