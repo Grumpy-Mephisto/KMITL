@@ -85,6 +85,7 @@ void InitializeTexture() {
     glGenerateMipmap(GL_TEXTURE_2D);
   } else {
     std::cerr << "Failed to load texture" << std::endl;
+bool CreateMeshFromOBJ(const char* fileName);
   }
 
   stbi_image_free(data);
