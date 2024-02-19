@@ -105,7 +105,7 @@ int main() {
   }
 
   GLuint uniformModel = 0, uniformProjection = 0, uniformView = 0;
-  glm::mat4 projection = glm::ortho(-4.0f, 4.0f, -3.0f, 3.0f, 0.1f, 100.0f);
+  
 
   while (!mainWindow.getShouldClose()) {
     // Get + Handle user input events
@@ -142,9 +142,8 @@ int main() {
     /* Draw Here */
     shaderList[0].UseShader();
 
-    uniformModel = shaderList[0].getModelLocation();           // Model
-    uniformProjection = shaderList[0].getProjectionLocation(); // Projection
-    uniformView = shaderList[0].getViewLocation();             // View
+    uniformModel = shaderList[0].getModelLocation();    
+uniformView = shaderList[0].getViewLocation();             // View
 
     // Model
     glm::mat4 model = glm::mat4(1.0f);
