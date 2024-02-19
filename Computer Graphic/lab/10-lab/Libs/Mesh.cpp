@@ -1,5 +1,10 @@
 #include "Mesh.h"
 
+/**
+ * @brief Default constructor for the Mesh class.
+ *
+ * This constructor initializes the Mesh object with default values.
+ */
 Mesh::Mesh() {
   VAO = 0;
   VBO = 0;
@@ -52,7 +57,12 @@ void Mesh::RenderMesh() {
   glBindVertexArray(0);
 }
 
-void Mesh::ClearMesh() {
+/**
+ * @brief Destructor for the Mesh class.
+ *
+ * This destructor clears the mesh data and releases any allocated resources.
+ */
+Mesh::~Mesh() { ClearMesh(); }
   if (IBO != 0) {
     glDeleteBuffers(1, &IBO);
     IBO = 0;
