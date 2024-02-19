@@ -16,3 +16,13 @@ void CreateObjects(unsigned int shaderType, const char* source) {
     // Create triangle implementation
     // ...
 }
+/**
+ * @brief The InitializeTexture function initializes the texture for the program.
+ * 
+ * @param texturePath The path to the texture file.
+ * @return void
+ */
+void InitializeTexture(const char* texturePath) {
+    // Initialize texture implementation
+    // ...
+}
