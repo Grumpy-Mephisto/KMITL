@@ -9,6 +9,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+class Mesh; // Forward declaration
 #include "Libs/Mesh.h"
 #include "Libs/Shader.h"
 #include "Libs/Window.h"
