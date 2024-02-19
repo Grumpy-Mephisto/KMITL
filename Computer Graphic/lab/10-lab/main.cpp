@@ -88,7 +88,8 @@ void InitializeTexture() {
   }
 
   stbi_image_free(data);
-}
+    RenderLoop();
+  }
 
 int main() {
   
