@@ -33,14 +33,19 @@ static const char *fShader = "Shaders/shader.frag";
 static const int NumberPyramid = 10;
 
 // Texture file
-static const char *TextureFile = "Textures/abstract.jpg";
+static const char *TextureFile = "Textures/uvmap.png";
+
+// Model
+static const char *ModelFile = "Models/suzanne.obj";
 
 void CreateTriangle() {
   GLfloat vertices[] = {-1.0f, -1.0f, 0.0f, 0.0f, 0.0f,  0.0,  -1.0f,
                         1.0f,  0.5f,  0.0f, 1.0f, -1.0f, 0.0f, 1.0f,
                         0.0f,  0.0f,  1.0f, 0.0f, 0.5f,  1.0f};
 
-  unsigned int indices[] = {0, 3, 1, 1, 3, 2, 2, 3, 0, 0, 1, 2};
+  unsigned int indices[] = {
+      0, 3, 1, 1, 3, 2, 2, 3, 0, 0, 1, 2,
+  };
 
   int numVertices = sizeof(vertices) / sizeof(vertices[0]);
   int numIndices = sizeof(indices) / sizeof(indices[0]);
@@ -59,11 +64,25 @@ void CreateShaders() {
   shaderList.push_back(*shader1);
 }
 
+void CreateObjects() {
+  Mesh *obj1 = new Mesh();
+  bool loaded = obj1->CreateMeshFromOBJ(ModelFile);
+
+  if (loaded) {
+    for (int i = 0; i < 10; i++) {
+      meshList.push_back(obj1);
+    }
+  } else {
+    std::cerr << "Failed to load object" << std::endl;
+  }
+}
+
 int main() {
   mainWindow = Window(WIDTH, HEIGHT, 3, 3, "Laboratory 9th");
   mainWindow.initialise();
 
-  CreateTriangle();
+  // CreateTriangle();
+  CreateObjects();
   CreateShaders();
 
   unsigned int texture;
@@ -82,8 +101,14 @@ int main() {
   unsigned char *data = stbi_load(TextureFile, &width, &height, &nrChannels, 0);
 
   if (data) {
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB,
-                 GL_UNSIGNED_BYTE, data);
+    if (nrChannels == 3) {
+      glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB,
+                   GL_UNSIGNED_BYTE, data);
+    } else if (nrChannels == 4) {
+      glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA,
+                   GL_UNSIGNED_BYTE, data);
+    }
+
     glGenerateMipmap(GL_TEXTURE_2D);
   } else {
     std::cerr << "Failed to load texture" << std::endl;

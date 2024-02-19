@@ -22,7 +22,7 @@ public:
 
   void swapBuffers() { glfwSwapBuffers(mainWindow); }
 
-  GLFWwindow *getWindow() { return mainWindow; }
+  GLFWwindow *getMainWindow() { return mainWindow; }
 
 private:
   GLFWwindow *mainWindow;
