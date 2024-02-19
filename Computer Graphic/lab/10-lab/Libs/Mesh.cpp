@@ -76,6 +76,11 @@ void Mesh::CreateMesh(GLfloat *vertices, unsigned int *indices,
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
+/**
+ * @brief Renders the mesh.
+ *
+ * This function renders the mesh by drawing its elements using OpenGL.
+ */
 void Mesh::RenderMesh() {
   glBindVertexArray(VAO);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
