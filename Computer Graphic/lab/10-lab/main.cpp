@@ -26,7 +26,7 @@ glm::vec3 cameraPosition(1.0f, 0.5f, 2.0f);
 glm::vec3 cameraDirection(0.0f, 0.0f, -1.0f);
 glm::vec3 upVector(0.0f, 1.0f, 0.0f);
 
-Window mainWindow(WIDTH, HEIGHT, 3, 3, "Laboratory 10th");
+
 std::vector<Mesh *> meshList;
 std::vector<Shader> shaderList;
 GLuint texture;
@@ -91,13 +91,13 @@ void InitializeTexture() {
 }
 
 int main() {
-  mainWindow.initialise();
+  
   CreateObjects();
   CreateShaders();
   InitializeTexture();
 
-  GLfloat bufferWidth = mainWindow.getBufferWidth();
-  GLfloat bufferHeight = mainWindow.getBufferHeight();
+  
+  
 
   if (bufferWidth == 0 || bufferHeight == 0) {
     std::cerr << "Error: Window buffer width or height is zero." << std::endl;
