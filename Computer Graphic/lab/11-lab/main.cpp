@@ -18,7 +18,7 @@ const GLint WIDTH = 800, HEIGHT = 600;
 const char *vShader = "Shaders/shader.vert";
 const char *fShader = "Shaders/shader.frag";
 const char *TextureFile = "Textures/uvmap.png";
-const char *ModelFile = "Models/suzanne.obj";
+const char *ModelFile = "Models/cube.obj";
 
 Window mainWindow;
 std::vector<Mesh *> meshList;
@@ -116,9 +116,25 @@ int main() {
 
     /* Draw Here */
     shaderList[0].UseShader();
-    uniformModel = shaderList[0].GetUniformLocation("model");
-    uniformProjection = shaderList[0].GetUniformLocation("projection");
-    uniformView = shaderList[0].GetUniformLocation("view");
+
+    uniformModel = shaderList[0].GetUniformLocation("model"); // Model
+    uniformProjection =
+        shaderList[0].GetUniformLocation("projection");     // Projection
+    uniformView = shaderList[0].GetUniformLocation("view"); // View
+
+    // Lights
+    glm::vec3 redLight(1.0f, 0.0f, 0.0f);
+    glm::vec3 yellowLight(1.0f, 1.0f, 0.0f);
+    glm::vec3 blueLight(0.0f, 0.0f, 1.0f);
+    glm::vec3 cyanLight(0.0f, 1.0f, 1.0f);
+    glm::vec3 whiteLight(1.0f, 1.0f, 1.0f);
+    glm::vec3 lightColor[] = {redLight, yellowLight, blueLight, cyanLight,
+                              whiteLight};
+
+    // Ambient light
+    glm::int16 ambientStrengthPercent = 100;
+    glm::float32 ambientStrength = ambientStrengthPercent / 100.0f;
+
     glm::vec3 pyramidPositions[] = {
         glm::vec3(0.0f, 0.0f, -2.5f),   glm::vec3(2.0f, 5.0f, -15.0f),
         glm::vec3(-1.5f, -2.2f, -2.5f), glm::vec3(-3.8f, -2.0f, -12.3f),
@@ -169,6 +185,13 @@ int main() {
                          glm::value_ptr(projection));
       glActiveTexture(GL_TEXTURE0);
       glBindTexture(GL_TEXTURE_2D, texture);
+
+      // Light;
+      glUniform3fv(shaderList[0].GetUniformLocation("lightColour"), 1,
+                   glm::value_ptr(lightColor[i % 5]));
+      glUniform1f(shaderList[0].GetUniformLocation("ambientStrength"),
+                  ambientStrength);
+
       meshList[i]->RenderMesh();
     }
 
