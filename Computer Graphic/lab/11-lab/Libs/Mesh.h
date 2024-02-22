@@ -9,30 +9,30 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include <fstream>
-#include <sstream>
 #include <iostream>
+#include <sstream>
 
-#include <string>
 #include <string.h>
+#include <string>
 
 struct Face {
-    int vIndex[3], vtIndex[3], vnIndex[3];
+  int vIndex[3], vtIndex[3], vnIndex[3];
 };
 
-class Mesh
-{
-    public:
-        Mesh();
-        ~Mesh();
+class Mesh {
+public:
+  Mesh();
+  ~Mesh();
 
-        void CreateMesh(GLfloat* vertices, unsigned int* indices, unsigned int numOfVertices, unsigned int numOfIndices);
-        void RenderMesh();
-        void ClearMesh();
-        bool CreateMeshFromOBJ(const char * path);
+  void CreateMesh(GLfloat *vertices, unsigned int *indices,
+                  unsigned int numOfVertices, unsigned int numOfIndices);
+  void RenderMesh();
+  void ClearMesh();
+  bool CreateMeshFromOBJ(const char *path);
 
-    private:
-        GLuint VAO, VBO, IBO, vertexBuffer, uvBuffer, normalBuffer;
-        GLsizei indexCount;
+private:
+  GLuint VAO, VBO, IBO, vertexBuffer, uvBuffer, normalBuffer;
+  GLsizei indexCount;
 };
 
 #endif

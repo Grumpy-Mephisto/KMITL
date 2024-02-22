@@ -4,12 +4,13 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <stdio.h>
+#include <string>
 
 class Window {
 public:
   Window();
   Window(GLint windowWidth, GLint windowHeight, GLint majorVersion,
-         GLint minorVersion);
+         GLint minorVersion, const std::string &title = "Test Window");
   ~Window();
 
   int initialise();
@@ -28,6 +29,7 @@ private:
   GLint glfwMajorVersion, glfwMinorVersion;
   GLint width, height;
   GLint bufferWidth, bufferHeight;
+  std::string windowTitle;
 };
 
 #endif
