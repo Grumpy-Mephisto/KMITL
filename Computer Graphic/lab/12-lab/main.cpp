@@ -18,7 +18,6 @@ const GLint WIDTH = 800, HEIGHT = 600;
 const char *vShader = "Shaders/shader.vert";
 const char *fShader = "Shaders/shader.frag";
 const char *TextureFile = "Textures/uvmap.png";
-const char *ModelFile = "Models/cube.obj";
 
 Window mainWindow;
 std::vector<Mesh *> meshList;
@@ -41,7 +40,7 @@ void CreateTriangle() {
   }
 }
 
-void CreateObjects() {
+void CreateObjects(const char *ModelFile = "Models/suzanne.obj") {
   Mesh *obj1 = new Mesh();
   bool loaded = obj1->CreateMeshFromOBJ(ModelFile);
 
@@ -56,19 +55,20 @@ void CreateObjects() {
   }
 }
 
-void CreateShaders() {
+void CreateShaders(const char *vShader = "Shaders/shader.vert",
+                   const char *fShader = "Shaders/shader.frag") {
   Shader *shader1 = new Shader();
   shader1->CreateFromFiles(vShader, fShader);
   shaderList.push_back(*shader1);
 }
 
 int main() {
-  mainWindow = Window(WIDTH, HEIGHT, 3, 3, "Laboratory 11th");
+  mainWindow = Window(WIDTH, HEIGHT, 3, 3, "Laboratory 12th");
   mainWindow.initialise();
 
   // CreateTriangle();
-  CreateObjects();
-  CreateShaders();
+  CreateObjects("Models/suzanne.obj");
+  CreateShaders("Shaders/shader.vert", "Shaders/shader.frag");
 
   unsigned int texture;
   glGenTextures(1, &texture);
@@ -107,6 +107,7 @@ int main() {
 
   // Loop until window closed
   while (!mainWindow.getShouldClose()) {
+
     // Get + Handle user input events
     glfwPollEvents();
 
@@ -128,12 +129,15 @@ int main() {
     glm::vec3 blueLight(0.0f, 0.0f, 1.0f);
     glm::vec3 cyanLight(0.0f, 1.0f, 1.0f);
     glm::vec3 whiteLight(1.0f, 1.0f, 1.0f);
-    glm::vec3 lightColor[] = {redLight, yellowLight, blueLight, cyanLight,
-                              whiteLight};
+    glm::vec3 lightColor[] = {whiteLight, redLight, yellowLight, blueLight,
+                              cyanLight};
 
     // Ambient light
-    glm::int16 ambientStrengthPercent = 100;
+    glm::int16 ambientStrengthPercent = 30;
     glm::float32 ambientStrength = ambientStrengthPercent / 100.0f;
+
+    // Light movement
+    glm::vec3 lightPos = glm::vec3(5.0f, 5.0f, 0.0f);
 
     glm::vec3 pyramidPositions[] = {
         glm::vec3(0.0f, 0.0f, -2.5f),   glm::vec3(2.0f, 5.0f, -15.0f),
@@ -188,9 +192,13 @@ int main() {
 
       // Light;
       glUniform3fv(shaderList[0].GetUniformLocation("lightColour"), 1,
-                   glm::value_ptr(lightColor[i % 5]));
+                   glm::value_ptr(lightColor[0])); // Light color
       glUniform1f(shaderList[0].GetUniformLocation("ambientStrength"),
-                  ambientStrength);
+                  ambientStrength); // Ambient light
+      glUniform3fv(shaderList[0].GetUniformLocation("lightPos"), 1,
+                   glm::value_ptr(lightPos)); // Diffuse light
+      glUniform3fv(shaderList[0].GetUniformLocation("viewPos"), 1,
+                   glm::value_ptr(cameraPosition)); // Specular light
 
       meshList[i]->RenderMesh();
     }

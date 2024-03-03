@@ -199,7 +199,7 @@ bool Mesh::CreateMeshFromOBJ(const char *path) {
   glBindBuffer(GL_ARRAY_BUFFER, normalBuffer);
   glBufferData(GL_ARRAY_BUFFER, normals.size() * sizeof(glm::vec3), &normals[0],
                GL_STATIC_DRAW);
-  // glEnableVertexAttribArray(2);
+  glEnableVertexAttribArray(2); // Create the VBO for normals
   glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(glm::vec3), (void *)0);
 
   // Create the IBO
