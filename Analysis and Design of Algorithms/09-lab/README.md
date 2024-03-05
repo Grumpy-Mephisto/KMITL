@@ -59,10 +59,10 @@ The first-fit decreasing algorithm is a variation of the first-fit algorithm. It
 
 ## 😣 Name Spelled
 
-|         | 1   | 2   | 3   | 4   | 5   | 6   |
-| ------- | --- | --- | --- | --- | --- | --- |
-| Name    | N   | O   | P   | P   | A   | K   |
-| One Hot | 14  | 15  | 16  | 16  | 1   | 11  |
+|         | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| ------- | --- | --- | --- | --- | --- | --- | --- |
+| Name    | N   | O   | P   | P   | A   | K   | O   |
+| One Hot | 14  | 15  | 16  | 16  | 1   | 11  | 15  |
 
 ## 📚 References
 
