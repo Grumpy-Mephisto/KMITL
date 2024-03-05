@@ -12,6 +12,10 @@ type Bin struct {
 	items    []int
 }
 
+// Function firstFit takes a list of items and a bin capacity as input and returns a list of bins.
+// It uses the First Fit algorithm to pack the items into the bins.
+// The First Fit algorithm tries to fit each item into the first bin that has enough capacity.
+// If no bin has enough capacity, a new bin is created.
 func firstFit(items []int, binCapacity int) []Bin {
 	var bins []Bin
 
@@ -40,6 +44,10 @@ func firstFit(items []int, binCapacity int) []Bin {
 	return bins
 }
 
+func bestFit(items []int, binCapacity int) []Bin {
+// It uses the Best Fit algorithm to pack the items into the bins.
+// The Best Fit algorithm tries to fit each item into the bin with the smallest remaining capacity that can accommodate the item.
+// If no bin can accommodate the item, a new bin is created.
 func bestFit(items []int, binCapacity int) []Bin {
 	var bins []Bin
 
@@ -76,6 +84,8 @@ func firstFitDecreasing(items []int, binCapacity int) []Bin {
 	return firstFit(items, binCapacity)
 }
 
+// Function printBins takes a list of bins as input and prints the details of each bin.
+// It prints the bin ID, capacity, and the items contained in the bin.
 func printBins(bins []Bin) {
 	for _, bin := range bins {
 		fmt.Printf("  • Bin %d (Capacity %d): %v\n", bin.id, bin.capacity, bin.items)
@@ -123,4 +133,17 @@ func main() {
 	ffdBins := firstFitDecreasing(items, binCapacity)
 	fmt.Println("\n🥉 First Fit Decreasing:")
 	printBins(ffdBins)
+}
+	ffdBins := firstFitDecreasing(items, binCapacity)
+	fmt.Println("\n🥉 First Fit Decreasing:")
+	printBins(ffdBins)
+}
+// Function firstFitDecreasing takes a list of items and a bin capacity as input and returns a list of bins.
+// It uses the First Fit Decreasing algorithm to pack the items into the bins.
+// The First Fit Decreasing algorithm first sorts the items in decreasing order and then applies the First Fit algorithm.
+// The First Fit algorithm tries to fit each item into the first bin that has enough capacity.
+// If no bin has enough capacity, a new bin is created.
+func firstFitDecreasing(items []int, binCapacity int) []Bin {
+	sort.Sort(sort.Reverse(sort.IntSlice(items)))
+	return firstFit(items, binCapacity)
 }
