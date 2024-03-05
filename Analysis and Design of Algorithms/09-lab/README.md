@@ -1,11 +1,20 @@
 <div align="center">
+    <sub>
+        <sup>
+            <a href="README.md">🏠 Home</a> | <a href="BinPacking">🗑️ Bin Packing</a> | <a href="KnapsackDynamicProgramming">🎒 Knapsack Dynamic Programming</a>
+        </sup>
+    </sub>
+</div>
+
+---
+
+<div align="center">
     <h1><code>🗑️</code> Bin packing problem</h1>
     <p>
         <strong>Bin packing problem</strong> is a combinatorial optimization problem in which items of different sizes must be packed into a finite number of bins or containers each with a fixed capacity. The objective is to pack the items in a way that minimizes the number of bins used.
     </p>
     <p>
-        <img src="preview-go.png" alt="Bin packing problem" />
-        <img src="preview-swift.png" alt="Bin packing problem" />
+        <img src="./BinPacking/preview.png" alt="Bin packing problem" />
     </p>
 </div>
 
@@ -35,3 +44,28 @@ The first-fit decreasing algorithm is a variation of the first-fit algorithm. It
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Bin_packing_problem) - Bin packing problem on Wikipedia
 - [GeeksforGeeks](https://www.geeksforgeeks.org/bin-packing-problem-minimize-number-of-used-bins/) - Bin packing problem to minimize number of used bins
+
+---
+
+<div align="center">
+    <h1><code>🎒</code> 0/1 Knapsack Dynamic programming problem</h1>
+    <p>
+        <strong>0/1 Knapsack problem</strong> is a combinatorial optimization problem in which items are placed in a knapsack in such a way that the total weight is less than or equal to a given limit and the total value is as large as possible.
+    </p>
+    <p>
+        <img src="./KnapsackDynamicProgramming/preview.png" alt="0/1 Knapsack problem" />
+    </p>
+</div>
+
+## 😣 Name Spelled
+
+|         | 1   | 2   | 3   | 4   | 5   | 6   |
+| ------- | --- | --- | --- | --- | --- | --- |
+| Name    | N   | O   | P   | P   | A   | K   |
+| One Hot | 14  | 15  | 16  | 16  | 1   | 11  |
+
+## 📚 References
+
+- [Wikipedia](https://en.wikipedia.org/wiki/Knapsack_problem) - Knapsack problem on Wikipedia
+- [GeeksforGeeks](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/) - 0/1 Knapsack problem on GeeksforGeeks
+- [YouTube](https://www.youtube.com/watch?v=8LusJS5-AGo) - 0/1 Knapsack problem on YouTube
