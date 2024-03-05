@@ -62,6 +62,10 @@ void CreateShaders(const char *vShader = "Shaders/shader.vert",
   shaderList.push_back(*shader1);
 }
 
+/**
+ * The main function serves as the entry point of the program.
+ * It creates the window, sets up objects, and handles user input events.
+ */
 int main() {
   mainWindow = Window(WIDTH, HEIGHT, 3, 3, "Laboratory 12th");
   mainWindow.initialise();
