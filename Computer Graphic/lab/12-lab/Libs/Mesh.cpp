@@ -138,6 +138,9 @@ void Mesh::ClearMesh() {
   indexCount = 0;
 }
 
+/// Create a mesh from an OBJ file.
+/// This function takes the path to an OBJ file as input and creates a mesh from the vertices, texture coordinates, and normals specified in the file.
+/// \param path - The path to the OBJ file.
 bool Mesh::CreateMeshFromOBJ(const char *path) {
   std::vector<glm::vec3> vertices;
   std::vector<glm::vec2> texCoords;
