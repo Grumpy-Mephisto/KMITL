@@ -1,6 +1,12 @@
 class Item
   constructor: (@weight, @profit) ->
 
+# Calculates the maximum profit that can be achieved within the given capacity.
+# Args:
+#   items: list - List of 'Item' objects representing the available items.
+#   capacity: int - Maximum capacity of the knapsack.
+# Returns:
+#   int - Maximum achievable profit within the given capacity.
 knapsack = (items, capacity) ->
   n = items.length
   dp = new Array(n + 1)
@@ -16,9 +22,21 @@ knapsack = (items, capacity) ->
 
   dp[n][capacity]
 
+# Returns the maximum of two numbers.
+# Args:
+#   a: int - First number.
+#   b: int - Second number.
+# Returns:
+#   int - Maximum of the two numbers.
 max = (a, b) ->
   if a > b then a else b
 
+# Creates a dynamic programming table for the given items and capacity.
+# Args:
+#   items: list - List of 'Item' objects representing the available items.
+#   capacity: int - Maximum capacity of the knapsack.
+# Returns:
+#   list - 2D list representing the dynamic programming table.
 dynamicProgrammingTable = (items, capacity) ->
   n = items.length
   dp = new Array(n + 1)
@@ -34,12 +52,22 @@ dynamicProgrammingTable = (items, capacity) ->
 
   dp
 
+# Prints the dynamic programming table.
+# Args:
+#   table: list - 2D list representing the dynamic programming table.
+# Returns:
+#   None
 printTable = (table) ->
   console.log "🏓 Dynamic Programming Table:"
   
   for i, row in table
     console.log String(i).padStart(5) + (String(val).padStart(5) for val in row).join("")
 
+# Encodes the input name to a one-hot vector.
+# Args:
+#   name: str - Input name to be encoded.
+# Returns:
+#   list - Encoded one-hot vector for the input name.
 nameToOneHot = (name) ->
   result = []
   name = name.toUpperCase()
@@ -72,4 +100,9 @@ try
   dpTable = dynamicProgrammingTable(items, capacity)
   printTable(dpTable)
 catch error
-  console.log "Error: #{error}"
+  # Handles and logs the error message.
+# Args:
+#   error: str - Error message to be handled and logged.
+# Returns:
+#   None
+console.log "Error: #{error}"
