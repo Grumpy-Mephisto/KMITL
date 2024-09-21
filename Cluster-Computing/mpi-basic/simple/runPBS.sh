@@ -18,10 +18,10 @@ WORKDIR="$HOME/Developments/basic-mpi/simple-mpi"
 SOURCEFILE="$WORKDIR/simple-mpi.c"
 EXECUTABLE="$WORKDIR/simple-mpi.out"
 
-# Complie MPI
+# Compile MPI
 echo "Compiling the source file..."
-COMPLIE="$MPIEXE/mpicc"
-$COMPLIE $SOURCEFILE -o $EXECUTABLE
+COMPILE="$MPIEXE/mpicc"
+$COMPILE $SOURCEFILE -o $EXECUTABLE
 if [ $? -ne 0 ]; then
   echo "Compilation failed!"
   exit 1
