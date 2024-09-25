@@ -52,7 +52,18 @@ public:
     }
   }
 };
-void print(Department dept) { dept.printAllStaff(); }
+// pass by value will call copy constructor
+// got error is garbage value printed
+/*
+  void print(Department dept) {
+    dept.printAllStaff();
+  }
+*/
+
+// pass by reference will not call copy constructor
+// got correct output as expected
+void print(Department &dept) { dept.printAllStaff(); }
+
 int main() {
   Department department(1, "HR", 5);
   Staff dan(1, "Dan");
