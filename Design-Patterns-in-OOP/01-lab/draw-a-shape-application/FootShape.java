@@ -1,10 +1,20 @@
 import java.util.Scanner;
 
 public class FootShape {
-    public static String getShapeTypeFromUser() {
+
+
+    public static String drawAsEllipse() {
+        return new Ellipse().draw();
+    }
+
+    public static String drawAsRectangle() {
+        return new Rectangle().draw();
+    }
+
+    public static void main(String[] args) {
         String shapeType = null;
         Scanner input = new Scanner(System.in);
-        System.out.print("What to draw? 1. Ellipse, 2. Rectangle ");
+        System.out.print("Please choose shape type 1. Ellipse, 2. Rectangle ");
         int type = input.nextInt();
         switch (type) {
             case 1:
@@ -15,20 +25,16 @@ public class FootShape {
                 break;
         }
         input.close();
-        return shapeType;
-    }
 
-    public static void main(String[] args) {
-        String shapeType = getShapeTypeFromUser();
-        Foot shape = null;
+        String shape = null;
         switch (shapeType) {
             case "Ellipse":
-                shape = new Ellipse();
+                shape = drawAsEllipse();
                 break;
             case "Rectangle":
-                shape = new Rectangle();
+                shape = drawAsRectangle();
                 break;
         }
-        System.out.println(shape.draw());
+        System.out.println(shape);
     }
 }
