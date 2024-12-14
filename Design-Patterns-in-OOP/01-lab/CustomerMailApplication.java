@@ -26,6 +26,7 @@ public class CustomerMailApplication {
                 customerType = "Delinquent";
                 break;
         }
+        inp.close();
         return customerType;
     }
 
@@ -41,7 +42,13 @@ public class CustomerMailApplication {
                 customer = new RegularCustomer();
                 break;
             // complete MountainCustomer
+            case "Mountain":
+                customer = new MountainCustomer();
+                break;
             // complete DelinquentCustomer
+            case "Delinquent":
+                customer = new DelinquentCustomer();
+                break;
         }
         CustomerMailApplication app = new CustomerMailApplication(customer);
         System.out.println(app.generateMail());
