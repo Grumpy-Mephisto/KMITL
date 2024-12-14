@@ -1,5 +1,5 @@
 public class Foot {
-    public String draw() {
-        return "Drawing a foot";
+    public void draw(FootShape shape) {
+        shape.draw();
     }
 }
