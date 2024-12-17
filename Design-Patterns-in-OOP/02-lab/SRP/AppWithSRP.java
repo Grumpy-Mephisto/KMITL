@@ -5,6 +5,10 @@ public class AppWithSRP {
         // get a pair of values
         PairOfInput pair = PairOfInputProcessor.read();
 
+        // IMathOperation operation = new Addition();
+        IMathOperation operation = new Subtraction();
+        MathOperation mathOperation = new MathOperation(operation);
+
         // Check whether the inputs are valid
         if (PairOfInputProcessor.isValid(pair)) {
             int firstInt, secondInt;
@@ -12,7 +16,7 @@ public class AppWithSRP {
             secondInt = Integer.parseInt(pair.getSecond());
 
             // do the methematical operation
-            int result = MathOperation.add(firstInt, secondInt);
+            int result = mathOperation.execute(firstInt, secondInt);
             System.out.println("The result is: " + result);
         } else {
             System.out.println("Invalid number");

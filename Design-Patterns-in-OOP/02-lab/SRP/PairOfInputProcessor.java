@@ -13,6 +13,8 @@ public class PairOfInputProcessor {
         return pair;
     }
 
+
+
     public static boolean isValid(PairOfInput pair) {
         String first = pair.getFirst();
         String second = pair.getSecond();
