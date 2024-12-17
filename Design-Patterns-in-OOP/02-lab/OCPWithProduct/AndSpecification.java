@@ -1,14 +1,18 @@
 public class AndSpecification<T> implements ISpecification<T> {
-    private ISpecification<T> first, second;
+    private ISpecification<T>[] specs;
 
-    public AndSpecification(ISpecification<T> first, ISpecification<T> second) {
-        this.first = first;
-        this.second = second;
+    @SafeVarargs
+    public AndSpecification(ISpecification<T>... specs) {
+        this.specs = specs;
     }
 
     @Override
     public boolean isSatisfied(T item) {
-        return first.isSatisfied(item) && second.isSatisfied(item);
+        for (ISpecification<T> spec : specs) {
+            if (!spec.isSatisfied(item)) {
+                return false;
+            }
+        }
+        return true;
     }
-
 }
