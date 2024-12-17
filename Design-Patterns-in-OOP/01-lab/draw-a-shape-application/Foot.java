@@ -1,5 +1,11 @@
 public class Foot {
-    public void draw(FootShape shape) {
-        shape.draw();
+    private FootShape shape;
+
+    public Foot() {
+        this.shape = new FootShape();
+    }
+
+    public String draw() {
+        return "Drawing a foot";
     }
 }

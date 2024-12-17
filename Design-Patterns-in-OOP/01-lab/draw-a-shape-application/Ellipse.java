@@ -1,6 +1,5 @@
-public class Ellipse extends FootShape {
-    @Override
-    public void draw() {
-        System.out.println("draw ellipse");
+public class Ellipse {
+    public String draw() {
+        return "draw ellipse";
     }
 }
