@@ -1,0 +1,3 @@
+interface IBasicEmployee {
+    void salary();
+}
