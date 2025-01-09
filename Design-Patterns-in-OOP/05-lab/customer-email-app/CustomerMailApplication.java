@@ -1,54 +1,39 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class CustomerMailApplication {
-    /**
-     * @param args the command line arguments
-     */
-    private Customer customer;
+    private final Customer customer;
 
     public CustomerMailApplication(Customer customer) {
-        this.customer = customer;
+        this.customer = Objects.requireNonNull(customer, "Customer cannot be null");
     }
 
     public static String getCustomerTypeFromUser() {
-        String customerType = null;
-        Scanner inp = new Scanner(System.in);
-        System.out.print("Please choose customer type 1. Regular, 2. Mountain, 3. Delinquent ");
-        int type = inp.nextInt();
-        switch (type) {
-            case 1:
-                customerType = "Regular";
-                break;
-            case 2:
-                customerType = "Mountain";
-                break;
-            case 3:
-                customerType = "Delinquent";
-                break;
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Please choose customer type 1. Regular, 2. Mountain, 3. Delinquent ");
+            int type = scanner.nextInt();
+
+            return switch (type) {
+                case 1 -> "Regular";
+                case 2 -> "Mountain";
+                case 3 -> "Delinquent";
+                default -> throw new IllegalArgumentException("Invalid customer type: " + type);
+            };
         }
-        inp.close();
-        return customerType;
     }
 
-    public String generateMail() {
-        return customer.createMail();
+    public String generateCommunication() {
+        return customer.createCommunication();
     }
 
     public static void main(String[] args) {
-        String customerType = getCustomerTypeFromUser();
-        Customer customer = null;
-        switch (customerType) {
-            case "Regular":
-                customer = new RegularCustomer();
-                break;
-            case "Mountain":
-                customer = new MountainCustomer();
-                break;
-            case "Delinquent":
-                customer = new DelinquentCustomer();
-                break;
+        try {
+            String customerType = getCustomerTypeFromUser();
+            Customer customer = CustomerFactory.createCustomer(customerType);
+            CustomerMailApplication app = new CustomerMailApplication(customer);
+            System.out.println(app.generateCommunication());
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
         }
-        CustomerMailApplication app = new CustomerMailApplication(customer);
-        System.out.println(app.generateMail());
     }
 }

@@ -1,8 +1,11 @@
-// make this class a subclass of customer
 public class RegularCustomer extends Customer {
     @Override
-    public String createMail() {
-        return "Regular Customer";
+    protected String createMail() {
+        return "Regular Customer Mail";
     }
 
+    @Override
+    protected String createBrochure() {
+        return "Regular Customer Brochure";
+    }
 }
