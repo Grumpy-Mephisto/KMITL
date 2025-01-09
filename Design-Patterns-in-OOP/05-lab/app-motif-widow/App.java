@@ -4,8 +4,9 @@ public class App {
         IScrollBar scrollBar = factory.createScrollBar();
         IWindow window = factory.createWindow();
         displayWidget(window, scrollBar);
-        
+
     }
+
     public static void displayWidget(IWindow window, IScrollBar scrollBar) {
         window.displayWindow();
         scrollBar.displayScrollBar();

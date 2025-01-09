@@ -4,5 +4,5 @@ public class PMScrollBar implements IScrollBar {
     public void displayScrollBar() {
         System.out.println("PM ScrollBar ...");
     }
-    
+
 }

@@ -2,7 +2,7 @@ public class PMWindow implements IWindow {
 
     @Override
     public void displayWindow() {
-        System.out.println("PM Window..."); 
+        System.out.println("PM Window...");
     }
-    
+
 }
