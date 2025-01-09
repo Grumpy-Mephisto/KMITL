@@ -3,5 +3,4 @@ public class ToyotaDisplay extends AutomobileDisplay {
     public Automobile create() {
         return new Toyota();
     }
- 
 }
