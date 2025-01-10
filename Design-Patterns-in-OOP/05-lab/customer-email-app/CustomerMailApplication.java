@@ -1,39 +1,29 @@
-import java.util.Objects;
 import java.util.Scanner;
 
 public class CustomerMailApplication {
-    private final Customer customer;
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public CustomerMailApplication(Customer customer) {
-        this.customer = Objects.requireNonNull(customer, "Customer cannot be null");
-    }
+    private static CustomerType getCustomerTypeFromUser() {
+        System.out.print("Please choose customer type 1. Regular, 2. Mountain, 3. Delinquent: ");
+        int choice = scanner.nextInt();
 
-    public static String getCustomerTypeFromUser() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Please choose customer type 1. Regular, 2. Mountain, 3. Delinquent ");
-            int type = scanner.nextInt();
-
-            return switch (type) {
-                case 1 -> "Regular";
-                case 2 -> "Mountain";
-                case 3 -> "Delinquent";
-                default -> throw new IllegalArgumentException("Invalid customer type: " + type);
-            };
-        }
-    }
-
-    public String generateCommunication() {
-        return customer.createCommunication();
+        return switch (choice) {
+            case 1 -> CustomerType.REGULAR;
+            case 2 -> CustomerType.MOUNTAIN;
+            case 3 -> CustomerType.DELINQUENT;
+            default -> throw new IllegalArgumentException("Invalid choice");
+        };
     }
 
     public static void main(String[] args) {
         try {
-            String customerType = getCustomerTypeFromUser();
-            Customer customer = CustomerFactory.createCustomer(customerType);
-            CustomerMailApplication app = new CustomerMailApplication(customer);
-            System.out.println(app.generateCommunication());
-        } catch (Exception e) {
-            System.err.println("An error occurred: " + e.getMessage());
+            CustomerType type = getCustomerTypeFromUser();
+            Customer customer = CustomerFactory.createCustomer(type);
+            System.out.println(customer.generateCommunication());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            scanner.close();
         }
     }
 }

@@ -1,60 +1,39 @@
 # Explaining the use of Design Patterns in customer emails
 
-## Design Patterns used in the system
+## Design Pattern used in the system
 
-### 1. Template Method Pattern
-
-#### Usage
-
-Pattern นี้ถูกใช้ในคลาส `Customer` เพื่อกำหนดโครงสร้างการสร้างการสื่อสารกับลูกค้า
-
-#### Components
-
-- **Template Method**: `createCommunication()` ในคลาส `Customer`
-
-  - กำหนดลำดับขั้นตอนการทำงานหลัก
-  - เรียกใช้ `createMail()` และ `createBrochure()`
-  - ควบคุมการแสดงผลรวม
-
-- **Abstract Methods**:
-
-  - `createMail()` - เมธอดที่คลาสลูกต้องกำหนดวิธีการสร้างจดหมาย
-  - `createBrochure()` - เมธอดที่คลาสลูกต้องกำหนดวิธีการสร้างโบรชัวร์
-
-- **Hook Method**:
-  - `shouldIncludeBrochure()` - ให้คลาสลูกควบคุมว่าจะรวมโบรชัวร์หรือไม่
-  - ตัวอย่างการใช้: คลาส `DelinquentCustomer` override เพื่อไม่ส่งโบรชัวร์
-
-#### Benefits
-
-- แยกส่วนที่เหมือนกันไว้ใน parent class ลดการเขียนโค้ดซ้ำ
-- child class สามารถปรับเปลี่ยนเฉพาะส่วนที่ต้องการได้
-- รักษาโครงสร้างการทำงานหลักให้เหมือนกันทุกประเภทลูกค้า
-
-### 2. Factory Pattern
+### Factory Method Pattern
 
 #### Usage
 
-Pattern นี้ถูกใช้ในคลาส `CustomerFactory` เพื่อจัดการการสร้างอ็อบเจกต์ลูกค้าประเภทต่างๆ
+Pattern นี้ถูกใช้ในการสร้างออบเจ็กต์ของ Customer แต่ละประเภท โดยแยกส่วนการสร้างออบเจ็กต์ออกจากส่วนที่ใช้งาน
 
 #### Components
 
-- **Factory Class**: `CustomerFactory`
-  - มีเมธอด `createCustomer()` สำหรับสร้างอ็อบเจกต์ลูกค้า
-  - ใช้ Map เก็บความสัมพันธ์ระหว่างประเภทลูกค้ากับวิธีการสร้าง
-  - มีเมธอด `registerCustomerType()` สำหรับเพิ่มประเภทลูกค้าใหม่
+- **Abstract Product**: `Customer` (Abstract Class)
+
+  - กำหนด abstract method `createMail()` ที่ลูกทุกคลาสต้องนำไป implement
+
+- **Concrete Products**:
+
+  - `RegularCustomer` - สำหรับลูกค้าทั่วไป
+  - `MountainCustomer` - สำหรับลูกค้าแถบภูเขา
+  - `DelinquentCustomer` - สำหรับลูกค้าที่ค้างชำระ
+
+- **Factory Class**: `CustomerMailApplication`
+  - มีเมธอด `getCustomerTypeFromUser()` สำหรับรับประเภทลูกค้าจากผู้ใช้
+  - สร้างออบเจ็กต์ Customer ตามประเภทที่ผู้ใช้เลือก
 
 #### Benefits
 
-- แยกการสร้างอ็อบเจกต์ออกจาก Usage
-- รองรับการเพิ่มประเภทลูกค้าใหม่โดยไม่ต้องแก้ไขโค้ดเดิม
-- ลดการเชื่อมโยงระหว่างโค้ดที่ใช้งานกับคลาสลูกค้าแต่ละประเภท
+- แยกการสร้างออบเจ็กต์ออกจากส่วนที่ใช้งาน ทำให้โค้ดมีความยืดหยุ่น
+- สามารถเพิ่มประเภทลูกค้าใหม่ได้โดยไม่ต้องแก้ไขโค้ดเดิม
+- โค้ดส่วนที่ใช้งานไม่จำเป็นต้องรู้รายละเอียดการสร้างออบเจ็กต์
+- ทำให้ระบบรองรับการขยายตัวในอนาคตได้ง่าย
 
-## How Design Patterns work together
+#### How the system works
 
-Design Patterns ทั้งสองทำงานร่วมกันดังนี้:
-
-1. `CustomerFactory` สร้างอ็อบเจกต์ลูกค้าประเภทที่ต้องการ
-2. อ็อบเจกต์ที่สร้างขึ้นใช้ Template Method Pattern ในการสร้างการสื่อสาร
-3. แต่ละประเภทลูกค้ากำหนดรายละเอียดเฉพาะของตนเองผ่าน abstract methods
-4. การควบคุมพิเศษ (เช่น การไม่ส่งโบรชัวร์) ทำได้ผ่าน hook method
+1. ผู้ใช้เลือกประเภทลูกค้าผ่านเมธอด `getCustomerTypeFromUser()`
+2. ระบบสร้างออบเจ็กต์ Customer ตามประเภทที่เลือก
+3. เรียกใช้เมธอด `createMail()` เพื่อสร้างข้อความสำหรับลูกค้าแต่ละประเภท
+4. แสดงผลข้อความที่สร้างขึ้น
