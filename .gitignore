@@ -1,5 +1,6 @@
 # Java
 *.class
+!Design-Patterns-in-OOP/06-lab/Adapter Pattern/StockMarketDataParser.class
 
 # Python
 .venv
