@@ -1,20 +1,16 @@
 public class ServerWOFacade {
 	public static void main(String[] args) {
 		ScheduleServer scheduleServer = new ScheduleServer();
-		scheduleServer.startBooting();
-		scheduleServer.readSystemConfigFile();
-		scheduleServer.init();
-		scheduleServer.initializeContext();
-		scheduleServer.initializeListeners();
-		scheduleServer.createSystemObjects();
+		ServerFacade facade = new ServerFacade(scheduleServer);
+
+		// Start the server
+		facade.startServer();
+
 		System.out.println("Start working......");
 		System.out.println("After work done.........");
-		scheduleServer.releaseProcesses();
-		scheduleServer.destory();
-		scheduleServer.destroySystemObjects();
-		scheduleServer.destoryListeners();
-		scheduleServer.destoryContext();
-		scheduleServer.shutdown();
+
+		// Stop the server
+		facade.stopServer();
 	}
 
 }
