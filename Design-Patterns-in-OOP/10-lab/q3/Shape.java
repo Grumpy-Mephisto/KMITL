@@ -1,19 +1,20 @@
 public abstract class Shape {
-	private int xPos, yPos;
+	protected int x;
+	protected int y;
 
-	public int getxPos() {
-		return xPos;
+	public Shape(int x, int y) {
+		this.x = x;
+		this.y = y;
 	}
 
-	public void setxPos(int xPos) {
-		this.xPos = xPos;
+	public int getX() {
+		return x;
 	}
 
-	public int getyPos() {
-		return yPos;
+	public int getY() {
+		return y;
 	}
 
-	public void setyPos(int yPos) {
-		this.yPos = yPos;
-	}
+	// This method will be implemented by each concrete shape
+	public abstract void accept(ShapeVisitor visitor);
 }
